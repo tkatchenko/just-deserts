@@ -1,0 +1,108 @@
+$orange: #ff7400;
+$red: #f00;
+$blue: #00f;
+$white: #fff;
+$black: #000;
+
+$curve: cubic-bezier(0.55, 0, 0.1, 1);
+
+/* Normalize */
+@import 'normalize';
+
+/* Global adjustments */
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; outline: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+html, body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  font-size: 18px;
+  font-family: 'Roboto Mono', monospace, sans-serif, serif;
+
+  .top {
+    display: flex;
+    overflow: hidden;
+
+    #map {
+      flex: 0 0 70%;
+      font-size: 26px;
+      color: #ffac5a;
+      background-color: $orange;
+      background-image: url(../images/background-orange.png);
+      padding: 10px;
+      overflow: hidden;
+
+      .box {
+        white-space: nowrap;
+        overflow: hidden;
+        
+        span {
+          display: inline-block;
+          width: 30px;
+          height: 40px;
+          text-align: center;
+        }
+      }
+    }
+
+    #output {
+      flex: 0 0 30%;
+      color: $white;
+      background-color: $red;
+      background-image: url(../images/background-red.png);
+      padding: 10px;
+
+      .box {
+        overflow-y: scroll;
+      }
+    }
+  }
+
+  .bottom {
+    #attributes {
+      flex: 0 0 100%;
+      color: $white;
+      background-color: $blue;
+      background-image: url(../images/background-blue.png);
+      padding: 10px;
+
+      .box {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+
+        .attribute {
+          display: flex;
+          flex: 0 0 auto;
+          padding: 10px;
+          border-right: 2px solid $white;
+
+          .stat {
+            margin-right: 10px;
+          }
+
+          .current {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .box {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 2px solid white;
+  }
+}

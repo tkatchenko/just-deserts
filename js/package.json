@@ -1,0 +1,17 @@
+{
+  "name": "js-libraries",
+  "version": "1.0.0",
+  "description": "Libraries for static site.",
+  "main": "index.js",
+  "dependencies": {
+    "rot-js": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
+  "scripts": {
+    "test": "null"
+  },
+  "author": "Thomas Tkatchenko",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "gulp-wordpress-asset-builder",
+  "version": "1.0.0",
+  "description": "Builder for WordPress theme assets.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "null"
+  },
+  "author": "Thomas Tkatchenko",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "IE 11"
+  ]
+}
