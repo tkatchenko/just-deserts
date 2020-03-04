@@ -36,7 +36,7 @@ for (let i = 0; i < 500; i++) {
       '🌵',
       x,
       y,
-      10,
+      30,
       map,
       output
     ));
@@ -68,7 +68,7 @@ for (let i = 0; i < 20; i++) {
 enemies.push(new Enemy(
   'Lizard',
   '🦎',
-  getRandomInt(20, 24), 
+  getRandomInt(18, 22), 
   28,
   0,
   10,
@@ -130,7 +130,7 @@ walls.push(new Wall(
   '🌵',
   25,
   26,
-  20,
+  30,
   map,
   output
 ));
