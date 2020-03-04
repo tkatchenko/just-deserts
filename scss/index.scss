@@ -115,6 +115,13 @@ body {
             text-align: right;
           }
         }
+
+        .level {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1 0 auto;
+        }
       }
     }
   }

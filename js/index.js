@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { getRandomInt } from './utility.js';
 import Map from './map.js';
 import Output from './output.js';
@@ -11,25 +10,25 @@ import Enemy from './enemy.js';
 const debug = true;
 
 const output = new Output(document.querySelector('#output .box'), debug);
-const map = new Map(document.querySelector('#map .box'), 100, 100, output);
+const map = new Map(document.querySelector('#map .box'), 50, 50, output);
 const attributes = new Attributes(document.querySelector('#attributes .box'));
 
 const tiles = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 50; i++) {
   tiles.push(new Tile(
     'Road',
     '≡',
     i,
-    53,
+    28,
     '#d60',
     map
   ));
 }
 
 const walls = [];
-for (let i = 0; i < 1000; i++) {
-  const x = getRandomInt(0, 100);
-  const y = getRandomInt(0, 100);
+for (let i = 0; i < 500; i++) {
+  const x = getRandomInt(0, 50);
+  const y = getRandomInt(0, 50);
 
   if (!map.checkAllCollision({x: x, y: y})) {
     walls.push(new Wall(
@@ -37,7 +36,7 @@ for (let i = 0; i < 1000; i++) {
       '🌵',
       x,
       y,
-      50,
+      10,
       map,
       output
     ));
@@ -45,16 +44,16 @@ for (let i = 0; i < 1000; i++) {
 }
 
 const enemies = [];
-for (let i = 0; i < 40; i++) {
-  const x = getRandomInt(0, 100);
-  const y = getRandomInt(0, 100);
+for (let i = 0; i < 20; i++) {
+  const x = getRandomInt(0, 50);
+  const y = getRandomInt(0, 50);
   
   if (!map.checkCollision({x: x, y: y})) {
     enemies.push(new Enemy(
       'Lizard',
       '🦎',
-      getRandomInt(0, 100), 
-      getRandomInt(0, 100),
+      x, 
+      y,
       10,
       10,
       0,
@@ -69,8 +68,8 @@ for (let i = 0; i < 40; i++) {
 enemies.push(new Enemy(
   'Lizard',
   '🦎',
-  getRandomInt(44, 48), 
-  53,
+  getRandomInt(20, 24), 
+  28,
   0,
   10,
   10,
@@ -83,8 +82,8 @@ enemies.push(new Enemy(
 enemies.push(new Enemy(
   'Bus',
   '🚌',
-  50,
-  53,
+  25,
+  28,
   1000000,
   1000000,
   1000000,
@@ -107,15 +106,19 @@ enemies.push(new Enemy(
   true
 ));
 
+const playerHealthAddition = getRandomInt(0, 50);
+const playerAttributeDiff = getRandomInt(0, 10);
+const playerAttributeAddition = 10 - Math.floor(playerHealthAddition / 10);
+
 const player = new Player(
   'Player',
   '🧔🏽',
-  50,
-  50,
-  100,
-  150,
-  10,
-  30,
+  25,
+  25,
+  100 + playerHealthAddition,
+  100 + playerHealthAddition,
+  5 + playerAttributeDiff + playerAttributeAddition,
+  5 + 10 - playerAttributeDiff + playerAttributeAddition,
   1,
   map,
   output,
@@ -125,9 +128,9 @@ const player = new Player(
 walls.push(new Wall(
   'Cactus',
   '🌵',
-  50,
-  51,
-  50,
+  25,
+  26,
+  20,
   map,
   output
 ));
