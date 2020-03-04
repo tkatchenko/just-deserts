@@ -1,7 +1,7 @@
-import { getRandomInt } from './utility.js';
+import { getRandomInt, numberWithCommas } from './utility.js';
 
 export default class Enemy {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -16,6 +16,7 @@ export default class Enemy {
     this.map = map;
     this.output = output;
     this.customUpdate = update;
+    this.unstoppable = unstoppable;
 
     this.timePool = 0;
 
@@ -28,6 +29,7 @@ export default class Enemy {
     } else {
       while (this.timePool >= 1) {
         this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
+
         this.timePool--;
       }
     }
@@ -53,6 +55,26 @@ export default class Enemy {
     } else if (this.y > this.map.height - 1) {
       this.y = this.map.height - 1;
     }
+
+    this.checkCollision();
+  }
+
+  checkCollision() {
+    const collision = this.map.checkCollision(this);
+
+    if (collision) {
+      if (collision.constructor.name === 'Wall') {
+        this.moveBack();
+      } else if (collision.constructor.name === 'Enemy') {
+        if (!this.unstoppable) {
+          this.moveBack();
+        }
+
+        collision.takeDamage(this.attack, this.name);
+      }
+    }
+
+    this.draw();
   }
 
   moveBack() {
@@ -67,7 +89,7 @@ export default class Enemy {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + totalDamage + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + numberWithCommas(totalDamage) + ' damage from ' + name);
 
     this.updateHealth(-totalDamage);
   }

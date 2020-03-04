@@ -1,3 +1,5 @@
+import { numberWithCommas } from './utility.js';
+
 export default class Player {
   constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes) {
     this.name = name;
@@ -28,7 +30,25 @@ export default class Player {
       this.prevY = this.y;
       this.x = this.x + x;
       this.y = this.y + y;
+
+      this.checkCollision();
     }
+  }
+
+  checkCollision() {
+    const collision = this.map.checkCollision(this);
+
+    if (collision) {
+      if (collision.constructor.name === 'Wall') {
+        this.moveBack();
+        this.takeDamage(collision.attack, collision.name);
+      } else if (collision.constructor.name === 'Enemy') {
+        this.moveBack();
+        collision.takeDamage(this.attack, this.name);
+      }
+    }
+
+    this.draw();
   }
 
   moveBack() {
@@ -44,7 +64,7 @@ export default class Player {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + totalDamage + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + numberWithCommas(totalDamage) + ' damage from ' + name);
 
     this.updateHealth(-totalDamage);
   }

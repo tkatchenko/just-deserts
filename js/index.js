@@ -4,7 +4,6 @@ import Map from './map.js';
 import Output from './output.js';
 import Attributes from './attributes.js';
 import Player from './player.js';
-import Bus from './player.js';
 import Wall from './wall.js';
 import Tile from './tile.js';
 import Enemy from './enemy.js';
@@ -21,7 +20,7 @@ for (let i = 0; i < 100; i++) {
     'Road',
     '≡',
     i,
-    52,
+    53,
     '#d60',
     map
   ));
@@ -46,7 +45,7 @@ for (let i = 0; i < 1000; i++) {
 }
 
 const enemies = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 40; i++) {
   const x = getRandomInt(0, 100);
   const y = getRandomInt(0, 100);
   
@@ -58,7 +57,7 @@ for (let i = 0; i < 10; i++) {
       getRandomInt(0, 100),
       10,
       10,
-      0,
+      10,
       0,
       0.5,
       map,
@@ -68,29 +67,43 @@ for (let i = 0; i < 10; i++) {
 }
 
 enemies.push(new Enemy(
+  'Lizard',
+  '🦎',
+  getRandomInt(44, 48), 
+  53,
+  10,
+  10,
+  10,
+  0,
+  0,
+  map,
+  output
+));
+
+enemies.push(new Enemy(
   'Bus',
   '🚌',
   50,
-  52,
+  53,
   1000,
   1000,
-  1000,
-  1000,
+  1000000,
+  1000000,
   2,
   map,
   output,
   function() {
     while (this.timePool >= 1) {
-      console.log('move');
       if (this.x - 2 < 0) {
         this.remove = true;
       } else {
-        this.move(-1, 0, true);
+        this.move(-1, 0);
       }
 
       this.timePool--;
     }
-  }
+  },
+  true
 ));
 
 const player = new Player(
@@ -142,33 +155,19 @@ document.addEventListener('keydown', (event) => {
       break;
   }
 
-  // Check collisions
-  const playerCollision = map.checkCollision(player);
-  if (playerCollision) {
-    if (playerCollision.constructor.name === 'Wall') {
-      player.moveBack();
-      player.takeDamage(playerCollision.attack, playerCollision.name);
-    } else if (playerCollision.constructor.name === 'Enemy') {
-      player.moveBack();
-      playerCollision.takeDamage(player.attack, player.name);
+  enemies.forEach((enemy, i, array) => {
+    if (!enemy.remove) {
+      enemy.timePool += enemy.speed / player.speed;
+
+      enemy.update();
     }
-  }
+  });
 
   enemies.forEach((enemy, i, array) => {
-    enemy.timePool += enemy.speed / player.speed;
-    enemy.update();
-
     if (enemy.remove) {
-      map.clear(enemy.x, enemy.y);
       array.splice(i, 1); 
     }
   });
-
-  enemies.forEach((enemy) => {
-    enemy.draw();
-  });
-
-  player.draw();
 }, false);
 
 output.log('The bus leaves while you are taking a rest break.');

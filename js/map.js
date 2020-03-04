@@ -57,6 +57,7 @@ export default class Map {
   addDeath(x, y) {
     const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
 
+    this.clear(x, y);
     this.tiles[x][y] = {
       char: '🦴'
     };
