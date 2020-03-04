@@ -23,10 +23,12 @@ export default class Player {
   }
 
   move(x, y) {
-    this.prevX = this.x;
-    this.prevY = this.y;
-    this.x = this.x + x;
-    this.y = this.y + y;
+    if (!this.dead) {
+      this.prevX = this.x;
+      this.prevY = this.y;
+      this.x = this.x + x;
+      this.y = this.y + y;
+    }
   }
 
   moveBack() {
@@ -51,10 +53,23 @@ export default class Player {
     this.health += delta;  
     this.attributes.update('health', this.health + '/' + this.maxHealth);
 
+    if (delta < 0) {
+      const el = document.querySelector('#overlay');
+
+      el.classList.add('show');
+
+      setTimeout(() => {
+        if (!this.dead) {
+          el.classList.remove('show');
+        }
+      }, 100);
+    }
+
     if (this.health <= 0) this.die();
   }
 
   die() {
+    this.dead = true;
     this.char = '💀';
     this.output.log(this.name + ' received their Just Deserts.');
     this.draw();

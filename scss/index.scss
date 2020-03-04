@@ -34,6 +34,7 @@ body {
     overflow: hidden;
 
     #map {
+      position: relative;
       flex: 0 0 70%;
       font-size: 26px;
       color: #ffac5a;
@@ -41,6 +42,23 @@ body {
       background-image: url(../images/background-orange.png);
       padding: 10px;
       overflow: hidden;
+
+      #overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $red;
+        background-image: url(../images/background-red.png);
+        mix-blend-mode: darken;
+        opacity: 0;
+        pointer-events: none;
+
+        &.show {
+          opacity: 1;
+        }
+      }
 
       .box {
         white-space: nowrap;

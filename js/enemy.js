@@ -80,6 +80,7 @@ export default class Enemy {
 
   die() {
     this.remove = true;
+    this.map.addDeath(this.x, this.y);
     this.output.log(this.name + ' received their Just Deserts.');
   }
 }

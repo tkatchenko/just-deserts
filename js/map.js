@@ -54,6 +54,15 @@ export default class Map {
     this.objects[x][y] = null;
   }
 
+  addDeath(x, y) {
+    const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
+
+    this.tiles[x][y] = {
+      char: '🦴'
+    };
+    el.innerHTML = this.tiles[x][y].char;
+  }
+
   checkCollision(object) {
     return this.objects[object.x][object.y];
   }
