@@ -1,7 +1,7 @@
 import { getRandomInt } from './utility.js';
 
 export default class Enemy {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, map, output, update) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -12,9 +12,12 @@ export default class Enemy {
     this.maxHealth = maxHealth;
     this.attack = attack;
     this.defense = defense;
+    this.speed = speed;
     this.map = map;
     this.output = output;
     this.customUpdate = update;
+
+    this.timePool = 0;
 
     this.draw();
   }
@@ -23,8 +26,9 @@ export default class Enemy {
     if (this.customUpdate) {
       this.customUpdate();
     } else {
-      if (this.health > 0) {
+      while (this.timePool >= 1) {
         this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
+        this.timePool--;
       }
     }
   }
@@ -32,6 +36,8 @@ export default class Enemy {
   move(x, y) {
     this.prevX = this.x;
     this.prevY = this.y;
+
+    this.map.clear(this.prevX, this.prevY);
 
     this.x = this.x + x;
     this.y = this.y + y;
@@ -55,7 +61,6 @@ export default class Enemy {
   }
 
   draw() {
-    this.map.clear(this.prevX, this.prevY);
     this.map.draw(this);
   }
 

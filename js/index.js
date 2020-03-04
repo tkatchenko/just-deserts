@@ -60,6 +60,7 @@ for (let i = 0; i < 10; i++) {
       10,
       0,
       0,
+      0.5,
       map,
       output
     ));
@@ -75,13 +76,19 @@ enemies.push(new Enemy(
   1000,
   1000,
   1000,
+  2,
   map,
   output,
   function() {
-    if (this.x - 2 < 0) {
-      this.remove = true;
-    } else {
-      this.move(-2, 0, true);
+    while (this.timePool >= 1) {
+      console.log('move');
+      if (this.x - 2 < 0) {
+        this.remove = true;
+      } else {
+        this.move(-1, 0, true);
+      }
+
+      this.timePool--;
     }
   }
 ));
@@ -95,6 +102,7 @@ const player = new Player(
   150,
   10,
   30,
+  1,
   map,
   output,
   attributes
@@ -147,6 +155,7 @@ document.addEventListener('keydown', (event) => {
   }
 
   enemies.forEach((enemy, i, array) => {
+    enemy.timePool += enemy.speed / player.speed;
     enemy.update();
 
     if (enemy.remove) {

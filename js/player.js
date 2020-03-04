@@ -1,5 +1,5 @@
 export default class Player {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, map, output, attributes) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -10,6 +10,7 @@ export default class Player {
     this.maxHealth = maxHealth;
     this.attack = attack;
     this.defense = defense;
+    this.speed = speed;
     this.map = map;
     this.output = output;
     this.attributes = attributes;
