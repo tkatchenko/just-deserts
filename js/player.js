@@ -64,7 +64,7 @@ export default class Player {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + numberWithCommas(totalDamage) + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name);
 
     this.updateHealth(-totalDamage);
   }

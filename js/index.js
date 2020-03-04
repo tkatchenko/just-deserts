@@ -57,7 +57,7 @@ for (let i = 0; i < 40; i++) {
       getRandomInt(0, 100),
       10,
       10,
-      10,
+      0,
       0,
       0.5,
       map,
@@ -71,7 +71,7 @@ enemies.push(new Enemy(
   '🦎',
   getRandomInt(44, 48), 
   53,
-  10,
+  0,
   10,
   10,
   0,
@@ -85,8 +85,8 @@ enemies.push(new Enemy(
   '🚌',
   50,
   53,
-  1000,
-  1000,
+  1000000,
+  1000000,
   1000000,
   1000000,
   2,
@@ -95,6 +95,7 @@ enemies.push(new Enemy(
   function() {
     while (this.timePool >= 1) {
       if (this.x - 2 < 0) {
+        this.map.clear(this.x, this.y);
         this.remove = true;
       } else {
         this.move(-1, 0);
@@ -120,6 +121,16 @@ const player = new Player(
   output,
   attributes
 );
+
+walls.push(new Wall(
+  'Cactus',
+  '🌵',
+  50,
+  51,
+  50,
+  map,
+  output
+));
 
 document.addEventListener('keydown', (event) => {
   const keyName = event.key;

@@ -65,12 +65,14 @@ export default class Enemy {
     if (collision) {
       if (collision.constructor.name === 'Wall') {
         this.moveBack();
-      } else if (collision.constructor.name === 'Enemy') {
+      } else if (collision.constructor.name === 'Enemy' || collision.constructor.name === 'Player') {
         if (!this.unstoppable) {
           this.moveBack();
         }
 
-        collision.takeDamage(this.attack, this.name);
+        if (collision.constructor.name === 'Player' || this.unstoppable) {
+          collision.takeDamage(this.attack, this.name);
+        }
       }
     }
 
@@ -89,7 +91,7 @@ export default class Enemy {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + numberWithCommas(totalDamage) + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name);
 
     this.updateHealth(-totalDamage);
   }
