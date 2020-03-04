@@ -171,4 +171,4 @@ document.addEventListener('keydown', (event) => {
   player.draw();
 }, false);
 
-output.log('The bus leaves while you are taking a rest break, ' + player.name + '.');
+output.log('The bus leaves while you are taking a rest break.');
