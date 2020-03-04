@@ -1,9 +1,13 @@
+import { createArray } from './utility.js';
+
 export default class Map {
   constructor(target, width, height, output) {
     this.target = target;
     this.width = width;
     this.height = height;
     this.output = output;
+    this.objects = createArray(width, height);
+    this.tiles = createArray(width, height);
 
     let mapOutput = '';
     for (let y = 0; y < this.height; y++) {
@@ -16,10 +20,17 @@ export default class Map {
     this.target.innerHTML = mapOutput;
   }
 
-  draw(char, x, y, focus) {
-    const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
+  draw(object, focus) {
+    const el = document.querySelector('#map .box span[data-x="' + object.x + '"][data-y="' + object.y + '"]');
 
-    el.innerHTML = char;
+    el.innerHTML = object.char;
+
+    if (object.constructor.name === 'Tile') {
+      el.style.color = object.color;
+      this.tiles[object.x][object.y] = object;
+    } else {
+      this.objects[object.x][object.y] = object;
+    }
 
     if (focus) {
       const wrapper = document.querySelector('#map .box');
@@ -32,12 +43,22 @@ export default class Map {
   }
 
   clear(x, y) {
-    if (x || y) {
-      document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]').innerHTML = '.';
+    const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
+
+    if (this.tiles[x][y]) {
+      el.innerHTML = this.tiles[x][y].char;
     } else {
-      document.querySelectorAll('#map .box span').forEach((el) => {
-        el.innerHTML = '.';
-      });
+      el.innerHTML = '.';
     }
+
+    this.objects[x][y] = null;
+  }
+
+  checkCollision(object) {
+    return this.objects[object.x][object.y];
+  }
+
+  checkAllCollision(object) {
+    return this.objects[object.x][object.y] || this.tiles[object.x][object.y];
   }
 }

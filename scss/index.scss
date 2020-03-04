@@ -45,12 +45,14 @@ body {
       .box {
         white-space: nowrap;
         overflow: hidden;
+        will-change: scroll-position;
         
         span {
           display: inline-block;
           width: 30px;
           height: 40px;
           text-align: center;
+          will-change: contents;
         }
       }
     }

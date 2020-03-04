@@ -1,12 +1,11 @@
-export default class Wall {
-  constructor(name, char, x, y, attack, map, output) {
+export default class Tile {
+  constructor(name, char, x, y, color, map) {
     this.name = name;
     this.char = char;
     this.x = x;
     this.y = y;
-    this.attack = attack;
+    this.color = color;
     this.map = map;
-    this.output = output;
 
     this.draw();
   }
