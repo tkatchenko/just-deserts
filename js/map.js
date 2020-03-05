@@ -1,4 +1,5 @@
 import { createArray } from './utility.js';
+import Tile from './tile.js';
 
 export default class Map {
   constructor(target, width, height, output, game) {
@@ -20,6 +21,20 @@ export default class Map {
     }
 
     this.target.innerHTML = mapOutput;
+
+    if (this.game.y === 50) {
+      const tiles = [];
+      for (let i = 0; i < 50; i++) {
+        tiles.push(new Tile(
+          'Road',
+          '≡',
+          i,
+          28,
+          '#d60',
+          this
+        ));
+      }
+    }
   }
 
   draw(object, focus) {
@@ -49,6 +64,7 @@ export default class Map {
 
     if (this.tiles[x][y]) {
       el.innerHTML = this.tiles[x][y].char;
+      el.style.color = this.tiles[x][y].color;
     } else {
       el.innerHTML = '.';
     }
@@ -61,14 +77,18 @@ export default class Map {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         let char = '.';
+        let color = null;
 
         if (this.objects[x][y] && this.objects[x][y].constructor.name !== 'Player') {
           char = this.objects[x][y].char;
         } else if (this.tiles[x][y]) {
           char = this.tiles[x][y].char;
+          color = this.tiles[x][y].color;
         }
 
-        mapOutput += '<span data-x="' + x + '" data-y="' + y + '">' + char + '</span>';
+        color = color ? 'style="color:' + color + '"' : null;
+
+        mapOutput += '<span ' + color + ' data-x="' + x + '" data-y="' + y + '">' + char + '</span>';
       }
       mapOutput += '<br>';
     }

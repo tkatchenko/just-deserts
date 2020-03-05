@@ -1,6 +1,5 @@
 import { getRandomInt } from './utility.js';
 import Map from './map.js';
-import Tile from './tile.js';
 import Wall from './wall.js';
 import Enemy from './enemy.js';
 
@@ -16,18 +15,6 @@ export default class MapCreator {
   create(level) {
     if (level === 0) {
       const map = new Map(this.target, this.width, this.height, this.output, this.game);
-
-      const tiles = [];
-      for (let i = 0; i < 50; i++) {
-        tiles.push(new Tile(
-          'Road',
-          '≡',
-          i,
-          28,
-          '#d60',
-          map
-        ));
-      }
 
       const walls = [];
       for (let i = 0; i < 500; i++) {
@@ -127,6 +114,24 @@ export default class MapCreator {
       return map;
     } else {
       const map = new Map(this.target, this.width, this.height, this.output, this.game);
+
+      const walls = [];
+      for (let i = 0; i < 2000; i++) {
+        const x = getRandomInt(0, 50);
+        const y = getRandomInt(0, 50);
+
+        if (!map.checkAllCollision({x: x, y: y})) {
+          walls.push(new Wall(
+            'Cactus',
+            '🌵',
+            x,
+            y,
+            30,
+            map,
+            this.output
+          ));
+        }
+      }
 
       return map;
     }
