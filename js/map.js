@@ -8,6 +8,7 @@ export default class Map {
     this.output = output;
     this.objects = createArray(width, height);
     this.tiles = createArray(width, height);
+    this.enemies = [];
 
     let mapOutput = '';
     for (let y = 0; y < this.height; y++) {
