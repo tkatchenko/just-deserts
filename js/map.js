@@ -1,11 +1,12 @@
 import { createArray } from './utility.js';
 
 export default class Map {
-  constructor(target, width, height, output) {
+  constructor(target, width, height, output, game) {
     this.target = target;
     this.width = width;
     this.height = height;
     this.output = output;
+    this.game = game;
     this.objects = createArray(width, height);
     this.tiles = createArray(width, height);
     this.enemies = [];
@@ -53,6 +54,26 @@ export default class Map {
     }
 
     this.objects[x][y] = null;
+  }
+
+  redraw() {
+    let mapOutput = '';
+    for (let y = 0; y < this.height; y++) {
+      for (let x = 0; x < this.width; x++) {
+        let char = '.';
+
+        if (this.objects[x][y] && this.objects[x][y].constructor.name !== 'Player') {
+          char = this.objects[x][y].char;
+        } else if (this.tiles[x][y]) {
+          char = this.tiles[x][y].char;
+        }
+
+        mapOutput += '<span data-x="' + x + '" data-y="' + y + '">' + char + '</span>';
+      }
+      mapOutput += '<br>';
+    }
+
+    this.target.innerHTML = mapOutput;
   }
 
   addDeath(x, y) {

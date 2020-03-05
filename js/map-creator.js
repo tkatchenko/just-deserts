@@ -5,16 +5,17 @@ import Wall from './wall.js';
 import Enemy from './enemy.js';
 
 export default class MapCreator {
-  constructor(target, width, height, output) {
+  constructor(target, width, height, output, game) {
     this.target = target;
     this.width = width;
     this.height = height;
     this.output = output;
+    this.game = game;
   }
 
   create(level) {
     if (level === 0) {
-      const map = new Map(this.target, this.width, this.height, this.output);
+      const map = new Map(this.target, this.width, this.height, this.output, this.game);
 
       const tiles = [];
       for (let i = 0; i < 50; i++) {
@@ -119,13 +120,15 @@ export default class MapCreator {
         this.output
       ));
 
-      this.output.log('The bus leaves while you are taking a rest break.');
-
       map.enemies = enemies;
+
+      this.output.log('The bus leaves while you are taking a rest break.');
 
       return map;
     } else {
-      return false;
+      const map = new Map(this.target, this.width, this.height, this.output, this.game);
+
+      return map;
     }
   }
 }

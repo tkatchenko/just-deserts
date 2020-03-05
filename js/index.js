@@ -7,4 +7,4 @@ const debug = true;
 const output = new Output(document.querySelector('#output .box'), debug);
 const attributes = new Attributes(document.querySelector('#attributes .box'));
 
-const game = new Game('Player', '🧔🏽', document.querySelector('#map .box'), output, attributes);
+const game = new Game('Player', '🧔🏽', 50, 50, document.querySelector('#map .box'), output, attributes);

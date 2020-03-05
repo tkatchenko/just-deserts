@@ -1,7 +1,7 @@
 import { numberWithCommas } from './utility.js';
 
 export default class Player {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -16,6 +16,7 @@ export default class Player {
     this.map = map;
     this.output = output;
     this.attributes = attributes;
+    this.game = game;
 
     this.attributes.update('health', this.health + '/' + this.maxHealth);
     this.attributes.update('attack', this.attack);
@@ -30,6 +31,24 @@ export default class Player {
       this.prevY = this.y;
       this.x = this.x + x;
       this.y = this.y + y;
+
+      if (this.x < 0 && this.y < 0) {
+        this.game.moveMap(-1, -1);
+      } else if (this.x > this.map.width - 1 && this.y < 0) {
+        this.game.moveMap(1, -1);
+      } else if (this.x > this.map.width - 1 && this.y > this.map.height - 1) {
+        this.game.moveMap(1, 1);
+      } else if (this.x < 0 && this.y > this.map.height - 1) {
+        this.game.moveMap(-1, 1);
+      } else if (this.x < 0) {
+        this.game.moveMap(-1, 0);
+      } else if (this.x > this.map.width - 1) {
+        this.game.moveMap(1, 0);
+      } else if (this.y < 0) {
+        this.game.moveMap(0, -1);
+      } else if (this.y > this.map.height - 1) {
+        this.game.moveMap(0, 1);
+      }
 
       this.checkCollision();
     }
