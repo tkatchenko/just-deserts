@@ -42,30 +42,38 @@ export default class Game {
       switch (keyName) {
         case 'ArrowUp':
         case 'k':
+        case '8':
           this.player.move(0, -1);
           break;
         case 'ArrowRight':
         case 'l':
+        case '6':
           this.player.move(1, 0);
           break;
         case 'ArrowDown':
         case 'j':
+        case '2':
           this.player.move(0, 1);
           break;
         case 'ArrowLeft':
         case 'h':
+        case '4':
           this.player.move(-1, 0);
           break;
         case 'y':
+        case '7':
           this.player.move(-1, -1);
           break;
         case 'u':
+        case '9':
           this.player.move(1, -1);
           break;
         case 'b':
+        case '1':
           this.player.move(-1, 1);
           break;
         case 'n':
+        case '3':
           this.player.move(1, 1);
           break;
       }
