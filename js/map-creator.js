@@ -47,7 +47,7 @@ export default class MapCreator {
             y,
             10,
             10,
-            0,
+            10,
             0,
             0.5,
             map,

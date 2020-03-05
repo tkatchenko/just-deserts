@@ -91,7 +91,7 @@ export default class Enemy {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name + '.');
 
     this.updateHealth(-totalDamage);
   }
@@ -103,6 +103,7 @@ export default class Enemy {
   }
 
   die() {
+    this.dead = true;
     this.remove = true;
     this.map.addDeath(this.x, this.y);
     this.output.log(this.name + ' received their Just Deserts.');

@@ -19,3 +19,13 @@ export function createArray(length) {
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export function doubler(base, times) {
+  let number = base;
+
+  for (let i = 0; i < times; i++) {
+    number = number * 2;
+  }
+
+  return number;
+}

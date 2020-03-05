@@ -1,5 +1,6 @@
 $orange: #ff7400;
 $red: #f00;
+$green: #0f0;
 $blue: #00f;
 $white: #fff;
 $black: #000;
@@ -118,9 +119,24 @@ body {
 
         .level {
           display: flex;
+          position: relative;
           align-items: center;
           justify-content: center;
           flex: 1 0 auto;
+
+          .progress {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $green;
+            background-image: url(../images/background-green.png);
+          }
+
+          .text {
+            position: relative;
+          }
         }
       }
     }

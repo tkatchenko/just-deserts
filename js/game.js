@@ -80,6 +80,9 @@ export default class Game {
         case '3':
           this.player.move(1, 1);
           break;
+        case 'e':
+          this.player.updateExp(10);
+          break;
       }
 
       this.update();

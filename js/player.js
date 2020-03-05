@@ -1,4 +1,4 @@
-import { numberWithCommas } from './utility.js';
+import { numberWithCommas, doubler } from './utility.js';
 
 export default class Player {
   constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
@@ -17,10 +17,14 @@ export default class Player {
     this.output = output;
     this.attributes = attributes;
     this.game = game;
+    this.exp = 0;
+    this.level = 1;
 
     this.attributes.update('health', this.health + '/' + this.maxHealth);
     this.attributes.update('attack', this.attack);
     this.attributes.update('defense', this.defense);
+
+    this.updateExp(100);
 
     this.draw();
   }
@@ -64,6 +68,10 @@ export default class Player {
       } else if (collision.constructor.name === 'Enemy') {
         this.moveBack();
         collision.takeDamage(this.attack, this.name);
+
+        if (collision.dead) {
+          this.updateExp(collision.attack + collision.defense);
+        }
       }
     }
 
@@ -83,7 +91,7 @@ export default class Player {
   takeDamage(damage, name) {
     const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
   
-    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name);
+    this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name + '.');
 
     this.updateHealth(-totalDamage);
   }
@@ -105,6 +113,24 @@ export default class Player {
     }
 
     if (this.health <= 0) this.die();
+  }
+
+  updateExp(delta) {
+    this.exp += delta;
+
+    const baseExp = 100;
+    const thisLevel = doubler(baseExp, this.level - 1);
+    const nextLevel = doubler(baseExp, this.level);
+    const levelDiff = nextLevel - thisLevel;
+
+    const progress = (this.exp - thisLevel) / levelDiff;
+
+    if (this.exp >= nextLevel) {
+      this.level++;
+      this.output.log(this.name + ' reaches level ' + this.level + '.');
+    }
+
+    this.attributes.updateExp(this.level, progress);
   }
 
   die() {
