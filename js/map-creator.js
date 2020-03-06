@@ -51,7 +51,10 @@ export default class MapCreator {
             10,
             0.5,
             map,
-            this.output
+            this.output,
+            false,
+            false,
+            'bites'
           ));
         }
       }
@@ -67,7 +70,10 @@ export default class MapCreator {
         10,
         0,
         map,
-        this.output
+        this.output,
+        false,
+        false,
+        'bites'
       ));
 
       enemies.push(new Enemy(

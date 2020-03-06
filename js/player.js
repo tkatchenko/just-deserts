@@ -68,11 +68,22 @@ export default class Player {
         this.takeDamage(collision.attack, collision.name);
       } else if (collision.constructor.name === 'Enemy') {
         this.moveBack();
-        this.output.log(this.name + ' punches ' + collision.name + '.');
-        collision.takeDamage(this.attack, this.name);
+        const power = this.attack + this.defense;
+        const collisionPower = collision.attack + collision.defense;
 
-        if (collision.dead) {
-          this.updateExp(collision.attack + collision.defense);
+        let hitChance = (power / collisionPower);
+
+        const hits = (Math.random() < hitChance) ? true : false;
+
+        if (hits) {
+          this.output.log(this.name + ' punches ' + collision.name + '.');
+          collision.takeDamage(this.attack, this.name);
+
+          if (collision.dead) {
+            this.updateExp(collision.attack + collision.defense);
+          }
+        } else {
+          this.output.log(this.name + ' misses ' + collision.name + '.');
         }
       }
     }

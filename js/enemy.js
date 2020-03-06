@@ -72,9 +72,20 @@ export default class Enemy {
         }
 
         if (collision.constructor.name === 'Player' || this.unstoppable) {
-          const attackType = (this.attackType) ? this.attackType : 'hits';
-          this.output.log(this.name + ' ' + attackType + ' ' + collision.name + '.');
-          collision.takeDamage(this.attack, this.name, this.unstoppable);
+          const power = this.attack + this.defense;
+          const collisionPower = collision.attack + collision.defense;
+
+          let hitChance = (power / collisionPower);
+
+          const hits = (Math.random() < hitChance) ? true : false;
+
+          if (hits) {
+            const attackType = (this.attackType) ? this.attackType : 'hits';
+            this.output.log(this.name + ' ' + attackType + ' ' + collision.name + '.');
+            collision.takeDamage(this.attack, this.name, this.unstoppable);
+          } else {
+            this.output.log(this.name + ' misses ' + collision.name + '.');
+          }
         }
       }
     }
