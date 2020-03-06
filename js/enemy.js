@@ -101,7 +101,7 @@ export default class Enemy {
           this.moveBack();
         }
 
-        if (collision.constructor.name === 'Player' || this.unstoppable) {
+        if ((collision.constructor.name === 'Player' || this.unstoppable) && !collision.dead) {
           const power = this.attack + this.defense;
           const collisionPower = collision.attack + collision.defense;
 

@@ -125,7 +125,7 @@ export default class Player {
   }
 
   dehydrate() {
-    if ((this.game.tick - this.lastDrink) % 5 === 4) {
+    if ((this.game.tick - this.lastDrink) % 3 === 2) {
       this.hydration--;
       
       if (this.hydration === 40) this.output.log(this.name + ' is thirsty.');
