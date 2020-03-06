@@ -103,6 +103,8 @@ export default class Game {
         array.splice(i, 1); 
       }
     });
+
+    this.player.heal();
   }
 
   moveMap(x, y) {

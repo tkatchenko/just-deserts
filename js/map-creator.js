@@ -179,7 +179,7 @@ export default class MapCreator {
             y,
             10,
             10,
-            30,
+            40,
             10,
             0.8,
             map,

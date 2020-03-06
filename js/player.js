@@ -110,8 +110,15 @@ export default class Player {
     this.updateHealth(-totalDamage);
   }
 
+  heal() {
+    if (!this.dead) {
+      this.updateHealth(Math.ceil(this.level / 2));
+    }
+  }
+
   updateHealth(delta) {
     this.health += delta;  
+    if (this.health > this.maxHealth) this.health = this.maxHealth;
     this.attributes.update('health', this.health + '/' + this.maxHealth);
 
     if (delta < 0) {
@@ -141,6 +148,16 @@ export default class Player {
 
     if (this.exp >= nextLevel) {
       this.level++;
+      const newHealth = Math.floor((this.maxHealth * 1.5) - getRandomInt(0, this.maxHealth * 0.2));
+      this.health = this.health + newHealth - this.maxHealth;
+      this.maxHealth = newHealth;
+      this.attack = Math.floor((this.attack * 1.5) - getRandomInt(0, this.attack * 0.2));
+      this.defense = Math.floor((this.defense * 1.5) - getRandomInt(0, this.defense * 0.2));
+
+      this.attributes.update('health', this.health + '/' + this.maxHealth);
+      this.attributes.update('attack', this.attack);
+      this.attributes.update('defense', this.defense);
+
       this.output.log(this.name + ' reaches level ' + this.level + '.');
     }
 
