@@ -94,7 +94,7 @@ export default class Enemy {
     const collision = this.map.checkCollision(this);
 
     if (collision) {
-      if (collision.constructor.name === 'Wall') {
+      if (collision.constructor.name === 'Wall' || collision.constructor.name === 'Water') {
         this.moveBack();
       } else if (collision.constructor.name === 'Enemy' || collision.constructor.name === 'Player') {
         if (!this.unstoppable) {

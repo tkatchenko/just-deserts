@@ -19,10 +19,13 @@ export default class Player {
     this.game = game;
     this.exp = 0;
     this.level = 1;
+    this.hydration = 100;
+    this.lastDrink = 0;
 
     this.attributes.update('health', this.health + '/' + this.maxHealth);
     this.attributes.update('attack', this.attack);
     this.attributes.update('defense', this.defense);
+    this.attributes.update('hydration', this.hydration);
 
     this.updateExp(100);
 
@@ -66,6 +69,10 @@ export default class Player {
         this.moveBack();
         this.output.log(this.name + ' walks into ' + collision.name + '.');
         this.takeDamage(collision.attack, collision.name);
+      } else if (collision.constructor.name === 'Water') {
+        this.moveBack();
+        this.updateHydration(20);
+        this.output.log(this.name + ' drinks from ' + collision.name + '.');
       } else if (collision.constructor.name === 'Enemy') {
         this.moveBack();
         const power = this.attack + this.defense;
@@ -101,6 +108,13 @@ export default class Player {
     this.map.draw(this, true);
   }
 
+  update() {
+    if (!this.dead) {
+      this.dehydrate();
+      this.heal();
+    }
+  }
+
   takeDamage(damage, name, unstoppable) {
     let totalDamage = (this.defense >= damage) ? 0 : damage - getRandomInt(this.defense * 0.8, this.defense);
     if (unstoppable) totalDamage = damage;
@@ -110,10 +124,28 @@ export default class Player {
     this.updateHealth(-totalDamage);
   }
 
-  heal() {
-    if (!this.dead) {
-      this.updateHealth(Math.ceil(this.level / 2));
+  dehydrate() {
+    if ((this.game.tick - this.lastDrink) % 5 === 4) {
+      this.hydration--;
+      
+      if (this.hydration <= 0) {
+        this.hydration = 0;
+        this.updateHealth(-Math.floor(this.maxHealth / 10));
+      }
+
+      this.attributes.update('hydration', this.hydration);
     }
+  }
+
+  updateHydration(delta) {
+    this.hydration += delta;
+    if (this.hydration > 100) this.hydration = 100;
+    this.lastDrink = this.game.tick + 1;
+    this.attributes.update('hydration', this.hydration);
+  }
+
+  heal() {
+    this.updateHealth(Math.ceil(this.level / 2));
   }
 
   updateHealth(delta) {
@@ -165,9 +197,19 @@ export default class Player {
   }
 
   die() {
-    this.dead = true;
-    this.char = '💀';
-    this.output.log(this.name + ' received their Just Deserts.');
-    this.draw();
+    if (!this.dead) {
+      this.dead = true;
+      this.char = '💀';
+      this.output.log(this.name + ' received their Just Deserts.');
+      this.draw();
+
+      this.game.atlas[this.game.x][this.game.y].enemies.forEach((enemy) => {
+        enemy.aggressive = false;
+      });
+
+      setInterval(() => {
+        this.game.update();
+      }, 100);
+    }
   }
 }

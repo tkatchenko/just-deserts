@@ -14,6 +14,7 @@ export default class Game {
     this.y = 50;
     this.level = 0;
     this.atlas[this.x][this.y] = this.mapCreator.create(this.level);
+    this.tick = 0;
 
     const playerHealthAddition = getRandomInt(0, 50);
     const playerAttributeDiff = getRandomInt(0, 10);
@@ -90,21 +91,24 @@ export default class Game {
   }
 
   update() {
-    this.atlas[this.x][this.y].enemies.forEach((enemy, i, array) => {
-      if (!enemy.remove) {
-        enemy.timePool += enemy.speed / this.player.speed;
+    if (this.atlas[this.x][this.y].enemies) {
+      this.atlas[this.x][this.y].enemies.forEach((enemy, i, array) => {
+        if (!enemy.remove) {
+          enemy.timePool += enemy.speed / this.player.speed;
 
-        enemy.update();
-      }
-    });
+          enemy.update();
+        }
+      });
 
-    this.atlas[this.x][this.y].enemies.forEach((enemy, i, array) => {
-      if (enemy.remove) {
-        array.splice(i, 1); 
-      }
-    });
+      this.atlas[this.x][this.y].enemies.forEach((enemy, i, array) => {
+        if (enemy.remove) {
+          array.splice(i, 1); 
+        }
+      });
+    }
 
-    this.player.heal();
+    this.player.update();
+    this.tick++;
   }
 
   moveMap(x, y) {

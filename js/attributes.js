@@ -8,7 +8,7 @@ export default class Attributes {
   }
 
   updateExp(level, percent) {
-    if (percent === 1) percent = 0;
+    if (percent >= 1) percent = 0;
     this.target.querySelector('.level span').innerHTML = level;
     this.target.querySelector('.level .progress').style.right = (100 - (100 * percent)) + '%';
   }

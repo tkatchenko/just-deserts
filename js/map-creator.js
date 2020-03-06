@@ -1,5 +1,6 @@
 import { getRandomInt } from './utility.js';
 import Map from './map.js';
+import Water from './water.js';
 import Wall from './wall.js';
 import Enemy from './enemy.js';
 
@@ -15,6 +16,15 @@ export default class MapCreator {
   create(level) {
     if (level === 0) {
       const map = new Map(this.target, this.width, this.height, this.output, this.game);
+
+      new Water(
+        'Oasis',
+        '🏝️',
+        getRandomInt(0, 50),
+        getRandomInt(0, 50),
+        map,
+        this.output
+      );
 
       const walls = [];
       for (let i = 0; i < 500; i++) {
