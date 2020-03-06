@@ -33,7 +33,7 @@ export default class MapCreator {
 
     const walls = [];
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       const x = getRandomInt(oasisX - 10, oasisX + 10);
       const y = getRandomInt(oasisY - 10, oasisY + 10);
 

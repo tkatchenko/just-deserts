@@ -52,7 +52,7 @@ export default class Enemy {
           }
 
           const collision = this.map.checkCollision({x: this.x + x, y: this.y + y});
-          if (collision && collision.constructor.name === 'Wall') {
+          if (collision && (collision.constructor.name === 'Wall' || collision.constructor.name === 'Water')) {
             this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
           } else {
             this.move(x, y);
