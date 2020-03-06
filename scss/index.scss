@@ -158,14 +158,12 @@ body {
         width: auto;
         white-space: nowrap;
         overflow: hidden;
-        will-change: scroll-position;
         
         span {
           display: inline-block;
           width: 30px;
           height: 40px;
           text-align: center;
-          will-change: contents;
 
           @media (max-width: 800px) {
             width: (0.6 * 30px);
