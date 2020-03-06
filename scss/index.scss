@@ -36,7 +36,6 @@ body {
 
   .top {
     display: flex;
-    flex-wrap: wrap;
     overflow: hidden;
 
     #map {
@@ -44,7 +43,7 @@ body {
       align-items: center;
       justify-content: center;
       position: relative;
-      flex: 0 0 70%;
+      flex: 1 0 70%;
       font-size: 26px;
       color: #ffac5a;
       background-color: $orange;
