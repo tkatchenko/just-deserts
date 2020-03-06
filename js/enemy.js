@@ -1,7 +1,7 @@
 import { getRandomInt, numberWithCommas } from './utility.js';
 
 export default class Enemy {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable, attackType) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -17,6 +17,7 @@ export default class Enemy {
     this.output = output;
     this.customUpdate = update;
     this.unstoppable = unstoppable;
+    this.attackType = attackType;
 
     this.timePool = 0;
 
@@ -71,7 +72,9 @@ export default class Enemy {
         }
 
         if (collision.constructor.name === 'Player' || this.unstoppable) {
-          collision.takeDamage(this.attack, this.name);
+          const attackType = (this.attackType) ? this.attackType : 'hits';
+          this.output.log(this.name + ' ' + attackType + ' ' + collision.name + '.');
+          collision.takeDamage(this.attack, this.name, this.unstoppable);
         }
       }
     }
@@ -88,8 +91,9 @@ export default class Enemy {
     this.map.draw(this);
   }
 
-  takeDamage(damage, name) {
-    const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
+  takeDamage(damage, name, unstoppable) {
+    let totalDamage = (this.defense >= damage) ? 0 : damage - getRandomInt(this.defense * 0.8, this.defense);
+    if (unstoppable) totalDamage = damage;
   
     this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name + '.');
 

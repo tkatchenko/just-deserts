@@ -1,4 +1,4 @@
-import { numberWithCommas, doubler } from './utility.js';
+import { getRandomInt, numberWithCommas, doubler } from './utility.js';
 
 export default class Player {
   constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
@@ -64,9 +64,11 @@ export default class Player {
     if (collision) {
       if (collision.constructor.name === 'Wall') {
         this.moveBack();
+        this.output.log(this.name + ' walks into ' + collision.name + '.');
         this.takeDamage(collision.attack, collision.name);
       } else if (collision.constructor.name === 'Enemy') {
         this.moveBack();
+        this.output.log(this.name + ' punches ' + collision.name + '.');
         collision.takeDamage(this.attack, this.name);
 
         if (collision.dead) {
@@ -88,8 +90,9 @@ export default class Player {
     this.map.draw(this, true);
   }
 
-  takeDamage(damage, name) {
-    const totalDamage = (this.defense >= damage) ? 0 : damage - this.defense;
+  takeDamage(damage, name, unstoppable) {
+    let totalDamage = (this.defense >= damage) ? 0 : damage - getRandomInt(this.defense * 0.8, this.defense);
+    if (unstoppable) totalDamage = damage;
   
     this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name + '.');
 

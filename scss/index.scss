@@ -35,6 +35,9 @@ body {
     overflow: hidden;
 
     #map {
+      display: flex;
+      flex-align: center;
+      justify-content: center;
       position: relative;
       flex: 0 0 70%;
       font-size: 26px;
@@ -62,6 +65,7 @@ body {
       }
 
       .box {
+        width: auto;
         white-space: nowrap;
         overflow: hidden;
         will-change: scroll-position;

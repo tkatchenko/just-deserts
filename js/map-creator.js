@@ -48,7 +48,7 @@ export default class MapCreator {
             10,
             10,
             10,
-            0,
+            10,
             0.5,
             map,
             this.output
@@ -61,10 +61,10 @@ export default class MapCreator {
         '🦎',
         getRandomInt(18, 22), 
         28,
-        0,
         10,
         10,
-        0,
+        10,
+        10,
         0,
         map,
         this.output
@@ -94,7 +94,8 @@ export default class MapCreator {
             this.timePool--;
           }
         },
-        true
+        true,
+        'runs over'
       ));
 
       walls.push(new Wall(
