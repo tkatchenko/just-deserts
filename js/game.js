@@ -41,6 +41,37 @@ export default class Game {
   }
 
   startInput() {
+    document.querySelector('#controls').onclick = (e) => {
+      switch (e.target.className) {
+        case 'n':
+          this.player.move(0, -1);
+          break;
+        case 'e':
+          this.player.move(1, 0);
+          break;
+        case 's':
+          this.player.move(0, 1);
+          break;
+        case 'w':
+          this.player.move(-1, 0);
+          break;
+        case 'nw':
+          this.player.move(-1, -1);
+          break;
+        case 'ne':
+          this.player.move(1, -1);
+          break;
+        case 'sw':
+          this.player.move(-1, 1);
+          break;
+        case 'se':
+          this.player.move(1, 1);
+          break;
+      }
+
+      this.update();
+    };
+
     document.addEventListener('keydown', (event) => {
       const keyName = event.key;
 
@@ -80,9 +111,6 @@ export default class Game {
         case 'n':
         case '3':
           this.player.move(1, 1);
-          break;
-        case 'e':
-          this.player.updateExp(10);
           break;
       }
 

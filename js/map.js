@@ -53,8 +53,8 @@ export default class Map {
       const elTop = el.offsetTop - wrapper.offsetTop;
       const elLeft = el.offsetLeft - wrapper.offsetLeft;
 
-      wrapper.scrollTop = elTop - (wrapper.offsetHeight / 2);
-      wrapper.scrollLeft = elLeft - (wrapper.offsetWidth / 2);
+      wrapper.scrollTop = elTop - (wrapper.offsetHeight / 2) + 10;
+      wrapper.scrollLeft = elLeft - (wrapper.offsetWidth / 2) + 10;
     }
   }
 

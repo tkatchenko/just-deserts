@@ -30,13 +30,18 @@ body {
   font-size: 18px;
   font-family: 'Roboto Mono', monospace, sans-serif, serif;
 
+  @media (max-width: 800px) {
+    font-size: 12px;
+  }
+
   .top {
     display: flex;
+    flex-wrap: wrap;
     overflow: hidden;
 
     #map {
       display: flex;
-      flex-align: center;
+      align-items: center;
       justify-content: center;
       position: relative;
       flex: 0 0 70%;
@@ -46,6 +51,88 @@ body {
       background-image: url(../images/background-orange.png);
       padding: 10px;
       overflow: hidden;
+
+      @media (max-width: 800px) {
+        flex: 0 0 100%;
+        order: 2;
+        height: calc(100% - 110px);
+        font-size: 20px;
+      }
+
+      #controls {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        div {
+          position: absolute;
+        }
+
+        .n {
+          top: 0;
+          right: 33.33%;
+          left: 33.33%;
+          bottom: 66.66%;
+        }
+
+        .ne {
+          top: 0;
+          right: 0;
+          bottom: 66.66%;
+          left: 66.66%;
+        }
+
+        .e {
+          top: 33.33%;
+          right: 0;
+          bottom: 33.33%;
+          left: 66.66%;
+        }
+
+        .se {
+          top: 66.66%;
+          right: 0;
+          bottom: 0;
+          left: 66.66%;
+        }
+
+        .s {
+          top: 66.66%;
+          right: 33.33%;
+          left: 33.33%;
+          bottom: 0;
+        }
+
+        .sw {
+          top: 66.66%;
+          right: 66.66%;
+          bottom: 0;
+          left: 0;
+        }
+
+        .w {
+          top: 33.33%;
+          right: 66.66%;
+          bottom: 33.33%;
+          left: 0;
+        }
+
+        .nw {
+          top: 0;
+          right: 66.66%;
+          bottom: 66.66%;
+          left: 0;
+        }
+
+        .wait {
+          top: 33.33%;
+          right: 33.33%;
+          left: 33.33%;
+          bottom: 33.33%;
+        }
+      }
 
       #overlay {
         position: absolute;
@@ -76,6 +163,11 @@ body {
           height: 40px;
           text-align: center;
           will-change: contents;
+
+          @media (max-width: 800px) {
+            width: (0.6 * 30px);
+            height: (0.6 * 40px);
+          }
         }
       }
     }
@@ -86,6 +178,12 @@ body {
       background-color: $red;
       background-image: url(../images/background-red.png);
       padding: 10px;
+
+      @media (max-width: 800px) {
+        flex: 0 0 100%;
+        order: 1;
+        height: 110px;
+      }
 
       .box {
         overflow-y: scroll;
@@ -114,6 +212,10 @@ body {
 
           .stat {
             margin-right: 10px;
+
+            @media (max-width: 800px) {
+              margin-right: 5px;
+            }
           }
 
           .current {
