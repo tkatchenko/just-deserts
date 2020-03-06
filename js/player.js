@@ -128,9 +128,14 @@ export default class Player {
     if ((this.game.tick - this.lastDrink) % 5 === 4) {
       this.hydration--;
       
+      if (this.hydration === 40) this.output.log(this.name + ' is thirsty.');
+      if (this.hydration === 10) this.output.log(this.name + ' is really thirsty.');
+
       if (this.hydration <= 0) {
         this.hydration = 0;
-        this.updateHealth(-Math.floor(this.maxHealth / 10));
+        const healthLoss = Math.floor(this.maxHealth / 10);
+        this.output.log(this.name + ' is completely dehydrated and loses ' + healthLoss + ' health.');
+        this.updateHealth(-healthLoss);
       }
 
       this.attributes.update('hydration', this.hydration);
@@ -145,12 +150,15 @@ export default class Player {
   }
 
   heal() {
-    this.updateHealth(Math.ceil(this.level / 2));
+    if (!this.dead) {
+      this.updateHealth(Math.ceil(this.level / 2));
+    }
   }
 
   updateHealth(delta) {
     this.health += delta;  
     if (this.health > this.maxHealth) this.health = this.maxHealth;
+    if (this.health < 0) this.health = 0;
     this.attributes.update('health', this.health + '/' + this.maxHealth);
 
     if (delta < 0) {
@@ -165,7 +173,9 @@ export default class Player {
       }, 100);
     }
 
-    if (this.health <= 0) this.die();
+    if (this.health <= 0) {
+      this.die();
+    }
   }
 
   updateExp(delta) {
