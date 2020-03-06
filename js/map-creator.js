@@ -14,19 +14,45 @@ export default class MapCreator {
   }
 
   create(level) {
+    const map = new Map(this.target, this.width, this.height, this.output, this.game);
+
+    const oasisX = getRandomInt(0, 50);
+    let oasisY = getRandomInt(0, 50);
+    while (oasisY === 28) {
+      oasisY = getRandomInt(0, 50);
+    }
+
+    new Water(
+      'Oasis',
+      '🏝️',
+      oasisX,
+      oasisY,
+      map,
+      this.output
+    );
+
+    const walls = [];
+
+    for (let i = 0; i < 10; i++) {
+      const x = getRandomInt(oasisX - 10, oasisX + 10);
+      const y = getRandomInt(oasisY - 10, oasisY + 10);
+
+      if (x < this.width - 1 && x >= 0 && y < this.height -1 && y >= 0 && !map.checkAllCollision({x: x, y: y})) {
+        walls.push(new Wall(
+          'Palm Tree',
+          '🌴',
+          x,
+          y,
+          0,
+          map,
+          this.output
+        ));
+      }
+    }
+
+    const enemies = [];
+
     if (level === 0) {
-      const map = new Map(this.target, this.width, this.height, this.output, this.game);
-
-      new Water(
-        'Oasis',
-        '🏝️',
-        getRandomInt(0, 50),
-        getRandomInt(0, 50),
-        map,
-        this.output
-      );
-
-      const walls = [];
       for (let i = 0; i < 500; i++) {
         const x = getRandomInt(0, 50);
         const y = getRandomInt(0, 50);
@@ -44,7 +70,6 @@ export default class MapCreator {
         }
       }
 
-      const enemies = [];
       for (let i = 0; i < 10; i++) {
         const x = getRandomInt(0, 50);
         const y = getRandomInt(0, 50);
@@ -131,8 +156,6 @@ export default class MapCreator {
 
       return map;
     } else if (level === 1) {
-      const map = new Map(this.target, this.width, this.height, this.output, this.game);
-
       const walls = [];
       for (let i = 0; i < 500; i++) {
         const x = getRandomInt(0, 50);
