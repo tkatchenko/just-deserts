@@ -1,7 +1,7 @@
 import { getRandomInt, numberWithCommas } from './utility.js';
 
 export default class Enemy {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable, attackType) {
+  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable, attackType, aggressive, awareness) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -18,6 +18,8 @@ export default class Enemy {
     this.customUpdate = update;
     this.unstoppable = unstoppable;
     this.attackType = attackType;
+    this.aggressive = aggressive;
+    this.awareness = awareness;
 
     this.timePool = 0;
 
@@ -29,7 +31,35 @@ export default class Enemy {
       this.customUpdate();
     } else {
       while (this.timePool >= 1) {
-        this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
+        if (this.aggressive && Math.abs(this.x - this.map.game.player.x) <= this.awareness && Math.abs(this.y - this.map.game.player.y) <= this.awareness) {
+          let x = 0;
+          let y = 0;
+
+          if (this.map.game.player.x > this.x) {
+            x = 1;  
+          } else if (this.map.game.player.x < this.x) {
+            x = -1;
+          } else {
+            x = 0;  
+          }
+
+          if (this.map.game.player.y > this.y) {
+            y = 1;  
+          } else if (this.map.game.player.y < this.y) {
+            y = -1;  
+          } else {
+            y = 0;  
+          }
+
+          const collision = this.map.checkCollision({x: this.x + x, y: this.y + y});
+          if (collision && collision.constructor.name === 'Wall') {
+            this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
+          } else {
+            this.move(x, y);
+          }
+        } else {
+          this.move(getRandomInt(0, 3) - 1, getRandomInt(0, 3) - 1);
+        }
 
         this.timePool--;
       }

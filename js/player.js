@@ -80,7 +80,7 @@ export default class Player {
           collision.takeDamage(this.attack, this.name);
 
           if (collision.dead) {
-            this.updateExp(collision.attack + collision.defense);
+            this.updateExp((collision.attack + collision.defense) / 3);
           }
         } else {
           this.output.log(this.name + ' misses ' + collision.name + '.');
