@@ -73,48 +73,57 @@ export default class Game {
     };
 
     document.addEventListener('keydown', (event) => {
-      const keyName = event.key;
-
-      switch (keyName) {
+      switch (event.key) {
         case 'ArrowUp':
         case 'k':
         case '8':
           this.player.move(0, -1);
+          this.update();
           break;
         case 'ArrowRight':
         case 'l':
         case '6':
           this.player.move(1, 0);
+          this.update();
           break;
         case 'ArrowDown':
         case 'j':
         case '2':
           this.player.move(0, 1);
+          this.update();
           break;
         case 'ArrowLeft':
         case 'h':
         case '4':
           this.player.move(-1, 0);
+          this.update();
           break;
         case 'y':
         case '7':
           this.player.move(-1, -1);
+          this.update();
           break;
         case 'u':
         case '9':
           this.player.move(1, -1);
+          this.update();
           break;
         case 'b':
         case '1':
           this.player.move(-1, 1);
+          this.update();
           break;
         case 'n':
         case '3':
           this.player.move(1, 1);
+          this.update();
+          break;
+        case 'Enter':
+        case ' ':
+        case '.':
+          this.update();
           break;
       }
-
-      this.update();
     }, false);
   }
 
