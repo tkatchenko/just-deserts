@@ -88,6 +88,10 @@ export default class Player {
 
           if (collision.dead) {
             this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 15))));
+
+            if (collision.name = 'Bus') {
+              this.game.win();
+            }
           }
         } else {
           this.output.log(this.name + ' misses ' + collision.name + '.');

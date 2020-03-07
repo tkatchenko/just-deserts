@@ -73,8 +73,8 @@ export default class Game {
       this.update();
     };
 
-    document.addEventListener('keydown', (event) => {
-      switch (event.key) {
+    document.addEventListener('keydown', (e) => {
+      switch (e.key) {
         case 'ArrowUp':
         case 'k':
         case '8':
@@ -124,8 +124,16 @@ export default class Game {
         case '.':
           this.update();
           break;
+        case 'w':
+          this.win();
+          break;
       }
     }, false);
+  }
+  
+  stopInput() {
+    document.addEventListener('keydown', (e) => { e.stopPropagation(); }, true);
+    document.querySelector('#controls').onclick = (e) => { e.stopPropagation(); };
   }
 
   update() {
@@ -179,5 +187,15 @@ export default class Game {
     }
 
     this.atlas[this.x][this.y].clear(this.player.x, this.player.y);
+  }
+
+  win() {
+    this.stopInput();
+    this.output.log(this.player.name + ' has defeated the bus.');
+    this.output.log('All is well.');
+
+    setInterval(() => {
+      this.update();
+    }, 100);
   }
 }

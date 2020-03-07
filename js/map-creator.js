@@ -1733,6 +1733,112 @@ export default class MapCreator {
       map.enemies = enemies;
 
       return map;
+    } else if (level === 9) {
+      const map = new Map(this.target, this.width, this.height, 'orange', this.output, this.game);
+
+      new Water(
+        'Oasis',
+        '🏝️',
+        waterX,
+        waterY,
+        map,
+        this.output
+      );
+
+
+      for (let i = 0; i < 5; i++) {
+        const x = getRandomInt(waterX - 10, waterX + 10);
+        const y = getRandomInt(waterY - 10, waterY + 10);
+
+        if (x < this.width - 1 && x >= 0 && y < this.height -1 && y >= 0 && !map.checkAllCollision({x: x, y: y})) {
+          walls.push(new Wall(
+            'Palm Tree',
+            '🌴',
+            x,
+            y,
+            0,
+            map,
+            this.output
+          ));
+        }
+      }
+
+      for (let i = 0; i < 500; i++) {
+        const x = getRandomInt(0, 50);
+        const y = getRandomInt(0, 50);
+
+        if (!map.checkAllCollision({x: x, y: y})) {
+          walls.push(new Wall(
+            'Cactus',
+            '🌵',
+            x,
+            y,
+            30,
+            map,
+            this.output
+          ));
+        }
+      }
+
+      for (let i = 0; i < 10; i++) {
+        const x = getRandomInt(0, 50);
+        const y = getRandomInt(0, 50);
+        
+        if (!map.checkCollision({x: x, y: y})) {
+          enemies.push(new Enemy(
+            'Lizard',
+            '🦎',
+            x, 
+            y,
+            10,
+            10,
+            10,
+            10,
+            0.5,
+            map,
+            this.output,
+            false,
+            false,
+            'bites',
+            false
+          ));
+        }
+      }
+
+      enemies.push(new Enemy(
+        'Bus',
+        '🚌',
+        25,
+        28,
+        3000,
+        3000,
+        1000,
+        300,
+        1.1,
+        map,
+        this.output,
+        false,
+        false,
+        'runs over',
+        true,
+        25
+      ));
+
+      walls.push(new Wall(
+        'Cactus',
+        '🌵',
+        25,
+        26,
+        30,
+        map,
+        this.output
+      ));
+
+      map.enemies = enemies;
+
+      this.output.log('The bus speeds towards you.');
+
+      return map;
     } else {
       const map = new Map(this.target, this.width, this.height, 'orange', this.output, this.game);
 
