@@ -132,8 +132,19 @@ export default class Player {
     if ((this.game.tick - this.lastDrink) % 3 === 2) {
       this.hydration--;
       
-      if (this.hydration === 40) this.output.log(this.name + ' is thirsty.');
-      if (this.hydration === 10) this.output.log(this.name + ' is really thirsty.');
+      const el = document.querySelector('#hydration');
+
+      if (this.hydration === 40) {
+        this.output.log(this.name + ' is thirsty.');
+        el.classList.remove('red');
+        el.classList.add('orange');
+      }
+
+      if (this.hydration === 10) {
+        this.output.log(this.name + ' is really thirsty.');
+        el.classList.remove('orange');
+        el.classList.add('red');
+      }
 
       if (this.hydration <= 0) {
         this.hydration = 0;
@@ -149,6 +160,14 @@ export default class Player {
   updateHydration(delta) {
     this.hydration += delta;
     if (this.hydration > 100) this.hydration = 100;
+
+    const el = document.querySelector('#hydration');
+
+    if (this.hydration > 40) {
+      el.classList.remove('orange');
+      el.classList.remove('red');
+    }
+
     this.lastDrink = this.game.tick + 1;
     this.attributes.update('hydration', this.hydration);
   }

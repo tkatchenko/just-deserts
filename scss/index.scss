@@ -227,6 +227,16 @@ body {
           padding: 10px;
           border-right: 2px solid $white;
 
+          &.orange {
+            background-color: $orange;
+            background-image: url(../images/background-orange.png);
+          }
+
+          &.red {
+            background-color: $red;
+            background-image: url(../images/background-red.png);
+          }
+
           .stat {
             margin-right: 10px;
 
