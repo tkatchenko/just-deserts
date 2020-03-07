@@ -5,12 +5,13 @@ import Wall from './wall.js';
 import Enemy from './enemy.js';
 
 export default class MapCreator {
-  constructor(target, width, height, output, game) {
+  constructor(target, width, height, output, game, playerName) {
     this.target = target;
     this.width = width;
     this.height = height;
     this.output = output;
     this.game = game;
+    this.playerName = playerName;
   }
 
   create(level) {
@@ -151,8 +152,7 @@ export default class MapCreator {
       ));
 
       map.enemies = enemies;
-
-      this.output.log('The 🚌Bus leaves while you are taking a rest break.');
+      this.output.log('The 🚌Bus leaves while ' + this.playerName + ' is taking a rest break.');
 
       return map;
     } else if (level === 1) {

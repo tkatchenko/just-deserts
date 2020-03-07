@@ -9,7 +9,7 @@ export default class Game {
     this.output = output;
     this.attributes = attributes;
     this.atlas = createArray(100, 100);
-    this.mapCreator = new MapCreator(mapTarget, this.width, this.height, this.output, this);
+    this.mapCreator = new MapCreator(mapTarget, this.width, this.height, this.output, this, char + name);
     this.x = 50;
     this.y = 50;
     this.level = 0;
