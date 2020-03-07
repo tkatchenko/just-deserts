@@ -49,9 +49,6 @@ body {
       position: relative;
       flex: 1 0 70%;
       font-size: 26px;
-      color: #ffac5a;
-      background-color: $orange;
-      background-image: url(../images/background-orange.png);
       padding: 10px;
       overflow: hidden;
 
@@ -60,6 +57,25 @@ body {
         order: 2;
         height: calc(100% - 110px);
         font-size: 20px;
+      }
+
+      &.orange {
+        background-color: $orange;
+        background-image: url(../images/background-orange.png);
+      }
+
+      &.green {
+        background-color: #499600;
+        background-image: url(../images/background-green.png);
+      }
+
+      &.gray {
+        background-color: #999;
+      }
+
+      &.brown {
+        background-color: #965c00;
+        background-image: url(../images/background-brown.png);
       }
 
       #controls {
@@ -236,13 +252,24 @@ body {
             top: 0;
             right: 0;
             bottom: 0;
-            left: 0;
-            background-color: $green;
-            background-image: url(../images/background-green.png);
+            left: -2px;
+            background: repeating-linear-gradient(
+              45deg,
+              $white,
+              $white 2px,
+              transparent 2px,
+              transparent 20px
+            );
+            border-right: 2px solid $white;
           }
 
           .text {
             position: relative;
+            background-color: $blue;
+            background-image: url(../images/background-blue.png);
+            border-right: 2px solid $white;
+            border-left: 2px solid $white;
+            padding: 10px;
           }
         }
       }

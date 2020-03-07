@@ -1,7 +1,7 @@
 import { getRandomInt, numberWithCommas, doubler } from './utility.js';
 
 export default class Player {
-  constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
+  constructor(name, char, startingExp, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
     this.name = name;
     this.char = char;
     this.x = x;
@@ -27,7 +27,7 @@ export default class Player {
     this.attributes.update('defense', this.defense);
     this.attributes.update('hydration', this.hydration);
 
-    this.updateExp(100);
+    this.updateExp(startingExp);
 
     this.draw();
   }
@@ -87,7 +87,7 @@ export default class Player {
           collision.takeDamage(this.attack, this.name);
 
           if (collision.dead) {
-            this.updateExp((collision.attack + collision.defense) / 3);
+            this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 15))));
           }
         } else {
           this.output.log(this.name + ' misses ' + collision.name + '.');
@@ -182,13 +182,10 @@ export default class Player {
     this.exp += delta;
 
     const baseExp = 100;
-    const thisLevel = doubler(baseExp, this.level - 1);
-    const nextLevel = doubler(baseExp, this.level);
-    const levelDiff = nextLevel - thisLevel;
+    let thisLevel = doubler(baseExp, this.level - 1);
+    let nextLevel = doubler(baseExp, this.level);
 
-    const progress = (this.exp - thisLevel) / levelDiff;
-
-    if (this.exp >= nextLevel) {
+    while (this.exp >= nextLevel) {
       this.level++;
       const newHealth = Math.floor((this.maxHealth * 1.5) - getRandomInt(0, this.maxHealth * 0.2));
       this.health = this.health + newHealth - this.maxHealth;
@@ -201,7 +198,13 @@ export default class Player {
       this.attributes.update('defense', this.defense);
 
       this.output.log(this.name + ' reaches level ' + this.level + '.');
+
+      thisLevel = doubler(baseExp, this.level - 1);
+      nextLevel = doubler(baseExp, this.level);
     }
+
+    const levelDiff = nextLevel - thisLevel;
+    const progress = (this.exp - thisLevel) / levelDiff;
 
     this.attributes.updateExp(this.level, progress);
   }

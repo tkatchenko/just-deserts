@@ -23,6 +23,7 @@ export default class Game {
     this.player = new Player(
       name,
       char,
+      100,
       25,
       25,
       100 + playerHealthAddition,

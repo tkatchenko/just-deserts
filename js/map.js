@@ -2,10 +2,11 @@ import { createArray } from './utility.js';
 import Tile from './tile.js';
 
 export default class Map {
-  constructor(target, width, height, output, game) {
+  constructor(target, width, height, color, output, game) {
     this.target = target;
     this.width = width;
     this.height = height;
+    this.color = color;
     this.output = output;
     this.game = game;
     this.objects = createArray(width, height);
@@ -14,11 +15,13 @@ export default class Map {
     let mapOutput = '';
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
-        mapOutput += '<span data-x="' + x + '" data-y="' + y + '">.</span>';
+        mapOutput += '<span style="color: rgba(255, 255, 255, 0.3)" data-x="' + x + '" data-y="' + y + '">.</span>';
       }
       mapOutput += '<br>';
     }
 
+    document.querySelector('#map').className = '';
+    document.querySelector('#map').classList.add(this.color);
     this.target.innerHTML = mapOutput;
 
     if (this.game.y === 50) {
@@ -29,7 +32,7 @@ export default class Map {
           '≡',
           i,
           28,
-          '#d60',
+          'rgba(0, 0, 0, 0.3)',
           this
         ));
       }
@@ -45,6 +48,7 @@ export default class Map {
       el.style.color = object.color;
       this.tiles[object.x][object.y] = object;
     } else {
+      el.style.color = null;
       this.objects[object.x][object.y] = object;
     }
 
@@ -66,6 +70,7 @@ export default class Map {
       el.style.color = this.tiles[x][y].color;
     } else {
       el.innerHTML = '.';
+      el.style.color = 'rgba(255, 255, 255, 0.3)';
     }
 
     this.objects[x][y] = null;
@@ -83,6 +88,8 @@ export default class Map {
         } else if (this.tiles[x][y]) {
           char = this.tiles[x][y].char;
           color = this.tiles[x][y].color;
+        } else if (char === '.') {
+          color = 'rgba(255, 255, 255, 0.3)';
         }
 
         color = color ? 'style="color:' + color + '"' : null;
@@ -92,6 +99,8 @@ export default class Map {
       mapOutput += '<br>';
     }
 
+    document.querySelector('#map').className = '';
+    document.querySelector('#map').classList.add(this.color);
     this.target.innerHTML = mapOutput;
   }
 
@@ -103,6 +112,7 @@ export default class Map {
       char: '🦴'
     };
     el.innerHTML = this.tiles[x][y].char;
+    el.style.color = null;
   }
 
   checkCollision(object) {
