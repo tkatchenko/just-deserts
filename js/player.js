@@ -196,6 +196,20 @@ export default class Player {
       }, 100);
     }
 
+    const percent = this.health / this.maxHealth;
+    const el = document.querySelector('#health');
+
+    if (percent < 0.25) {
+      el.classList.remove('orange');
+      el.classList.add('red');
+    } else if (percent < 0.5) {
+      el.classList.remove('red');
+      el.classList.add('orange');
+    } else {
+      el.classList.remove('orange');
+      el.classList.remove('red');
+    }
+
     if (this.health <= 0) {
       this.die();
     }
