@@ -1,6 +1,6 @@
 export default class Tile {
   constructor(name, char, x, y, color, map) {
-    this.name = name;
+    this.name = char + name;
     this.char = char;
     this.x = x;
     this.y = y;

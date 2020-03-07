@@ -1,6 +1,6 @@
 export default class Wall {
   constructor(name, char, x, y, attack, map, output) {
-    this.name = name;
+    this.name = char + name;
     this.char = char;
     this.x = x;
     this.y = y;

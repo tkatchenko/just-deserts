@@ -2,7 +2,7 @@ import { getRandomInt, numberWithCommas } from './utility.js';
 
 export default class Enemy {
   constructor(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable, attackType, aggressive, awareness) {
-    this.name = name;
+    this.name = char + name;
     this.char = char;
     this.x = x;
     this.y = y;
@@ -151,6 +151,6 @@ export default class Enemy {
     this.dead = true;
     this.remove = true;
     this.map.addDeath(this.x, this.y);
-    this.output.log(this.name + ' received their Just Deserts.');
+    this.output.log(this.name + ' received their 🏜️Just Deserts.');
   }
 }

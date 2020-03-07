@@ -121,6 +121,7 @@ export default class Game {
         case 'Enter':
         case ' ':
         case '.':
+        case '5':
           this.update();
           break;
       }
@@ -191,7 +192,7 @@ export default class Game {
   win() {
     this.won = true;
     this.stopInput();
-    this.output.log(this.player.name + ' has defeated the bus.');
+    this.output.log(this.player.name + ' has defeated the 🚌Bus.');
     this.output.log('All is well.');
 
     setInterval(() => {

@@ -17,7 +17,7 @@ document.querySelector('#map .box').innerHTML = mapOutput;
 const output = new Output(document.querySelector('#output .box'), debug);
 const attributes = new Attributes(document.querySelector('#attributes .box'));
 
-output.log('Welcome to Just Deserts.');
+output.log('Welcome to 🏜️Just Deserts.');
 
 let name = 'Player';
 document.querySelector('.modal.name input').focus();

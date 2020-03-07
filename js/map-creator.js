@@ -152,7 +152,7 @@ export default class MapCreator {
 
       map.enemies = enemies;
 
-      this.output.log('The bus leaves while you are taking a rest break.');
+      this.output.log('The 🚌Bus leaves while you are taking a rest break.');
 
       return map;
     } else if (level === 1) {

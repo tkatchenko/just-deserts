@@ -2,7 +2,7 @@ import { getRandomInt, numberWithCommas, doubler } from './utility.js';
 
 export default class Player {
   constructor(name, char, startingExp, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
-    this.name = name;
+    this.name = char + name;
     this.char = char;
     this.x = x;
     this.y = y;
@@ -236,7 +236,7 @@ export default class Player {
     if (!this.dead) {
       this.dead = true;
       this.char = '💀';
-      this.output.log(this.name + ' received their Just Deserts.');
+      this.output.log(this.name + ' received their 🏜️Just Deserts.');
       this.draw();
 
       this.game.atlas[this.game.x][this.game.y].enemies.forEach((enemy) => {

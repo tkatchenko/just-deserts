@@ -301,6 +301,9 @@ body {
       display: none; 
     }
 
+    &.intro {
+    }
+
     input[type="text"] {
       width: 100%;
       color: $white;
