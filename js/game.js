@@ -124,9 +124,6 @@ export default class Game {
         case '.':
           this.update();
           break;
-        case 'w':
-          this.win();
-          break;
       }
     }, false);
   }
@@ -153,7 +150,7 @@ export default class Game {
       });
     }
 
-    this.player.update();
+    if (!this.win) this.player.update();
     this.tick++;
   }
 
@@ -190,6 +187,7 @@ export default class Game {
   }
 
   win() {
+    this.win = true;
     this.stopInput();
     this.output.log(this.player.name + ' has defeated the bus.');
     this.output.log('All is well.');
