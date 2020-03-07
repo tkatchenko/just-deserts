@@ -158,6 +158,8 @@ export default class Game {
   }
 
   moveMap(x, y) {
+    this.atlas[this.x][this.y].clear(this.player.prevX, this.player.prevY);
+
     this.x = this.x + x;
     this.y = this.y + y;
 
