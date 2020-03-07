@@ -37,7 +37,6 @@ export default class Game {
       this
     );
 
-
     this.startInput();
   }
 
@@ -150,7 +149,10 @@ export default class Game {
       });
     }
 
-    if (!this.win) this.player.update();
+    if (!this.won) {
+      this.player.update();
+    }
+
     this.tick++;
   }
 
@@ -187,7 +189,7 @@ export default class Game {
   }
 
   win() {
-    this.win = true;
+    this.won = true;
     this.stopInput();
     this.output.log(this.player.name + ' has defeated the bus.');
     this.output.log('All is well.');
