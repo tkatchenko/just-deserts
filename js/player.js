@@ -21,6 +21,7 @@ export default class Player {
     this.level = 1;
     this.hydration = 100;
     this.lastDrink = 0;
+    this.kills = [];
 
     this.attributes.update('health', this.health + '/' + this.maxHealth);
     this.attributes.update('attack', this.attack);
@@ -87,6 +88,8 @@ export default class Player {
           collision.takeDamage(this.attack, this.name);
 
           if (collision.dead) {
+            this.addKill(collision);
+
             this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 15))));
 
             if (collision.name === 'Bus') {
@@ -117,6 +120,13 @@ export default class Player {
       this.dehydrate();
       this.heal();
     }
+  }
+
+  addKill(object) {
+    this.kills.push({
+      name: object.name,
+      tick: this.game.tick,
+    });
   }
 
   takeDamage(damage, name, unstoppable) {
@@ -250,7 +260,6 @@ export default class Player {
     if (!this.dead) {
       this.dead = true;
       this.char = '💀';
-      this.output.log(this.name + ' received their 🏜️Just Deserts.');
       this.draw();
 
       this.game.atlas[this.game.x][this.game.y].enemies.forEach((enemy) => {
@@ -260,6 +269,9 @@ export default class Player {
       setInterval(() => {
         this.game.update();
       }, 100);
+
+      this.output.log(this.name + ' received their 🏜️Just Deserts.');
+      this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
     }
   }
 }
