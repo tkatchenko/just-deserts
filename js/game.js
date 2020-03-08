@@ -4,7 +4,6 @@ import Player from './player.js';
 
 export default class Game {
   constructor(name, char, width, height, mapTarget, output, attributes) {
-
     this.width = width;
     this.height = height;
     this.output = output;
