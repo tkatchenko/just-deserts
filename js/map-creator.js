@@ -1837,7 +1837,7 @@ export default class MapCreator {
 
       map.enemies = enemies;
 
-      this.output.log('The bus speeds towards you.');
+      this.output.log('The 🚌Bus speeds towards you.');
 
       return map;
     } else {
