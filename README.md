@@ -1,4 +1,4 @@
-# Just Deserts
+# 🏜️Just Deserts
 
 🏜️Just Deserts, a www roguelike using emojis created for the [7DRL Challenge 2020](https://itch.io/jam/7drl-challenge-2020).
 
