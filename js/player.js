@@ -91,7 +91,7 @@ export default class Player {
           if (collision.dead) {
             this.addKill(collision);
 
-            this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 10.5))));
+            this.updateExp(1.5 * ((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 10.5)))));
 
             if (collision.name === '🚌Bus') {
               this.game.win();
@@ -230,7 +230,7 @@ export default class Player {
   }
 
   updateExp(delta) {
-    this.exp += delta * 1.5;
+    this.exp += delta;
 
     const baseExp = 100;
     let thisLevel = doubler(baseExp, this.level - 1);
