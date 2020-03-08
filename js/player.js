@@ -22,6 +22,7 @@ export default class Player {
     this.hydration = 100;
     this.lastDrink = 0;
     this.kills = [];
+    this.win = false;
 
     this.attributes.update('health', this.health + '/' + this.maxHealth);
     this.attributes.update('attack', this.attack);
@@ -136,12 +137,14 @@ export default class Player {
   
     this.output.log(this.name + ' takes ' + ((totalDamage) ? numberWithCommas(totalDamage) : 'no') + ' damage from ' + name + '.');
 
+    this.lastAttacked = name;
     this.updateHealth(-totalDamage);
   }
 
   dehydrate() {
     if ((this.game.tick - this.lastDrink) % 3 === 2) {
       this.hydration--;
+      this.lastAttacked = '⌛Dehydration';
       
       const el = document.querySelector('#hydration');
 
@@ -278,7 +281,11 @@ export default class Player {
 
   outputEnd() {
     this.output.log('---');
-    this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
+    if (this.win) {
+      this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
+    } else {
+      this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + ' before they were defeated by ' + this.lastAttacked + '.');
+    }
     if (Object.keys(this.kills).length) {
       let killsText = '';
       Object.keys(this.kills).forEach((el, i) => {
@@ -287,5 +294,14 @@ export default class Player {
       this.output.log(this.name + ' defeated:');
       this.output.log(killsText);
     }
+
+    this.score = (this.game.tick + Object.keys(this.kills).length * 666 + this.maxHealth * 3) * (this.game.level + 1);
+    this.output.log('Their final score was ' + numberWithCommas(this.score) + '.');
+
+    this.output.addHighscore(this);
+
+    this.output.showHighscores();
+
+    this.output.log('');
   }
 }

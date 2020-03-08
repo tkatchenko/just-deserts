@@ -196,8 +196,12 @@ export default class Game {
   win() {
     this.won = true;
     this.stopInput();
+    this.output.log('---');
     this.output.log(this.player.name + ' has defeated the 🚌Bus.');
     this.output.log('All is well.');
+
+    this.player.win = true;
+    this.player.outputEnd();
 
     setInterval(() => {
       this.update();
