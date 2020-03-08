@@ -272,7 +272,8 @@ export default class MapCreator {
             false,
             false,
             'bites',
-            false
+            true,
+            25
           ));
         }
       }
@@ -386,7 +387,7 @@ export default class MapCreator {
             30,
             30,
             60,
-            20,
+            10,
             0.7,
             map,
             this.output,
@@ -411,8 +412,8 @@ export default class MapCreator {
             y,
             20,
             20,
-            50,
-            25,
+            40,
+            15,
             1.1,
             map,
             this.output,
