@@ -13,7 +13,7 @@ for (let y = 0; y < 50; y++) {
   mapOutput += '<br>';
 }
 
-document.querySelector('#map .box').innerHTML = mapOutput;
+document.querySelector('#map > .box').innerHTML = mapOutput;
 
 const output = new Output(document.querySelector('#output .box'), debug);
 const attributes = new Attributes(document.querySelector('#attributes .box'));
@@ -48,6 +48,6 @@ document.querySelector('.modal.name input').addEventListener('keydown', (e) => {
 document.querySelector('.modal.look .choices').onclick = (e) => {
   document.querySelector('.modal.look').style.display = 'none';
   document.removeEventListener('keydown', randomSelect);
-  const game = new Game(name, e.target.innerHTML, 50, 50, document.querySelector('#map .box'), output, attributes);
+  const game = new Game(name, e.target.innerHTML, 50, 50, document.querySelector('#map > .box'), output, attributes);
 };
 

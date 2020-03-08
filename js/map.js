@@ -40,7 +40,7 @@ export default class Map {
   }
 
   draw(object, focus) {
-    const el = document.querySelector('#map .box span[data-x="' + object.x + '"][data-y="' + object.y + '"]');
+    const el = document.querySelector('#map > .box span[data-x="' + object.x + '"][data-y="' + object.y + '"]');
 
     el.innerHTML = object.char;
 
@@ -53,7 +53,7 @@ export default class Map {
     }
 
     if (focus) {
-      const wrapper = document.querySelector('#map .box');
+      const wrapper = document.querySelector('#map > .box');
       const elTop = el.offsetTop - wrapper.offsetTop;
       const elLeft = el.offsetLeft - wrapper.offsetLeft;
 
@@ -63,7 +63,7 @@ export default class Map {
   }
 
   clear(x, y) {
-    const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
+    const el = document.querySelector('#map > .box span[data-x="' + x + '"][data-y="' + y + '"]');
 
     if (this.tiles[x][y]) {
       el.innerHTML = this.tiles[x][y].char;
@@ -105,7 +105,7 @@ export default class Map {
   }
 
   addDeath(x, y) {
-    const el = document.querySelector('#map .box span[data-x="' + x + '"][data-y="' + y + '"]');
+    const el = document.querySelector('#map > .box span[data-x="' + x + '"][data-y="' + y + '"]');
 
     this.clear(x, y);
     this.tiles[x][y] = {

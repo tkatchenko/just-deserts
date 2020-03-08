@@ -206,7 +206,7 @@ body {
       @media (max-width: 800px) {
         flex: 0 0 100%;
         order: 1;
-        height: 110px;
+        height: 135px;
       }
 
       .box {
@@ -294,14 +294,16 @@ body {
   }
 
   .modal {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
+    font-size: 18px;
     color: $white;
     background-color: red;
     background-image: url(../images/background-red.png);
     padding: 10px;
     transform: translate(-50%, -50%);
+    z-index: 2;
 
     &.look {
       display: none; 
