@@ -35,7 +35,7 @@ function scripts() {
 function buildScripts() {
   return gulp.src(['../js/index.js'])
     .pipe(webpack({
-      mode: 'production',
+      mode: 'none',
       output: {
         filename: 'scripts.js',
       }

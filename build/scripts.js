@@ -8,1425 +8,2619 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-!function (t) {
-  var e = {};
+/******/
+(function (modules) {
+  // webpackBootstrap
 
-  function s(i) {
-    if (e[i]) return e[i].exports;
-    var h = e[i] = {
-      i: i,
-      l: !1,
-      exports: {}
-    };
-    return t[i].call(h.exports, h, h.exports, s), h.l = !0, h.exports;
-  }
+  /******/
+  // The module cache
 
-  s.m = t, s.c = e, s.d = function (t, e, i) {
-    s.o(t, e) || Object.defineProperty(t, e, {
-      enumerable: !0,
-      get: i
-    });
-  }, s.r = function (t) {
-    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, {
-      value: "Module"
-    }), Object.defineProperty(t, "__esModule", {
-      value: !0
-    });
-  }, s.t = function (t, e) {
-    if (1 & e && (t = s(t)), 8 & e) return t;
-    if (4 & e && "object" == _typeof(t) && t && t.__esModule) return t;
-    var i = Object.create(null);
-    if (s.r(i), Object.defineProperty(i, "default", {
-      enumerable: !0,
-      value: t
-    }), 2 & e && "string" != typeof t) for (var h in t) {
-      s.d(i, h, function (e) {
-        return t[e];
-      }.bind(null, h));
+  /******/
+  var installedModules = {};
+  /******/
+
+  /******/
+  // The require function
+
+  /******/
+
+  function __webpack_require__(moduleId) {
+    /******/
+
+    /******/
+    // Check if module is in cache
+
+    /******/
+    if (installedModules[moduleId]) {
+      /******/
+      return installedModules[moduleId].exports;
+      /******/
     }
-    return i;
-  }, s.n = function (t) {
-    var e = t && t.__esModule ? function () {
-      return t.default;
-    } : function () {
-      return t;
+    /******/
+    // Create a new module (and put it into the cache)
+
+    /******/
+
+
+    var module = installedModules[moduleId] = {
+      /******/
+      i: moduleId,
+
+      /******/
+      l: false,
+
+      /******/
+      exports: {}
+      /******/
+
     };
-    return s.d(e, "a", e), e;
-  }, s.o = function (t, e) {
-    return Object.prototype.hasOwnProperty.call(t, e);
-  }, s.p = "", s(s.s = 0);
-}([function (t, e, s) {
+    /******/
+
+    /******/
+    // Execute the module function
+
+    /******/
+
+    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+    /******/
+
+    /******/
+    // Flag the module as loaded
+
+    /******/
+
+    module.l = true;
+    /******/
+
+    /******/
+    // Return the exports of the module
+
+    /******/
+
+    return module.exports;
+    /******/
+  }
+  /******/
+
+  /******/
+
+  /******/
+  // expose the modules object (__webpack_modules__)
+
+  /******/
+
+
+  __webpack_require__.m = modules;
+  /******/
+
+  /******/
+  // expose the module cache
+
+  /******/
+
+  __webpack_require__.c = installedModules;
+  /******/
+
+  /******/
+  // define getter function for harmony exports
+
+  /******/
+
+  __webpack_require__.d = function (exports, name, getter) {
+    /******/
+    if (!__webpack_require__.o(exports, name)) {
+      /******/
+      Object.defineProperty(exports, name, {
+        enumerable: true,
+        get: getter
+      });
+      /******/
+    }
+    /******/
+
+  };
+  /******/
+
+  /******/
+  // define __esModule on exports
+
+  /******/
+
+
+  __webpack_require__.r = function (exports) {
+    /******/
+    if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+      /******/
+      Object.defineProperty(exports, Symbol.toStringTag, {
+        value: 'Module'
+      });
+      /******/
+    }
+    /******/
+
+
+    Object.defineProperty(exports, '__esModule', {
+      value: true
+    });
+    /******/
+  };
+  /******/
+
+  /******/
+  // create a fake namespace object
+
+  /******/
+  // mode & 1: value is a module id, require it
+
+  /******/
+  // mode & 2: merge all properties of value into the ns
+
+  /******/
+  // mode & 4: return value when already ns object
+
+  /******/
+  // mode & 8|1: behave like require
+
+  /******/
+
+
+  __webpack_require__.t = function (value, mode) {
+    /******/
+    if (mode & 1) value = __webpack_require__(value);
+    /******/
+
+    if (mode & 8) return value;
+    /******/
+
+    if (mode & 4 && _typeof(value) === 'object' && value && value.__esModule) return value;
+    /******/
+
+    var ns = Object.create(null);
+    /******/
+
+    __webpack_require__.r(ns);
+    /******/
+
+
+    Object.defineProperty(ns, 'default', {
+      enumerable: true,
+      value: value
+    });
+    /******/
+
+    if (mode & 2 && typeof value != 'string') for (var key in value) {
+      __webpack_require__.d(ns, key, function (key) {
+        return value[key];
+      }.bind(null, key));
+    }
+    /******/
+
+    return ns;
+    /******/
+  };
+  /******/
+
+  /******/
+  // getDefaultExport function for compatibility with non-harmony modules
+
+  /******/
+
+
+  __webpack_require__.n = function (module) {
+    /******/
+    var getter = module && module.__esModule ?
+    /******/
+    function getDefault() {
+      return module['default'];
+    } :
+    /******/
+    function getModuleExports() {
+      return module;
+    };
+    /******/
+
+    __webpack_require__.d(getter, 'a', getter);
+    /******/
+
+
+    return getter;
+    /******/
+  };
+  /******/
+
+  /******/
+  // Object.prototype.hasOwnProperty.call
+
+  /******/
+
+
+  __webpack_require__.o = function (object, property) {
+    return Object.prototype.hasOwnProperty.call(object, property);
+  };
+  /******/
+
+  /******/
+  // __webpack_public_path__
+
+  /******/
+
+
+  __webpack_require__.p = "";
+  /******/
+
+  /******/
+
+  /******/
+  // Load entry module and return exports
+
+  /******/
+
+  return __webpack_require__(__webpack_require__.s = 0);
+  /******/
+})(
+/************************************************************************/
+
+/******/
+[
+/* 0 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
   "use strict";
 
-  function i(t, e) {
-    return t = Math.ceil(t), e = Math.floor(e), Math.floor(Math.random() * (e - t)) + t;
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+  /* harmony import */
+
+
+  var _output_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+  /* harmony import */
+
+
+  var _attributes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+  /* harmony import */
+
+
+  var _game_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+
+  var debug = true;
+  var mapOutput = '';
+
+  for (var y = 0; y < 50; y++) {
+    for (var x = 0; x < 50; x++) {
+      mapOutput += '<span style="color: rgba(255, 255, 255, 0.3)" data-x="' + x + '" data-y="' + y + '">.</span>';
+    }
+
+    mapOutput += '<br>';
   }
 
-  function h(t) {
-    var e = new Array(t || 0),
-        s = t;
+  document.querySelector('#map > .box').innerHTML = mapOutput;
+  var output = new _output_js__WEBPACK_IMPORTED_MODULE_1__["default"](document.querySelector('#output .box'), debug);
+  var attributes = new _attributes_js__WEBPACK_IMPORTED_MODULE_2__["default"](document.querySelector('#attributes .box'));
+  output.log('Welcome to 🏜️Just Deserts, created for the <a target="_blank" href="https://itch.io/jam/7drl-challenge-2020">7DRL Challenge 2020</a>.');
+  output.log('You can use the ⬇️arrow keys, 🔢numpad, 💻Vim keys or mouse/touch for movement. Enter, space, period and 5 will 💤rest.');
+  output.showHighscores();
+
+  var randomSelect = function randomSelect(e) {
+    if (e.key === 'Enter') {
+      var el = document.querySelectorAll('.modal.look .choices div');
+      el[Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, el.length - 1)].click();
+    }
+  };
+
+  var name = 'Player';
+  document.querySelector('.modal.name input').focus();
+  document.querySelector('.modal.name input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      name = document.querySelector('.modal.name input').value ? document.querySelector('.modal.name input').value : name;
+      document.querySelector('.modal.name').style.display = 'none';
+      document.querySelector('.modal.look').style.display = 'block';
+      setTimeout(function () {
+        document.addEventListener('keydown', randomSelect);
+      });
+    }
+  });
+
+  document.querySelector('.modal.look .choices').onclick = function (e) {
+    document.querySelector('.modal.look').style.display = 'none';
+    document.removeEventListener('keydown', randomSelect);
+    var game = new _game_js__WEBPACK_IMPORTED_MODULE_3__["default"](name, e.target.innerHTML, 50, 50, document.querySelector('#map > .box'), output, attributes);
+  };
+  /***/
+
+},
+/* 1 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "getRandomInt", function () {
+    return getRandomInt;
+  });
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "createArray", function () {
+    return createArray;
+  });
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "numberWithCommas", function () {
+    return numberWithCommas;
+  });
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "doubler", function () {
+    return doubler;
+  });
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  function createArray(length) {
+    var arr = new Array(length || 0),
+        i = length;
 
     if (arguments.length > 1) {
-      var _i = Array.prototype.slice.call(arguments, 1);
+      var args = Array.prototype.slice.call(arguments, 1);
 
-      for (; s--;) {
-        e[t - 1 - s] = h.apply(this, _i);
+      while (i--) {
+        arr[length - 1 - i] = createArray.apply(this, args);
       }
     }
 
-    return e;
+    return arr;
   }
 
-  function o(t) {
-    return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  function a(t, e) {
-    var s = t;
+  function doubler(base, times) {
+    var number = base;
 
-    for (var _t = 0; _t < e; _t++) {
-      s *= 2;
+    for (var i = 0; i < times; i++) {
+      number = number * 2;
     }
 
-    return s;
+    return number;
   }
+  /***/
 
-  s.r(e);
+},
+/* 2 */
 
-  var l = /*#__PURE__*/function () {
-    function l(t, e, s, i, h, o) {
-      _classCallCheck(this, l);
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
 
-      this.name = e + t, this.char = e, this.x = s, this.y = i, this.color = h, this.map = o, this.draw();
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Output;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+  var Output = /*#__PURE__*/function () {
+    function Output(target, debug) {
+      _classCallCheck(this, Output);
+
+      this.target = target;
+      this.debug = debug;
     }
 
-    _createClass(l, [{
-      key: "draw",
-      value: function draw() {
-        this.map.draw(this);
-      }
-    }]);
-
-    return l;
-  }();
-
-  var r = /*#__PURE__*/function () {
-    function r(t, e, s, i, o, a) {
-      _classCallCheck(this, r);
-
-      this.target = t, this.width = e, this.height = s, this.color = i, this.output = o, this.game = a, this.objects = h(e, s), this.tiles = h(e, s);
-      var _r = "";
-
-      for (var _t2 = 0; _t2 < this.height; _t2++) {
-        for (var _e = 0; _e < this.width; _e++) {
-          _r += '<span style="color: rgba(255, 255, 255, 0.3)" data-x="' + _e + '" data-y="' + _t2 + '">.</span>';
-        }
-
-        _r += "<br>";
-      }
-
-      if (document.querySelector("#map").className = "", document.querySelector("#map").classList.add(this.color), this.target.innerHTML = _r, 50 === this.game.y) {
-        var _t3 = [];
-
-        for (var _e2 = 0; _e2 < 50; _e2++) {
-          _t3.push(new l("Road", "≡", _e2, 28, "rgba(0, 0, 0, 0.3)", this));
-        }
-      }
-    }
-
-    _createClass(r, [{
-      key: "draw",
-      value: function draw(t, e) {
-        var s = document.querySelector('#map > .box span[data-x="' + t.x + '"][data-y="' + t.y + '"]');
-
-        if (s.innerHTML = t.char, "Tile" === t.constructor.name ? (s.style.color = t.color, this.tiles[t.x][t.y] = t) : (s.style.color = null, this.objects[t.x][t.y] = t), e) {
-          var _t4 = document.querySelector("#map > .box"),
-              _e3 = s.offsetTop - _t4.offsetTop,
-              _i2 = s.offsetLeft - _t4.offsetLeft;
-
-          _t4.scrollTop = _e3 - _t4.offsetHeight / 2 + 10, _t4.scrollLeft = _i2 - _t4.offsetWidth / 2 + 10;
+    _createClass(Output, [{
+      key: "log",
+      value: function log(text, debug) {
+        if (this.debug && debug) {
+          this.target.innerHTML = this.target.innerHTML === '' ? this.target.innerHTML + 'DEBUG: ' + text : this.target.innerHTML + '<br><br>' + 'DEBUG: ' + text;
+          this.target.scrollTop = this.target.scrollHeight;
+        } else if (!debug) {
+          this.target.innerHTML = this.target.innerHTML === '' ? this.target.innerHTML + text : this.target.innerHTML + '<br><br>' + text;
+          this.target.scrollTop = this.target.scrollHeight;
         }
       }
     }, {
       key: "clear",
-      value: function clear(t, e) {
-        var s = document.querySelector('#map > .box span[data-x="' + t + '"][data-y="' + e + '"]');
-        this.tiles[t][e] ? (s.innerHTML = this.tiles[t][e].char, s.style.color = this.tiles[t][e].color) : (s.innerHTML = ".", s.style.color = "rgba(255, 255, 255, 0.3)"), this.objects[t][e] = null;
+      value: function clear() {
+        this.target.innerHTML = '';
       }
     }, {
-      key: "redraw",
-      value: function redraw() {
-        var t = "";
+      key: "addHighscore",
+      value: function addHighscore(player) {
+        var scores = JSON.parse(localStorage.getItem('JustDesertsHighscores'));
 
-        for (var _e4 = 0; _e4 < this.height; _e4++) {
-          for (var _s = 0; _s < this.width; _s++) {
-            var _i3 = ".",
-                _h = null;
-            this.objects[_s][_e4] && "Player" !== this.objects[_s][_e4].constructor.name ? _i3 = this.objects[_s][_e4].char : this.tiles[_s][_e4] ? (_i3 = this.tiles[_s][_e4].char, _h = this.tiles[_s][_e4].color) : "." === _i3 && (_h = "rgba(255, 255, 255, 0.3)"), _h = _h ? 'style="color:' + _h + '"' : null, t += "<span " + _h + ' data-x="' + _s + '" data-y="' + _e4 + '">' + _i3 + "</span>";
-          }
-
-          t += "<br>";
+        if (!scores) {
+          scores = [];
+          scores.push({
+            'name': player.name,
+            'score': player.score
+          });
+        } else {
+          scores.push({
+            'name': player.name,
+            'score': player.score
+          });
         }
 
-        document.querySelector("#map").className = "", document.querySelector("#map").classList.add(this.color), this.target.innerHTML = t;
+        scores = scores.sort(function (el1, el2) {
+          return el2.score - el1.score;
+        });
+        localStorage.setItem('JustDesertsHighscores', JSON.stringify(scores.slice(0, 5)));
       }
     }, {
-      key: "addDeath",
-      value: function addDeath(t, e) {
-        var s = document.querySelector('#map > .box span[data-x="' + t + '"][data-y="' + e + '"]');
-        this.clear(t, e), this.tiles[t][e] = {
-          char: "🦴"
-        }, s.innerHTML = this.tiles[t][e].char, s.style.color = null;
-      }
-    }, {
-      key: "checkCollision",
-      value: function checkCollision(t) {
-        return this.objects[t.x][t.y];
-      }
-    }, {
-      key: "checkAllCollision",
-      value: function checkAllCollision(t) {
-        return this.objects[t.x][t.y] || this.tiles[t.x][t.y];
-      }
-    }]);
-
-    return r;
-  }();
-
-  var n = /*#__PURE__*/function () {
-    function n(t, e, s, i, h, o) {
-      _classCallCheck(this, n);
-
-      this.x = s, this.y = i, this.name = e + t, this.char = e, this.map = h, this.output = o, this.draw();
-    }
-
-    _createClass(n, [{
-      key: "draw",
-      value: function draw() {
-        this.map.draw(this);
-      }
-    }]);
-
-    return n;
-  }();
-
-  var u = /*#__PURE__*/function () {
-    function u(t, e, s, i, h, o, a) {
-      _classCallCheck(this, u);
-
-      this.name = e + t, this.char = e, this.x = s, this.y = i, this.attack = h, this.map = o, this.output = a, this.draw();
-    }
-
-    _createClass(u, [{
-      key: "draw",
-      value: function draw() {
-        this.map.draw(this);
-      }
-    }]);
-
-    return u;
-  }();
-
-  var c = /*#__PURE__*/function () {
-    function c(t, e, s, i, h, o, a, l, r, n, u, _c, p, m, d, y) {
-      _classCallCheck(this, c);
-
-      this.name = e + t, this.char = e, this.x = s, this.y = i, this.prevX = s, this.prevY = i, this.health = h, this.maxHealth = o, this.attack = a, this.defense = l, this.speed = r, this.map = n, this.output = u, this.customUpdate = _c, this.unstoppable = p, this.attackType = m, this.aggressive = d, this.awareness = y, this.timePool = 0, this.draw();
-    }
-
-    _createClass(c, [{
-      key: "update",
-      value: function update() {
-        if (this.customUpdate) this.customUpdate();else for (; this.timePool >= 1;) {
-          if (this.aggressive && Math.abs(this.x - this.map.game.player.x) <= this.awareness && Math.abs(this.y - this.map.game.player.y) <= this.awareness) {
-            var _t5 = 0,
-                _e5 = 0;
-            _t5 = this.map.game.player.x > this.x ? 1 : this.map.game.player.x < this.x ? -1 : 0, _e5 = this.map.game.player.y > this.y ? 1 : this.map.game.player.y < this.y ? -1 : 0;
-
-            var _s2 = this.map.checkCollision({
-              x: this.x + _t5,
-              y: this.y + _e5
-            });
-
-            !_s2 || "Wall" !== _s2.constructor.name && "Water" !== _s2.constructor.name ? this.move(_t5, _e5) : this.move(i(0, 3) - 1, i(0, 3) - 1);
-          } else this.move(i(0, 3) - 1, i(0, 3) - 1);
-
-          this.timePool--;
-        }
-      }
-    }, {
-      key: "move",
-      value: function move(t, e) {
-        this.prevX = this.x, this.prevY = this.y, this.map.clear(this.prevX, this.prevY), this.x = this.x + t, this.y = this.y + e, this.x < 0 ? this.x = 0 : this.x > this.map.width - 1 && (this.x = this.map.width - 1), this.y < 0 ? this.y = 0 : this.y > this.map.height - 1 && (this.y = this.map.height - 1), this.checkCollision();
-      }
-    }, {
-      key: "checkCollision",
-      value: function checkCollision() {
-        var t = this.map.checkCollision(this);
-        if (t) if ("Wall" === t.constructor.name || "Water" === t.constructor.name) this.moveBack();else if (("Enemy" === t.constructor.name || "Player" === t.constructor.name) && (this.unstoppable || this.moveBack(), ("Player" === t.constructor.name || this.unstoppable) && !t.dead)) {
-          var _e6 = (this.attack + this.defense) / (t.attack + t.defense);
-
-          if (Math.random() < _e6) {
-            var _e7 = this.attackType ? this.attackType : "hits";
-
-            this.output.log(this.name + " " + _e7 + " " + t.name + "."), t.takeDamage(this.attack, this.name, this.unstoppable);
-          } else this.output.log(this.name + " misses " + t.name + ".");
-        }
-        this.draw();
-      }
-    }, {
-      key: "moveBack",
-      value: function moveBack() {
-        this.x = this.prevX, this.y = this.prevY;
-      }
-    }, {
-      key: "draw",
-      value: function draw() {
-        this.map.draw(this);
-      }
-    }, {
-      key: "takeDamage",
-      value: function takeDamage(t, e, s) {
-        var h = this.defense >= t ? 0 : t - i(.8 * this.defense, this.defense);
-        s && (h = t), this.output.log(this.name + " takes " + (h ? o(h) : "no") + " damage from " + e + "."), this.updateHealth(-h);
-      }
-    }, {
-      key: "updateHealth",
-      value: function updateHealth(t) {
-        this.health += t, this.health <= 0 && this.die();
-      }
-    }, {
-      key: "die",
-      value: function die() {
-        this.dead = !0, this.remove = !0, this.map.addDeath(this.x, this.y), this.output.log(this.name + " received their 🏜️Just Deserts.");
-      }
-    }]);
-
-    return c;
-  }();
-
-  var p = /*#__PURE__*/function () {
-    function p(t, e, s, i, h, o) {
-      _classCallCheck(this, p);
-
-      this.target = t, this.width = e, this.height = s, this.output = i, this.game = h, this.playerName = o;
-    }
-
-    _createClass(p, [{
-      key: "create",
-      value: function create(t) {
-        var e = i(0, 50);
-        var s = i(0, 50);
-
-        for (; 28 === s;) {
-          s = i(0, 50);
-        }
-
-        var h = [],
-            o = [];
-
-        if (0 === t) {
-          var _t6 = new r(this.target, this.width, this.height, "orange", this.output, this.game);
-
-          new n("Oasis", "🏝️", e, s, _t6, this.output);
-
-          for (var _o = 0; _o < 5; _o++) {
-            var _o2 = i(e - 10, e + 10),
-                _a = i(s - 10, s + 10);
-
-            _o2 < this.width - 1 && _o2 >= 0 && _a < this.height - 1 && _a >= 0 && !_t6.checkAllCollision({
-              x: _o2,
-              y: _a
-            }) && h.push(new u("Palm Tree", "🌴", _o2, _a, 0, _t6, this.output));
-          }
-
-          for (var _e8 = 0; _e8 < 500; _e8++) {
-            var _e9 = i(0, 50),
-                _s3 = i(0, 50);
-
-            _t6.checkAllCollision({
-              x: _e9,
-              y: _s3
-            }) || h.push(new u("Cactus", "🌵", _e9, _s3, 30, _t6, this.output));
-          }
-
-          for (var _e10 = 0; _e10 < 10; _e10++) {
-            var _e11 = i(0, 50),
-                _s4 = i(0, 50);
-
-            _t6.checkCollision({
-              x: _e11,
-              y: _s4
-            }) || o.push(new c("Lizard", "🦎", _e11, _s4, 10, 10, 10, 10, .5, _t6, this.output, !1, !1, "bites", !1));
-          }
-
-          return o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t6, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t6, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over")), h.push(new u("Cactus", "🌵", 25, 26, 30, _t6, this.output)), _t6.enemies = o, this.output.log("The 🚌Bus leaves while " + this.playerName + " is taking a rest break."), _t6;
-        }
-
-        if (1 === t) {
-          var _t7 = new r(this.target, this.width, this.height, "orange", this.output, this.game);
-
-          new n("Oasis", "🏝️", e, s, _t7, this.output);
-
-          for (var _o3 = 0; _o3 < 5; _o3++) {
-            var _o4 = i(e - 10, e + 10),
-                _a2 = i(s - 10, s + 10);
-
-            _o4 < this.width - 1 && _o4 >= 0 && _a2 < this.height - 1 && _a2 >= 0 && !_t7.checkAllCollision({
-              x: _o4,
-              y: _a2
-            }) && h.push(new u("Palm Tree", "🌴", _o4, _a2, 0, _t7, this.output));
-          }
-
-          for (var _e12 = 0; _e12 < 500; _e12++) {
-            var _e13 = i(0, 50),
-                _s5 = i(0, 50);
-
-            _t7.checkAllCollision({
-              x: _e13,
-              y: _s5
-            }) || h.push(new u("Cactus", "🌵", _e13, _s5, 30, _t7, this.output));
-          }
-
-          for (var _e14 = 0; _e14 < 5; _e14++) {
-            var _e15 = i(0, 50),
-                _s6 = i(0, 50);
-
-            _t7.checkCollision({
-              x: _e15,
-              y: _s6
-            }) || o.push(new c("Lizard", "🦎", _e15, _s6, 10, 10, 10, 10, .5, _t7, this.output, !1, !1, "bites", !1));
-          }
-
-          for (var _e16 = 0; _e16 < 10; _e16++) {
-            var _e17 = i(0, 50),
-                _s7 = i(0, 50);
-
-            _t7.checkCollision({
-              x: _e17,
-              y: _s7
-            }) || o.push(new c("Rat", "🐀", _e17, _s7, 10, 10, 40, 10, .8, _t7, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e18 = 0; _e18 < 5; _e18++) {
-            var _e19 = i(0, 50),
-                _s8 = i(0, 50);
-
-            _t7.checkCollision({
-              x: _e19,
-              y: _s8
-            }) || o.push(new c("Grasshopper", "🦗", _e19, _s8, 10, 10, 5, 5, 2, _t7, this.output, !1, !1, "bites", !0, 25));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t7, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t7, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t7.enemies = o, _t7;
-        }
-
-        if (2 === t) {
-          var _t8 = new r(this.target, this.width, this.height, "green", this.output, this.game);
-
-          new n("Wave", "🌊", e, s, _t8, this.output);
-
-          for (var _o5 = 0; _o5 < 5; _o5++) {
-            var _o6 = i(e - 10, e + 10),
-                _a3 = i(s - 10, s + 10);
-
-            _o6 < this.width - 1 && _o6 >= 0 && _a3 < this.height - 1 && _a3 >= 0 && !_t8.checkAllCollision({
-              x: _o6,
-              y: _a3
-            }) && h.push(new u("Tulip", "🌷", _o6, _a3, 0, _t8, this.output));
-          }
-
-          for (var _e20 = 0; _e20 < 500; _e20++) {
-            var _e21 = i(0, 50),
-                _s9 = i(0, 50);
-
-            _t8.checkAllCollision({
-              x: _e21,
-              y: _s9
-            }) || h.push(new u("Pine Tree", "🌲", _e21, _s9, 50, _t8, this.output));
-          }
-
-          for (var _e22 = 0; _e22 < 5; _e22++) {
-            var _e23 = i(0, 50),
-                _s10 = i(0, 50);
-
-            _t8.checkCollision({
-              x: _e23,
-              y: _s10
-            }) || o.push(new c("Ant", "🐜", _e23, _s10, 30, 30, 60, 10, .7, _t8, this.output, !1, !1, "bites", !0, 20));
-          }
-
-          for (var _e24 = 0; _e24 < 10; _e24++) {
-            var _e25 = i(0, 50),
-                _s11 = i(0, 50);
-
-            _t8.checkCollision({
-              x: _e25,
-              y: _s11
-            }) || o.push(new c("Lady Beetle", "🐞", _e25, _s11, 20, 20, 40, 15, 1.1, _t8, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e26 = 0; _e26 < 5; _e26++) {
-            var _e27 = i(0, 50),
-                _s12 = i(0, 50);
-
-            _t8.checkCollision({
-              x: _e27,
-              y: _s12
-            }) || o.push(new c("Bee", "🐝", _e27, _s12, 10, 10, 100, 10, 2, _t8, this.output, !1, !1, "stings", !0, 3));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t8, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t8, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t8.enemies = o, _t8;
-        }
-
-        if (3 === t) {
-          var _t9 = new r(this.target, this.width, this.height, "green", this.output, this.game);
-
-          new n("Wave", "🌊", e, s, _t9, this.output);
-
-          for (var _o7 = 0; _o7 < 5; _o7++) {
-            var _o8 = i(e - 10, e + 10),
-                _a4 = i(s - 10, s + 10);
-
-            _o8 < this.width - 1 && _o8 >= 0 && _a4 < this.height - 1 && _a4 >= 0 && !_t9.checkAllCollision({
-              x: _o8,
-              y: _a4
-            }) && h.push(new u("Tulip", "🌷", _o8, _a4, 0, _t9, this.output));
-          }
-
-          for (var _e28 = 0; _e28 < 450; _e28++) {
-            var _e29 = i(0, 50),
-                _s13 = i(0, 50);
-
-            _t9.checkAllCollision({
-              x: _e29,
-              y: _s13
-            }) || h.push(new u("Pine Tree", "🌲", _e29, _s13, 50, _t9, this.output));
-          }
-
-          for (var _e30 = 0; _e30 < 50; _e30++) {
-            var _e31 = i(0, 50),
-                _s14 = i(0, 50);
-
-            _t9.checkAllCollision({
-              x: _e31,
-              y: _s14
-            }) || h.push(new u("Mountain", "⛰️", _e31, _s14, 100, _t9, this.output));
-          }
-
-          for (var _e32 = 0; _e32 < 5; _e32++) {
-            var _e33 = i(0, 50),
-                _s15 = i(0, 50);
-
-            _t9.checkCollision({
-              x: _e33,
-              y: _s15
-            }) || o.push(new c("Crocodile", "🐊", _e33, _s15, 40, 40, 100, 35, .7, _t9, this.output, !1, !1, "bites", !0, 5));
-          }
-
-          for (var _e34 = 0; _e34 < 10; _e34++) {
-            var _e35 = i(0, 50),
-                _s16 = i(0, 50);
-
-            _t9.checkCollision({
-              x: _e35,
-              y: _s16
-            }) || o.push(new c("Leopard", "🐆", _e35, _s16, 80, 80, 90, 30, 1.1, _t9, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e36 = 0; _e36 < 5; _e36++) {
-            var _e37 = i(0, 50),
-                _s17 = i(0, 50);
-
-            _t9.checkCollision({
-              x: _e37,
-              y: _s17
-            }) || o.push(new c("Elephant", "🐘", _e37, _s17, 200, 200, 300, 30, .25, _t9, this.output, !1, !1, "stomps", !0, 3));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t9, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t9, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t9.enemies = o, _t9;
-        }
-
-        if (4 === t) {
-          var _t10 = new r(this.target, this.width, this.height, "gray", this.output, this.game);
-
-          new n("Faucet", "🚰", e, s, _t10, this.output);
-
-          for (var _o9 = 0; _o9 < 5; _o9++) {
-            var _o10 = i(e - 10, e + 10),
-                _a5 = i(s - 10, s + 10);
-
-            _o10 < this.width - 1 && _o10 >= 0 && _a5 < this.height - 1 && _a5 >= 0 && !_t10.checkAllCollision({
-              x: _o10,
-              y: _a5
-            }) && h.push(new u("Restroom Sign", "🚻", _o10, _a5, 0, _t10, this.output));
-          }
-
-          for (var _e38 = 0; _e38 < 400; _e38++) {
-            var _e39 = i(0, 50),
-                _s18 = i(0, 50);
-
-            _t10.checkAllCollision({
-              x: _e39,
-              y: _s18
-            }) || h.push(new u("Office Building", "🏢", _e39, _s18, 120, _t10, this.output));
-          }
-
-          for (var _e40 = 0; _e40 < 50; _e40++) {
-            var _e41 = i(0, 50),
-                _s19 = i(0, 50);
-
-            _t10.checkAllCollision({
-              x: _e41,
-              y: _s19
-            }) || h.push(new u("Construction Sign", "🚧", _e41, _s19, 100, _t10, this.output));
-          }
-
-          for (var _e42 = 0; _e42 < 50; _e42++) {
-            var _e43 = i(0, 50),
-                _s20 = i(0, 50);
-
-            _t10.checkAllCollision({
-              x: _e43,
-              y: _s20
-            }) || h.push(new u("Crane", "🏗️", _e43, _s20, 150, _t10, this.output));
-          }
-
-          for (var _e44 = 0; _e44 < 5; _e44++) {
-            var _e45 = i(0, 50),
-                _s21 = i(0, 50);
-
-            _t10.checkCollision({
-              x: _e45,
-              y: _s21
-            }) || o.push(new c("Spider", "🕷", _e45, _s21, 50, 50, 140, 50, .6, _t10, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e46 = 0; _e46 < 10; _e46++) {
-            var _e47 = i(0, 50),
-                _s22 = i(0, 50);
-
-            _t10.checkCollision({
-              x: _e47,
-              y: _s22
-            }) || o.push(new c("Gear", "⚙️", _e47, _s22, 40, 40, 180, 0, 1.7, _t10, this.output, !1, !1, "grinds", !0, 4));
-          }
-
-          for (var _e48 = 0; _e48 < 5; _e48++) {
-            var _e49 = i(0, 50),
-                _s23 = i(0, 50);
-
-            _t10.checkCollision({
-              x: _e49,
-              y: _s23
-            }) || o.push(new c("Tram", "🚋", _e49, _s23, 200, 200, 300, 30, .5, _t10, this.output, !1, !1, "runs over", !0, 1));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t10, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t10, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t10.enemies = o, _t10;
-        }
-
-        if (5 === t) {
-          var _t11 = new r(this.target, this.width, this.height, "gray", this.output, this.game);
-
-          new n("Faucet", "🚰", e, s, _t11, this.output);
-
-          for (var _o11 = 0; _o11 < 5; _o11++) {
-            var _o12 = i(e - 10, e + 10),
-                _a6 = i(s - 10, s + 10);
-
-            _o12 < this.width - 1 && _o12 >= 0 && _a6 < this.height - 1 && _a6 >= 0 && !_t11.checkAllCollision({
-              x: _o12,
-              y: _a6
-            }) && h.push(new u("Restroom Sign", "🚻", _o12, _a6, 0, _t11, this.output));
-          }
-
-          for (var _e50 = 0; _e50 < 400; _e50++) {
-            var _e51 = i(0, 50),
-                _s24 = i(0, 50);
-
-            _t11.checkAllCollision({
-              x: _e51,
-              y: _s24
-            }) || h.push(new u("Office Building", "🏢", _e51, _s24, 120, _t11, this.output));
-          }
-
-          for (var _e52 = 0; _e52 < 50; _e52++) {
-            var _e53 = i(0, 50),
-                _s25 = i(0, 50);
-
-            _t11.checkAllCollision({
-              x: _e53,
-              y: _s25
-            }) || h.push(new u("Convenience Store", "🏪", _e53, _s25, 150, _t11, this.output));
-          }
-
-          for (var _e54 = 0; _e54 < 50; _e54++) {
-            var _e55 = i(0, 50),
-                _s26 = i(0, 50);
-
-            _t11.checkAllCollision({
-              x: _e55,
-              y: _s26
-            }) || h.push(new u("Hotel", "🏨", _e55, _s26, 170, _t11, this.output));
-          }
-
-          for (var _e56 = 0; _e56 < 5; _e56++) {
-            var _e57 = i(0, 50),
-                _s27 = i(0, 50);
-
-            _t11.checkCollision({
-              x: _e57,
-              y: _s27
-            }) || o.push(new c("Dog", "🐕", _e57, _s27, 110, 110, 150, 50, .6, _t11, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e58 = 0; _e58 < 10; _e58++) {
-            var _e59 = i(0, 50),
-                _s28 = i(0, 50);
-
-            _t11.checkCollision({
-              x: _e59,
-              y: _s28
-            }) || o.push(new c("Cat", "🐈", _e59, _s28, 100, 100, 200, 50, .9, _t11, this.output, !1, !1, "scratches", !0, 4));
-          }
-
-          for (var _e60 = 0; _e60 < 5; _e60++) {
-            var _e61 = i(0, 50),
-                _s29 = i(0, 50);
-
-            _t11.checkCollision({
-              x: _e61,
-              y: _s29
-            }) || o.push(new c("Green Salad", "🥗", _e61, _s29, 1e3, 1e3, 100, 0, .5, _t11, this.output, !1, !1, "satiates", !0, 1));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t11, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t11, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t11.enemies = o, _t11;
-        }
-
-        if (6 === t) {
-          var _t12 = new r(this.target, this.width, this.height, "green", this.output, this.game);
-
-          new n("Fountain", "⛲", e, s, _t12, this.output);
-
-          for (var _o13 = 0; _o13 < 5; _o13++) {
-            var _o14 = i(e - 10, e + 10),
-                _a7 = i(s - 10, s + 10);
-
-            _o14 < this.width - 1 && _o14 >= 0 && _a7 < this.height - 1 && _a7 >= 0 && !_t12.checkAllCollision({
-              x: _o14,
-              y: _a7
-            }) && h.push(new u("Woman's Hat", "👒", _o14, _a7, 0, _t12, this.output));
-          }
-
-          for (var _e62 = 0; _e62 < 450; _e62++) {
-            var _e63 = i(0, 50),
-                _s30 = i(0, 50);
-
-            _t12.checkAllCollision({
-              x: _e63,
-              y: _s30
-            }) || h.push(new u("Manicured Tree", "🌳", _e63, _s30, 240, _t12, this.output));
-          }
-
-          for (var _e64 = 0; _e64 < 50; _e64++) {
-            var _e65 = i(0, 50),
-                _s31 = i(0, 50);
-
-            _t12.checkAllCollision({
-              x: _e65,
-              y: _s31
-            }) || h.push(new u("Seedling", "🌱", _e65, _s31, 300, _t12, this.output));
-          }
-
-          for (var _e66 = 0; _e66 < 5; _e66++) {
-            var _e67 = i(0, 50),
-                _s32 = i(0, 50);
-
-            _t12.checkCollision({
-              x: _e67,
-              y: _s32
-            }) || o.push(new c("Tiger", "🐅", _e67, _s32, 110, 110, 200, 70, .7, _t12, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e68 = 0; _e68 < 10; _e68++) {
-            var _e69 = i(0, 50),
-                _s33 = i(0, 50);
-
-            _t12.checkCollision({
-              x: _e69,
-              y: _s33
-            }) || o.push(new c("Monkey", "🐒", _e69, _s33, 100, 100, 150, 70, .9, _t12, this.output, !1, !1, "scratches", !0, 4));
-          }
-
-          for (var _e70 = 0; _e70 < 5; _e70++) {
-            var _e71 = i(0, 50),
-                _s34 = i(0, 50);
-
-            _t12.checkCollision({
-              x: _e71,
-              y: _s34
-            }) || o.push(new c("Snail", "🐌", _e71, _s34, 1e3, 1e3, 100, 100, .1, _t12, this.output, !1, !1, "squashes", !0, 1));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t12, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t12, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t12.enemies = o, _t12;
-        }
-
-        if (7 === t) {
-          var _t13 = new r(this.target, this.width, this.height, "green", this.output, this.game);
-
-          new n("Fountain", "⛲", e, s, _t13, this.output);
-
-          for (var _o15 = 0; _o15 < 5; _o15++) {
-            var _o16 = i(e - 10, e + 10),
-                _a8 = i(s - 10, s + 10);
-
-            _o16 < this.width - 1 && _o16 >= 0 && _a8 < this.height - 1 && _a8 >= 0 && !_t13.checkAllCollision({
-              x: _o16,
-              y: _a8
-            }) && h.push(new u("Woman's Hat", "👒", _o16, _a8, 0, _t13, this.output));
-          }
-
-          for (var _e72 = 0; _e72 < 100; _e72++) {
-            var _e73 = i(0, 50),
-                _s35 = i(0, 50);
-
-            _t13.checkAllCollision({
-              x: _e73,
-              y: _s35
-            }) || h.push(new u("Sunflower", "🌻", _e73, _s35, 390, _t13, this.output));
-          }
-
-          for (var _e74 = 0; _e74 < 100; _e74++) {
-            var _e75 = i(0, 50),
-                _s36 = i(0, 50);
-
-            _t13.checkAllCollision({
-              x: _e75,
-              y: _s36
-            }) || h.push(new u("Hibiscus", "🌺", _e75, _s36, 400, _t13, this.output));
-          }
-
-          for (var _e76 = 0; _e76 < 100; _e76++) {
-            var _e77 = i(0, 50),
-                _s37 = i(0, 50);
-
-            _t13.checkAllCollision({
-              x: _e77,
-              y: _s37
-            }) || h.push(new u("Cherry Blossom", "🌸", _e77, _s37, 410, _t13, this.output));
-          }
-
-          for (var _e78 = 0; _e78 < 200; _e78++) {
-            var _e79 = i(0, 50),
-                _s38 = i(0, 50);
-
-            _t13.checkAllCollision({
-              x: _e79,
-              y: _s38
-            }) || h.push(new u("Manicured Tree", "🌳", _e79, _s38, 240, _t13, this.output));
-          }
-
-          for (var _e80 = 0; _e80 < 5; _e80++) {
-            var _e81 = i(0, 50),
-                _s39 = i(0, 50);
-
-            _t13.checkCollision({
-              x: _e81,
-              y: _s39
-            }) || o.push(new c("Rose", "🌹", _e81, _s39, 130, 130, 350, 200, 1.1, _t13, this.output, !1, !1, "pricks", !0, 10));
-          }
-
-          for (var _e82 = 0; _e82 < 10; _e82++) {
-            var _e83 = i(0, 50),
-                _s40 = i(0, 50);
-
-            _t13.checkCollision({
-              x: _e83,
-              y: _s40
-            }) || o.push(new c("Ogre", "👹", _e83, _s40, 110, 110, 300, 100, .9, _t13, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e84 = 0; _e84 < 5; _e84++) {
-            var _e85 = i(0, 50),
-                _s41 = i(0, 50);
-
-            _t13.checkCollision({
-              x: _e85,
-              y: _s41
-            }) || o.push(new c("Lemon", "🍋", _e85, _s41, 150, 150, 400, 150, .9, _t13, this.output, !1, !1, "sours", !0, 10));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t13, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t13, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t13.enemies = o, _t13;
-        }
-
-        if (8 === t) {
-          var _t14 = new r(this.target, this.width, this.height, "brown", this.output, this.game);
-
-          new n("Water Drops", "💦", e, s, _t14, this.output);
-
-          for (var _o17 = 0; _o17 < 5; _o17++) {
-            var _o18 = i(e - 10, e + 10),
-                _a9 = i(s - 10, s + 10);
-
-            _o18 < this.width - 1 && _o18 >= 0 && _a9 < this.height - 1 && _a9 >= 0 && !_t14.checkAllCollision({
-              x: _o18,
-              y: _a9
-            }) && h.push(new u("Droplet", "💧", _o18, _a9, 0, _t14, this.output));
-          }
-
-          for (var _e86 = 0; _e86 < 50; _e86++) {
-            var _e87 = i(0, 50),
-                _s42 = i(0, 50);
-
-            _t14.checkAllCollision({
-              x: _e87,
-              y: _s42
-            }) || h.push(new u("Amphora", "🏺", _e87, _s42, 350, _t14, this.output));
-          }
-
-          for (var _e88 = 0; _e88 < 200; _e88++) {
-            var _e89 = i(0, 50),
-                _s43 = i(0, 50);
-
-            _t14.checkAllCollision({
-              x: _e89,
-              y: _s43
-            }) || h.push(new u("Volcano", "🌋", _e89, _s43, 600, _t14, this.output));
-          }
-
-          for (var _e90 = 0; _e90 < 50; _e90++) {
-            var _e91 = i(0, 50),
-                _s44 = i(0, 50);
-
-            _t14.checkAllCollision({
-              x: _e91,
-              y: _s44
-            }) || h.push(new u("Classical Architecture", "🏛️", _e91, _s44, 400, _t14, this.output));
-          }
-
-          for (var _e92 = 0; _e92 < 5; _e92++) {
-            var _e93 = i(0, 50),
-                _s45 = i(0, 50);
-
-            _t14.checkCollision({
-              x: _e93,
-              y: _s45
-            }) || o.push(new c("Brachiosaurus", "🦕", _e93, _s45, 530, 530, 510, 210, .6, _t14, this.output, !1, !1, "stomps", !0, 5));
-          }
-
-          for (var _e94 = 0; _e94 < 10; _e94++) {
-            var _e95 = i(0, 50),
-                _s46 = i(0, 50);
-
-            _t14.checkCollision({
-              x: _e95,
-              y: _s46
-            }) || o.push(new c("T-Rex", "🦖", _e95, _s46, 210, 210, 500, 110, 1.1, _t14, this.output, !1, !1, "bites", !0, 10));
-          }
-
-          for (var _e96 = 0; _e96 < 5; _e96++) {
-            var _e97 = i(0, 50),
-                _s47 = i(0, 50);
-
-            _t14.checkCollision({
-              x: _e97,
-              y: _s47
-            }) || o.push(new c("Dragon", "🐉", _e97, _s47, 250, 250, 450, 160, .9, _t14, this.output, !1, !1, "burns", !0, 7));
-          }
-
-          return 50 === this.game.y && this.game.x <= 50 && (o.push(new c("Lizard", "🦎", i(18, 22), 28, 10, 10, 10, 10, 0, _t14, this.output, !1, !1, "bites")), o.push(new c("Bus", "🚌", 25, 28, 1e6, 1e6, 1e6, 1e6, 2, _t14, this.output, function () {
-            for (; this.timePool >= 1;) {
-              this.x - 2 < 0 ? (this.map.clear(this.x, this.y), this.remove = !0) : this.move(-1, 0), this.timePool--;
-            }
-          }, !0, "runs over"))), _t14.enemies = o, _t14;
-        }
-
-        if (9 === t) {
-          var _t15 = new r(this.target, this.width, this.height, "orange", this.output, this.game);
-
-          new n("Oasis", "🏝️", e, s, _t15, this.output);
-
-          for (var _o19 = 0; _o19 < 5; _o19++) {
-            var _o20 = i(e - 10, e + 10),
-                _a10 = i(s - 10, s + 10);
-
-            _o20 < this.width - 1 && _o20 >= 0 && _a10 < this.height - 1 && _a10 >= 0 && !_t15.checkAllCollision({
-              x: _o20,
-              y: _a10
-            }) && h.push(new u("Palm Tree", "🌴", _o20, _a10, 0, _t15, this.output));
-          }
-
-          for (var _e98 = 0; _e98 < 500; _e98++) {
-            var _e99 = i(0, 50),
-                _s48 = i(0, 50);
-
-            _t15.checkAllCollision({
-              x: _e99,
-              y: _s48
-            }) || h.push(new u("Cactus", "🌵", _e99, _s48, 30, _t15, this.output));
-          }
-
-          for (var _e100 = 0; _e100 < 10; _e100++) {
-            var _e101 = i(0, 50),
-                _s49 = i(0, 50);
-
-            _t15.checkCollision({
-              x: _e101,
-              y: _s49
-            }) || o.push(new c("Lizard", "🦎", _e101, _s49, 10, 10, 10, 10, .5, _t15, this.output, !1, !1, "bites", !1));
-          }
-
-          return o.push(new c("Bus", "🚌", 25, 28, 3e3, 3e3, 1e3, 300, 1.1, _t15, this.output, !1, !1, "runs over", !0, 25)), h.push(new u("Cactus", "🌵", 25, 26, 30, _t15, this.output)), _t15.enemies = o, this.output.log("The 🚌Bus speeds towards you."), _t15;
-        }
-
-        {
-          var _t16 = new r(this.target, this.width, this.height, "orange", this.output, this.game);
-
-          for (var _e102 = 0; _e102 < 2e3; _e102++) {
-            var _e103 = i(0, 50),
-                _s50 = i(0, 50);
-
-            _t16.checkAllCollision({
-              x: _e103,
-              y: _s50
-            }) || h.push(new u("Cactus", "🌵", _e103, _s50, 30, _t16, this.output));
-          }
-
-          return _t16;
-        }
-      }
-    }]);
-
-    return p;
-  }();
-
-  var m = /*#__PURE__*/function () {
-    function m(t, e, s, i, h, o, a, l, r, n, u, c, p, _m) {
-      _classCallCheck(this, m);
-
-      this.name = e + t, this.char = e, this.x = i, this.y = h, this.prevX = i, this.prevY = h, this.health = o, this.maxHealth = a, this.attack = l, this.defense = r, this.speed = n, this.map = u, this.output = c, this.attributes = p, this.game = _m, this.exp = 0, this.level = 1, this.hydration = 100, this.lastDrink = 0, this.kills = [], this.win = !1, this.attributes.update("health", this.health + "/" + this.maxHealth), this.attributes.update("attack", this.attack), this.attributes.update("defense", this.defense), this.attributes.update("hydration", this.hydration), this.updateExp(s), this.draw();
-    }
-
-    _createClass(m, [{
-      key: "move",
-      value: function move(t, e) {
-        this.dead || (this.prevX = this.x, this.prevY = this.y, this.x = this.x + t, this.y = this.y + e, this.x < 0 && this.y < 0 ? this.game.moveMap(-1, -1) : this.x > this.map.width - 1 && this.y < 0 ? this.game.moveMap(1, -1) : this.x > this.map.width - 1 && this.y > this.map.height - 1 ? this.game.moveMap(1, 1) : this.x < 0 && this.y > this.map.height - 1 ? this.game.moveMap(-1, 1) : this.x < 0 ? this.game.moveMap(-1, 0) : this.x > this.map.width - 1 ? this.game.moveMap(1, 0) : this.y < 0 ? this.game.moveMap(0, -1) : this.y > this.map.height - 1 && this.game.moveMap(0, 1), this.checkCollision());
-      }
-    }, {
-      key: "checkCollision",
-      value: function checkCollision() {
-        var t = this.map.checkCollision(this);
-        if (t) if ("Wall" === t.constructor.name) this.moveBack(), this.output.log(this.name + " walks into " + t.name + "."), this.takeDamage(t.attack, t.name);else if ("Water" === t.constructor.name) this.moveBack(), this.updateHydration(20), this.output.log(this.name + " drinks from " + t.name + ".");else if ("Enemy" === t.constructor.name) {
-          this.moveBack();
-
-          var _e104 = (this.attack + this.defense) / (t.attack + t.defense);
-
-          Math.random() < _e104 ? (this.output.log(this.name + " punches " + t.name + "."), t.takeDamage(this.attack, this.name), t.dead && (this.addKill(t), this.updateExp((t.attack + t.defense) / (3 * (1 - (this.game.level + 1) / 10.5)) * 1.5), "🚌Bus" === t.name && this.game.win())) : this.output.log(this.name + " misses " + t.name + ".");
-        }
-        this.draw();
-      }
-    }, {
-      key: "moveBack",
-      value: function moveBack() {
-        this.x = this.prevX, this.y = this.prevY;
-      }
-    }, {
-      key: "draw",
-      value: function draw() {
-        this.map.clear(this.prevX, this.prevY), this.map.draw(this, !0);
-      }
-    }, {
-      key: "update",
-      value: function update() {
-        this.dead || (this.dehydrate(), this.heal());
-      }
-    }, {
-      key: "addKill",
-      value: function addKill(t) {
-        this.kills[t.name] ? this.kills[t.name]++ : this.kills[t.name] = 1;
-      }
-    }, {
-      key: "takeDamage",
-      value: function takeDamage(t, e, s) {
-        var h = this.defense >= t ? 0 : t - i(.8 * this.defense, this.defense);
-        s && (h = t), this.output.log(this.name + " takes " + (h ? o(h) : "no") + " damage from " + e + "."), this.lastAttacked = e, this.updateHealth(-h);
-      }
-    }, {
-      key: "dehydrate",
-      value: function dehydrate() {
-        if ((this.game.tick - this.lastDrink) % 3 == 2) {
-          this.hydration--, this.lastAttacked = "⌛Dehydration";
-
-          var _t17 = document.querySelector("#hydration");
-
-          if (40 === this.hydration && (this.output.log(this.name + " is thirsty."), _t17.classList.remove("red"), _t17.classList.add("orange")), 10 === this.hydration && (this.output.log(this.name + " is really thirsty."), _t17.classList.remove("orange"), _t17.classList.add("red")), this.hydration <= 0) {
-            this.hydration = 0;
-
-            var _t18 = Math.floor(this.maxHealth / 10);
-
-            this.output.log(this.name + " is completely dehydrated and loses " + _t18 + " health."), this.updateHealth(-_t18);
-          }
-
-          this.attributes.update("hydration", this.hydration);
-        }
-      }
-    }, {
-      key: "updateHydration",
-      value: function updateHydration(t) {
-        this.hydration += t, this.hydration > 100 && (this.hydration = 100);
-        var e = document.querySelector("#hydration");
-        this.hydration > 40 && (e.classList.remove("orange"), e.classList.remove("red")), this.lastDrink = this.game.tick + 1, this.attributes.update("hydration", this.hydration);
-      }
-    }, {
-      key: "heal",
-      value: function heal() {
-        this.dead || this.updateHealth(Math.ceil(this.level / 2));
-      }
-    }, {
-      key: "updateHealth",
-      value: function updateHealth(t) {
+      key: "showHighscores",
+      value: function showHighscores() {
         var _this = this;
 
-        if (this.health += t, this.health > this.maxHealth && (this.health = this.maxHealth), this.health < 0 && (this.health = 0), this.attributes.update("health", this.health + "/" + this.maxHealth), t < 0) {
-          var _t19 = document.querySelector("#overlay");
+        var scores = JSON.parse(localStorage.getItem('JustDesertsHighscores'));
 
-          _t19.classList.add("show"), setTimeout(function () {
-            _this.dead || _t19.classList.remove("show");
-          }, 100);
+        if (scores && scores.length) {
+          this.log('---');
+          this.log('Highscores:');
+          scores.forEach(function (el, i) {
+            _this.log(i + 1 + '. ' + el.name + ': ' + Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["numberWithCommas"])(el.score));
+          });
         }
+      }
+    }]);
 
-        var e = this.health / this.maxHealth,
-            s = document.querySelector("#health");
-        e < .25 ? (s.classList.remove("orange"), s.classList.add("red")) : e < .5 ? (s.classList.remove("red"), s.classList.add("orange")) : (s.classList.remove("orange"), s.classList.remove("red")), this.health <= 0 && this.die();
+    return Output;
+  }();
+  /***/
+
+},
+/* 3 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Attributes;
+  });
+
+  var Attributes = /*#__PURE__*/function () {
+    function Attributes(target) {
+      _classCallCheck(this, Attributes);
+
+      this.target = target;
+    }
+
+    _createClass(Attributes, [{
+      key: "update",
+      value: function update(attribute, text) {
+        this.target.querySelector('#' + attribute + ' .current').innerHTML = text;
       }
     }, {
       key: "updateExp",
-      value: function updateExp(t) {
-        this.exp += t;
-        var e = a(100, this.level - 1),
-            s = a(100, this.level);
-
-        for (; this.exp >= s;) {
-          this.level++;
-
-          var _t20 = Math.floor(1.5 * this.maxHealth - i(0, .2 * this.maxHealth));
-
-          this.health = this.health + _t20 - this.maxHealth, this.maxHealth = _t20, this.attack = Math.floor(1.5 * this.attack - i(0, .2 * this.attack)), this.defense = Math.floor(1.5 * this.defense - i(0, .2 * this.defense)), this.attributes.update("health", this.health + "/" + this.maxHealth), this.attributes.update("attack", this.attack), this.attributes.update("defense", this.defense), this.output.log(this.name + " reaches level " + this.level + "."), e = a(100, this.level - 1), s = a(100, this.level);
-        }
-
-        var h = s - e,
-            o = (this.exp - e) / h;
-        this.attributes.updateExp(this.level, o);
-      }
-    }, {
-      key: "die",
-      value: function die() {
-        var _this2 = this;
-
-        this.dead || (this.dead = !0, this.char = "💀", this.draw(), this.game.atlas[this.game.x][this.game.y].enemies.forEach(function (t) {
-          t.aggressive = !1;
-        }), setInterval(function () {
-          _this2.game.update();
-        }, 100), this.output.log(this.name + " received their 🏜️Just Deserts."), this.outputEnd());
-      }
-    }, {
-      key: "outputEnd",
-      value: function outputEnd() {
-        var _this3 = this;
-
-        if (this.output.log("---"), this.win ? this.output.log(this.name + " survived " + this.game.tick + " turns and reached level " + this.level + ".") : this.output.log(this.name + " survived " + this.game.tick + " turns and reached level " + this.level + " before they were defeated by " + this.lastAttacked + "."), Object.keys(this.kills).length) {
-          var _t21 = "";
-          Object.keys(this.kills).forEach(function (e, s) {
-            _t21 += e + ": " + _this3.kills[e] + "<br>";
-          }), this.output.log(this.name + " defeated:"), this.output.log(_t21);
-        }
-
-        this.score = (this.game.tick + 666 * Object.keys(this.kills).length + 3 * this.maxHealth) * (this.game.level + 1), this.output.log("The final score is " + o(this.score) + "."), this.output.addHighscore(this);
+      value: function updateExp(level, percent) {
+        if (percent >= 1) percent = 0;
+        this.target.querySelector('.level span').innerHTML = level;
+        this.target.querySelector('.level .progress').style.right = 100 - 100 * percent + '%';
       }
     }]);
 
-    return m;
+    return Attributes;
   }();
+  /***/
 
-  var d = /*#__PURE__*/function () {
-    function d(t, e, s, o, a, l, r) {
-      _classCallCheck(this, d);
+},
+/* 4 */
 
-      this.width = s, this.height = o, this.output = l, this.output.clear(), this.attributes = r, this.atlas = h(100, 100), this.mapCreator = new p(a, this.width, this.height, this.output, this, e + t), this.x = 50, this.y = 50, this.level = 0, this.atlas[this.x][this.y] = this.mapCreator.create(this.level), this.tick = 0;
-      var n = i(0, 50),
-          u = i(0, 10),
-          c = 10 - Math.floor(n / 10);
-      this.player = new m(t, e, 100, 25, 25, 100 + n, 100 + n, 5 + u + c, 15 - u + c, 1, this.atlas[this.x][this.y], this.output, this.attributes, this), this.startInput();
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Game;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+  /* harmony import */
+
+
+  var _map_creator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+  /* harmony import */
+
+
+  var _player_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11);
+
+  var Game = /*#__PURE__*/function () {
+    function Game(name, char, width, height, mapTarget, output, attributes) {
+      _classCallCheck(this, Game);
+
+      this.width = width;
+      this.height = height;
+      this.output = output;
+      this.output.clear();
+      this.attributes = attributes;
+      this.atlas = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["createArray"])(100, 100);
+      this.mapCreator = new _map_creator_js__WEBPACK_IMPORTED_MODULE_1__["default"](mapTarget, this.width, this.height, this.output, this, char + name);
+      this.x = 50;
+      this.y = 50;
+      this.level = 0;
+      this.atlas[this.x][this.y] = this.mapCreator.create(this.level);
+      this.tick = 0;
+      var playerHealthAddition = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+      var playerAttributeDiff = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 10);
+      var playerAttributeAddition = 10 - Math.floor(playerHealthAddition / 10);
+      this.player = new _player_js__WEBPACK_IMPORTED_MODULE_2__["default"](name, char, 100, 25, 25, 100 + playerHealthAddition, 100 + playerHealthAddition, 5 + playerAttributeDiff + playerAttributeAddition, 5 + 10 - playerAttributeDiff + playerAttributeAddition, 1, this.atlas[this.x][this.y], this.output, this.attributes, this);
+      this.startInput();
     }
 
-    _createClass(d, [{
+    _createClass(Game, [{
       key: "startInput",
       value: function startInput() {
-        var _this4 = this;
+        var _this2 = this;
 
-        document.querySelector("#controls").onclick = function (t) {
-          switch (t.target.className) {
-            case "n":
-              _this4.player.move(0, -1);
-
-              break;
-
-            case "e":
-              _this4.player.move(1, 0);
+        document.querySelector('#controls').onclick = function (e) {
+          switch (e.target.className) {
+            case 'n':
+              _this2.player.move(0, -1);
 
               break;
 
-            case "s":
-              _this4.player.move(0, 1);
+            case 'e':
+              _this2.player.move(1, 0);
 
               break;
 
-            case "w":
-              _this4.player.move(-1, 0);
+            case 's':
+              _this2.player.move(0, 1);
 
               break;
 
-            case "nw":
-              _this4.player.move(-1, -1);
+            case 'w':
+              _this2.player.move(-1, 0);
 
               break;
 
-            case "ne":
-              _this4.player.move(1, -1);
+            case 'nw':
+              _this2.player.move(-1, -1);
 
               break;
 
-            case "sw":
-              _this4.player.move(-1, 1);
+            case 'ne':
+              _this2.player.move(1, -1);
 
               break;
 
-            case "se":
-              _this4.player.move(1, 1);
+            case 'sw':
+              _this2.player.move(-1, 1);
 
+              break;
+
+            case 'se':
+              _this2.player.move(1, 1);
+
+              break;
           }
 
-          _this4.update();
-        }, document.addEventListener("keydown", function (t) {
-          switch (t.key) {
-            case "ArrowUp":
-            case "k":
-            case "8":
-              _this4.player.move(0, -1), _this4.update();
+          _this2.update();
+        };
+
+        document.addEventListener('keydown', function (e) {
+          switch (e.key) {
+            case 'ArrowUp':
+            case 'k':
+            case '8':
+              _this2.player.move(0, -1);
+
+              _this2.update();
+
               break;
 
-            case "ArrowRight":
-            case "l":
-            case "6":
-              _this4.player.move(1, 0), _this4.update();
+            case 'ArrowRight':
+            case 'l':
+            case '6':
+              _this2.player.move(1, 0);
+
+              _this2.update();
+
               break;
 
-            case "ArrowDown":
-            case "j":
-            case "2":
-              _this4.player.move(0, 1), _this4.update();
+            case 'ArrowDown':
+            case 'j':
+            case '2':
+              _this2.player.move(0, 1);
+
+              _this2.update();
+
               break;
 
-            case "ArrowLeft":
-            case "h":
-            case "4":
-              _this4.player.move(-1, 0), _this4.update();
+            case 'ArrowLeft':
+            case 'h':
+            case '4':
+              _this2.player.move(-1, 0);
+
+              _this2.update();
+
               break;
 
-            case "y":
-            case "7":
-              _this4.player.move(-1, -1), _this4.update();
+            case 'y':
+            case '7':
+              _this2.player.move(-1, -1);
+
+              _this2.update();
+
               break;
 
-            case "u":
-            case "9":
-              _this4.player.move(1, -1), _this4.update();
+            case 'u':
+            case '9':
+              _this2.player.move(1, -1);
+
+              _this2.update();
+
               break;
 
-            case "b":
-            case "1":
-              _this4.player.move(-1, 1), _this4.update();
+            case 'b':
+            case '1':
+              _this2.player.move(-1, 1);
+
+              _this2.update();
+
               break;
 
-            case "n":
-            case "3":
-              _this4.player.move(1, 1), _this4.update();
+            case 'n':
+            case '3':
+              _this2.player.move(1, 1);
+
+              _this2.update();
+
               break;
 
-            case "Enter":
-            case " ":
-            case ".":
-            case "5":
-              _this4.update();
+            case 'Enter':
+            case ' ':
+            case '.':
+            case '5':
+              _this2.update();
 
+              break;
           }
-        }, !1);
+        }, false);
       }
     }, {
       key: "stopInput",
       value: function stopInput() {
-        document.addEventListener("keydown", function (t) {
-          t.stopPropagation();
-        }, !0), document.querySelector("#controls").onclick = function (t) {
-          t.stopPropagation();
+        document.addEventListener('keydown', function (e) {
+          e.stopPropagation();
+        }, true);
+
+        document.querySelector('#controls').onclick = function (e) {
+          e.stopPropagation();
         };
       }
     }, {
       key: "update",
       value: function update() {
-        var _this5 = this;
+        var _this3 = this;
 
-        this.atlas[this.x][this.y].enemies && (this.atlas[this.x][this.y].enemies.forEach(function (t, e, s) {
-          t.remove || (t.timePool += t.speed / _this5.player.speed, t.update());
-        }), this.atlas[this.x][this.y].enemies.forEach(function (t, e, s) {
-          t.remove && s.splice(e, 1);
-        })), this.won || this.player.update(), this.tick++;
+        if (this.atlas[this.x][this.y].enemies) {
+          this.atlas[this.x][this.y].enemies.forEach(function (enemy, i, array) {
+            if (!enemy.remove) {
+              enemy.timePool += enemy.speed / _this3.player.speed;
+              enemy.update();
+            }
+          });
+          this.atlas[this.x][this.y].enemies.forEach(function (enemy, i, array) {
+            if (enemy.remove) {
+              array.splice(i, 1);
+            }
+          });
+        }
+
+        if (!this.won) {
+          this.player.update();
+        }
+
+        this.tick++;
       }
     }, {
       key: "moveMap",
-      value: function moveMap(t, e) {
-        this.atlas[this.x][this.y].clear(this.player.prevX, this.player.prevY), this.x = this.x + t, this.y = this.y + e;
-        var s = this.x - 50,
-            i = this.y - 50;
-        this.level = Math.max(Math.abs(s), Math.abs(i)), this.atlas[this.x][this.y] ? this.atlas[this.x][this.y].redraw() : this.atlas[this.x][this.y] = this.mapCreator.create(this.level), this.player.map = this.atlas[this.x][this.y], 1 === t ? this.player.x = 0 : -1 === t && (this.player.x = this.width - 1), 1 === e ? this.player.y = 0 : -1 === e && (this.player.y = this.height - 1), this.atlas[this.x][this.y].clear(this.player.x, this.player.y);
+      value: function moveMap(x, y) {
+        this.atlas[this.x][this.y].clear(this.player.prevX, this.player.prevY);
+        this.x = this.x + x;
+        this.y = this.y + y;
+        var realX = this.x - 50;
+        var realY = this.y - 50;
+        this.level = Math.max(Math.abs(realX), Math.abs(realY));
+
+        if (!this.atlas[this.x][this.y]) {
+          this.atlas[this.x][this.y] = this.mapCreator.create(this.level);
+        } else {
+          this.atlas[this.x][this.y].redraw();
+        }
+
+        this.player.map = this.atlas[this.x][this.y];
+
+        if (x === 1) {
+          this.player.x = 0;
+        } else if (x === -1) {
+          this.player.x = this.width - 1;
+        }
+
+        if (y === 1) {
+          this.player.y = 0;
+        } else if (y === -1) {
+          this.player.y = this.height - 1;
+        }
+
+        this.atlas[this.x][this.y].clear(this.player.x, this.player.y);
       }
     }, {
       key: "win",
       value: function win() {
-        var _this6 = this;
+        var _this4 = this;
 
-        this.won = !0, this.stopInput(), this.output.log("---"), this.output.log(this.player.name + " has defeated the 🚌Bus."), this.output.log("All is well."), this.player.win = !0, this.player.outputEnd(), setInterval(function () {
-          _this6.update();
+        this.won = true;
+        this.stopInput();
+        this.output.log('---');
+        this.output.log(this.player.name + ' has defeated the 🚌Bus.');
+        this.output.log('All is well.');
+        this.player.win = true;
+        this.player.outputEnd();
+        setInterval(function () {
+          _this4.update();
         }, 100);
       }
     }]);
 
-    return d;
+    return Game;
   }();
+  /***/
 
-  var y = "";
+},
+/* 5 */
 
-  for (var _t22 = 0; _t22 < 50; _t22++) {
-    for (var _e105 = 0; _e105 < 50; _e105++) {
-      y += '<span style="color: rgba(255, 255, 255, 0.3)" data-x="' + _e105 + '" data-y="' + _t22 + '">.</span>';
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return MapCreator;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+  /* harmony import */
+
+
+  var _map_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+  /* harmony import */
+
+
+  var _water_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+  /* harmony import */
+
+
+  var _wall_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+  /* harmony import */
+
+
+  var _enemy_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+
+  var MapCreator = /*#__PURE__*/function () {
+    function MapCreator(target, width, height, output, game, playerName) {
+      _classCallCheck(this, MapCreator);
+
+      this.target = target;
+      this.width = width;
+      this.height = height;
+      this.output = output;
+      this.game = game;
+      this.playerName = playerName;
     }
 
-    y += "<br>";
-  }
+    _createClass(MapCreator, [{
+      key: "create",
+      value: function create(level) {
+        var waterX = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+        var waterY = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
 
-  document.querySelector("#map > .box").innerHTML = y;
-  var g = new ( /*#__PURE__*/function () {
-    function _class(t, e) {
-      _classCallCheck(this, _class);
+        while (waterY === 28) {
+          waterY = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+        }
 
-      this.target = t, this.debug = e;
+        var walls = [];
+        var enemies = [];
+
+        if (level === 0) {
+          var map = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'orange', this.output, this.game);
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Oasis', '🏝️', waterX, waterY, map, this.output);
+
+          for (var i = 0; i < 5; i++) {
+            var x = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+            var y = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (x < this.width - 1 && x >= 0 && y < this.height - 1 && y >= 0 && !map.checkAllCollision({
+              x: x,
+              y: y
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Palm Tree', '🌴', x, y, 0, map, this.output));
+            }
+          }
+
+          for (var _i = 0; _i < 500; _i++) {
+            var _x = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!map.checkAllCollision({
+              x: _x,
+              y: _y
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', _x, _y, 30, map, this.output));
+            }
+          }
+
+          for (var _i2 = 0; _i2 < 10; _i2++) {
+            var _x2 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y2 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!map.checkCollision({
+              x: _x2,
+              y: _y2
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', _x2, _y2, 10, 10, 10, 10, 0.5, map, this.output, false, false, 'bites', false));
+            }
+          }
+
+          enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, map, this.output, false, false, 'bites'));
+          enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, map, this.output, function () {
+            while (this.timePool >= 1) {
+              if (this.x - 2 < 0) {
+                this.map.clear(this.x, this.y);
+                this.remove = true;
+              } else {
+                this.move(-1, 0);
+              }
+
+              this.timePool--;
+            }
+          }, true, 'runs over'));
+          walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', 25, 26, 30, map, this.output));
+          map.enemies = enemies;
+          this.output.log('The 🚌Bus leaves while ' + this.playerName + ' is taking a rest break.');
+          return map;
+        } else if (level === 1) {
+          var _map = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'orange', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Oasis', '🏝️', waterX, waterY, _map, this.output);
+
+          for (var _i3 = 0; _i3 < 5; _i3++) {
+            var _x3 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y3 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x3 < this.width - 1 && _x3 >= 0 && _y3 < this.height - 1 && _y3 >= 0 && !_map.checkAllCollision({
+              x: _x3,
+              y: _y3
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Palm Tree', '🌴', _x3, _y3, 0, _map, this.output));
+            }
+          }
+
+          for (var _i4 = 0; _i4 < 500; _i4++) {
+            var _x4 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y4 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map.checkAllCollision({
+              x: _x4,
+              y: _y4
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', _x4, _y4, 30, _map, this.output));
+            }
+          }
+
+          for (var _i5 = 0; _i5 < 5; _i5++) {
+            var _x5 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y5 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map.checkCollision({
+              x: _x5,
+              y: _y5
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', _x5, _y5, 10, 10, 10, 10, 0.5, _map, this.output, false, false, 'bites', false));
+            }
+          }
+
+          for (var _i6 = 0; _i6 < 10; _i6++) {
+            var _x6 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y6 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map.checkCollision({
+              x: _x6,
+              y: _y6
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Rat', '🐀', _x6, _y6, 10, 10, 40, 10, 0.8, _map, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i7 = 0; _i7 < 5; _i7++) {
+            var _x7 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y7 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map.checkCollision({
+              x: _x7,
+              y: _y7
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Grasshopper', '🦗', _x7, _y7, 10, 10, 5, 5, 2, _map, this.output, false, false, 'bites', true, 25));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map.enemies = enemies;
+          return _map;
+        } else if (level === 2) {
+          var _map2 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'green', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Wave', '🌊', waterX, waterY, _map2, this.output);
+
+          for (var _i8 = 0; _i8 < 5; _i8++) {
+            var _x8 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y8 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x8 < this.width - 1 && _x8 >= 0 && _y8 < this.height - 1 && _y8 >= 0 && !_map2.checkAllCollision({
+              x: _x8,
+              y: _y8
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Tulip', '🌷', _x8, _y8, 0, _map2, this.output));
+            }
+          }
+
+          for (var _i9 = 0; _i9 < 500; _i9++) {
+            var _x9 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y9 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map2.checkAllCollision({
+              x: _x9,
+              y: _y9
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Pine Tree', '🌲', _x9, _y9, 50, _map2, this.output));
+            }
+          }
+
+          for (var _i10 = 0; _i10 < 5; _i10++) {
+            var _x10 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y10 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map2.checkCollision({
+              x: _x10,
+              y: _y10
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Ant', '🐜', _x10, _y10, 30, 30, 60, 10, 0.7, _map2, this.output, false, false, 'bites', true, 20));
+            }
+          }
+
+          for (var _i11 = 0; _i11 < 10; _i11++) {
+            var _x11 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y11 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map2.checkCollision({
+              x: _x11,
+              y: _y11
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lady Beetle', '🐞', _x11, _y11, 20, 20, 40, 15, 1.1, _map2, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i12 = 0; _i12 < 5; _i12++) {
+            var _x12 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y12 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map2.checkCollision({
+              x: _x12,
+              y: _y12
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bee', '🐝', _x12, _y12, 10, 10, 100, 10, 2, _map2, this.output, false, false, 'stings', true, 3));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map2, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map2, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map2.enemies = enemies;
+          return _map2;
+        } else if (level === 3) {
+          var _map3 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'green', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Wave', '🌊', waterX, waterY, _map3, this.output);
+
+          for (var _i13 = 0; _i13 < 5; _i13++) {
+            var _x13 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y13 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x13 < this.width - 1 && _x13 >= 0 && _y13 < this.height - 1 && _y13 >= 0 && !_map3.checkAllCollision({
+              x: _x13,
+              y: _y13
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Tulip', '🌷', _x13, _y13, 0, _map3, this.output));
+            }
+          }
+
+          for (var _i14 = 0; _i14 < 450; _i14++) {
+            var _x14 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y14 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map3.checkAllCollision({
+              x: _x14,
+              y: _y14
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Pine Tree', '🌲', _x14, _y14, 50, _map3, this.output));
+            }
+          }
+
+          for (var _i15 = 0; _i15 < 50; _i15++) {
+            var _x15 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y15 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map3.checkAllCollision({
+              x: _x15,
+              y: _y15
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Mountain', '⛰️', _x15, _y15, 100, _map3, this.output));
+            }
+          }
+
+          for (var _i16 = 0; _i16 < 5; _i16++) {
+            var _x16 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y16 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map3.checkCollision({
+              x: _x16,
+              y: _y16
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Crocodile', '🐊', _x16, _y16, 40, 40, 100, 35, 0.7, _map3, this.output, false, false, 'bites', true, 5));
+            }
+          }
+
+          for (var _i17 = 0; _i17 < 10; _i17++) {
+            var _x17 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y17 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map3.checkCollision({
+              x: _x17,
+              y: _y17
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Leopard', '🐆', _x17, _y17, 80, 80, 90, 30, 1.1, _map3, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i18 = 0; _i18 < 5; _i18++) {
+            var _x18 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y18 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map3.checkCollision({
+              x: _x18,
+              y: _y18
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Elephant', '🐘', _x18, _y18, 200, 200, 300, 30, 0.25, _map3, this.output, false, false, 'stomps', true, 3));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map3, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map3, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map3.enemies = enemies;
+          return _map3;
+        } else if (level === 4) {
+          var _map4 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'gray', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Faucet', '🚰', waterX, waterY, _map4, this.output);
+
+          for (var _i19 = 0; _i19 < 5; _i19++) {
+            var _x19 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y19 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x19 < this.width - 1 && _x19 >= 0 && _y19 < this.height - 1 && _y19 >= 0 && !_map4.checkAllCollision({
+              x: _x19,
+              y: _y19
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Restroom Sign', '🚻', _x19, _y19, 0, _map4, this.output));
+            }
+          }
+
+          for (var _i20 = 0; _i20 < 400; _i20++) {
+            var _x20 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y20 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkAllCollision({
+              x: _x20,
+              y: _y20
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Office Building', '🏢', _x20, _y20, 120, _map4, this.output));
+            }
+          }
+
+          for (var _i21 = 0; _i21 < 50; _i21++) {
+            var _x21 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y21 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkAllCollision({
+              x: _x21,
+              y: _y21
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Construction Sign', '🚧', _x21, _y21, 100, _map4, this.output));
+            }
+          }
+
+          for (var _i22 = 0; _i22 < 50; _i22++) {
+            var _x22 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y22 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkAllCollision({
+              x: _x22,
+              y: _y22
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Crane', '🏗️', _x22, _y22, 150, _map4, this.output));
+            }
+          }
+
+          for (var _i23 = 0; _i23 < 5; _i23++) {
+            var _x23 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y23 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkCollision({
+              x: _x23,
+              y: _y23
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Spider', '🕷', _x23, _y23, 50, 50, 140, 50, 0.6, _map4, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i24 = 0; _i24 < 10; _i24++) {
+            var _x24 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y24 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkCollision({
+              x: _x24,
+              y: _y24
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Gear', '⚙️', _x24, _y24, 40, 40, 180, 0, 1.7, _map4, this.output, false, false, 'grinds', true, 4));
+            }
+          }
+
+          for (var _i25 = 0; _i25 < 5; _i25++) {
+            var _x25 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y25 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map4.checkCollision({
+              x: _x25,
+              y: _y25
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Tram', '🚋', _x25, _y25, 200, 200, 300, 30, 0.5, _map4, this.output, false, false, 'runs over', true, 1));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map4, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map4, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map4.enemies = enemies;
+          return _map4;
+        } else if (level === 5) {
+          var _map5 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'gray', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Faucet', '🚰', waterX, waterY, _map5, this.output);
+
+          for (var _i26 = 0; _i26 < 5; _i26++) {
+            var _x26 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y26 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x26 < this.width - 1 && _x26 >= 0 && _y26 < this.height - 1 && _y26 >= 0 && !_map5.checkAllCollision({
+              x: _x26,
+              y: _y26
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Restroom Sign', '🚻', _x26, _y26, 0, _map5, this.output));
+            }
+          }
+
+          for (var _i27 = 0; _i27 < 400; _i27++) {
+            var _x27 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y27 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkAllCollision({
+              x: _x27,
+              y: _y27
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Office Building', '🏢', _x27, _y27, 120, _map5, this.output));
+            }
+          }
+
+          for (var _i28 = 0; _i28 < 50; _i28++) {
+            var _x28 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y28 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkAllCollision({
+              x: _x28,
+              y: _y28
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Convenience Store', '🏪', _x28, _y28, 150, _map5, this.output));
+            }
+          }
+
+          for (var _i29 = 0; _i29 < 50; _i29++) {
+            var _x29 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y29 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkAllCollision({
+              x: _x29,
+              y: _y29
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Hotel', '🏨', _x29, _y29, 170, _map5, this.output));
+            }
+          }
+
+          for (var _i30 = 0; _i30 < 5; _i30++) {
+            var _x30 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y30 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkCollision({
+              x: _x30,
+              y: _y30
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Dog', '🐕', _x30, _y30, 110, 110, 150, 50, 0.6, _map5, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i31 = 0; _i31 < 10; _i31++) {
+            var _x31 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y31 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkCollision({
+              x: _x31,
+              y: _y31
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Cat', '🐈', _x31, _y31, 100, 100, 200, 50, 0.9, _map5, this.output, false, false, 'scratches', true, 4));
+            }
+          }
+
+          for (var _i32 = 0; _i32 < 5; _i32++) {
+            var _x32 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y32 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map5.checkCollision({
+              x: _x32,
+              y: _y32
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Green Salad', '🥗', _x32, _y32, 1000, 1000, 100, 0, 0.5, _map5, this.output, false, false, 'satiates', true, 1));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map5, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map5, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map5.enemies = enemies;
+          return _map5;
+        } else if (level === 6) {
+          var _map6 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'green', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Fountain', '⛲', waterX, waterY, _map6, this.output);
+
+          for (var _i33 = 0; _i33 < 5; _i33++) {
+            var _x33 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y33 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x33 < this.width - 1 && _x33 >= 0 && _y33 < this.height - 1 && _y33 >= 0 && !_map6.checkAllCollision({
+              x: _x33,
+              y: _y33
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Woman\'s Hat', '👒', _x33, _y33, 0, _map6, this.output));
+            }
+          }
+
+          for (var _i34 = 0; _i34 < 450; _i34++) {
+            var _x34 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y34 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map6.checkAllCollision({
+              x: _x34,
+              y: _y34
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Manicured Tree', '🌳', _x34, _y34, 240, _map6, this.output));
+            }
+          }
+
+          for (var _i35 = 0; _i35 < 50; _i35++) {
+            var _x35 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y35 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map6.checkAllCollision({
+              x: _x35,
+              y: _y35
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Seedling', '🌱', _x35, _y35, 300, _map6, this.output));
+            }
+          }
+
+          for (var _i36 = 0; _i36 < 5; _i36++) {
+            var _x36 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y36 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map6.checkCollision({
+              x: _x36,
+              y: _y36
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Tiger', '🐅', _x36, _y36, 110, 110, 200, 70, 0.7, _map6, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i37 = 0; _i37 < 10; _i37++) {
+            var _x37 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y37 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map6.checkCollision({
+              x: _x37,
+              y: _y37
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Monkey', '🐒', _x37, _y37, 100, 100, 150, 70, 0.9, _map6, this.output, false, false, 'scratches', true, 4));
+            }
+          }
+
+          for (var _i38 = 0; _i38 < 5; _i38++) {
+            var _x38 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y38 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map6.checkCollision({
+              x: _x38,
+              y: _y38
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Snail', '🐌', _x38, _y38, 1000, 1000, 100, 100, 0.1, _map6, this.output, false, false, 'squashes', true, 1));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map6, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map6, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map6.enemies = enemies;
+          return _map6;
+        } else if (level === 7) {
+          var _map7 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'green', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Fountain', '⛲', waterX, waterY, _map7, this.output);
+
+          for (var _i39 = 0; _i39 < 5; _i39++) {
+            var _x39 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y39 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x39 < this.width - 1 && _x39 >= 0 && _y39 < this.height - 1 && _y39 >= 0 && !_map7.checkAllCollision({
+              x: _x39,
+              y: _y39
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Woman\'s Hat', '👒', _x39, _y39, 0, _map7, this.output));
+            }
+          }
+
+          for (var _i40 = 0; _i40 < 100; _i40++) {
+            var _x40 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y40 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkAllCollision({
+              x: _x40,
+              y: _y40
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Sunflower', '🌻', _x40, _y40, 390, _map7, this.output));
+            }
+          }
+
+          for (var _i41 = 0; _i41 < 100; _i41++) {
+            var _x41 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y41 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkAllCollision({
+              x: _x41,
+              y: _y41
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Hibiscus', '🌺', _x41, _y41, 400, _map7, this.output));
+            }
+          }
+
+          for (var _i42 = 0; _i42 < 100; _i42++) {
+            var _x42 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y42 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkAllCollision({
+              x: _x42,
+              y: _y42
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cherry Blossom', '🌸', _x42, _y42, 410, _map7, this.output));
+            }
+          }
+
+          for (var _i43 = 0; _i43 < 200; _i43++) {
+            var _x43 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y43 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkAllCollision({
+              x: _x43,
+              y: _y43
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Manicured Tree', '🌳', _x43, _y43, 240, _map7, this.output));
+            }
+          }
+
+          for (var _i44 = 0; _i44 < 5; _i44++) {
+            var _x44 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y44 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkCollision({
+              x: _x44,
+              y: _y44
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Rose', '🌹', _x44, _y44, 130, 130, 350, 200, 1.1, _map7, this.output, false, false, 'pricks', true, 10));
+            }
+          }
+
+          for (var _i45 = 0; _i45 < 10; _i45++) {
+            var _x45 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y45 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkCollision({
+              x: _x45,
+              y: _y45
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Ogre', '👹', _x45, _y45, 110, 110, 300, 100, 0.9, _map7, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i46 = 0; _i46 < 5; _i46++) {
+            var _x46 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y46 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map7.checkCollision({
+              x: _x46,
+              y: _y46
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lemon', '🍋', _x46, _y46, 150, 150, 400, 150, 0.9, _map7, this.output, false, false, 'sours', true, 10));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map7, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map7, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map7.enemies = enemies;
+          return _map7;
+        } else if (level === 8) {
+          var _map8 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'brown', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Water Drops', '💦', waterX, waterY, _map8, this.output);
+
+          for (var _i47 = 0; _i47 < 5; _i47++) {
+            var _x47 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y47 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x47 < this.width - 1 && _x47 >= 0 && _y47 < this.height - 1 && _y47 >= 0 && !_map8.checkAllCollision({
+              x: _x47,
+              y: _y47
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Droplet', '💧', _x47, _y47, 0, _map8, this.output));
+            }
+          }
+
+          for (var _i48 = 0; _i48 < 50; _i48++) {
+            var _x48 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y48 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkAllCollision({
+              x: _x48,
+              y: _y48
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Amphora', '🏺', _x48, _y48, 350, _map8, this.output));
+            }
+          }
+
+          for (var _i49 = 0; _i49 < 200; _i49++) {
+            var _x49 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y49 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkAllCollision({
+              x: _x49,
+              y: _y49
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Volcano', '🌋', _x49, _y49, 600, _map8, this.output));
+            }
+          }
+
+          for (var _i50 = 0; _i50 < 50; _i50++) {
+            var _x50 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y50 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkAllCollision({
+              x: _x50,
+              y: _y50
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Classical Architecture', '🏛️', _x50, _y50, 400, _map8, this.output));
+            }
+          }
+
+          for (var _i51 = 0; _i51 < 5; _i51++) {
+            var _x51 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y51 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkCollision({
+              x: _x51,
+              y: _y51
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Brachiosaurus', '🦕', _x51, _y51, 530, 530, 510, 210, 0.6, _map8, this.output, false, false, 'stomps', true, 5));
+            }
+          }
+
+          for (var _i52 = 0; _i52 < 10; _i52++) {
+            var _x52 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y52 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkCollision({
+              x: _x52,
+              y: _y52
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('T-Rex', '🦖', _x52, _y52, 210, 210, 500, 110, 1.1, _map8, this.output, false, false, 'bites', true, 10));
+            }
+          }
+
+          for (var _i53 = 0; _i53 < 5; _i53++) {
+            var _x53 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y53 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map8.checkCollision({
+              x: _x53,
+              y: _y53
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Dragon', '🐉', _x53, _y53, 250, 250, 450, 160, 0.9, _map8, this.output, false, false, 'burns', true, 7));
+            }
+          }
+
+          if (this.game.y === 50 && this.game.x <= 50) {
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(18, 22), 28, 10, 10, 10, 10, 0, _map8, this.output, false, false, 'bites'));
+            enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 1000000, 1000000, 1000000, 1000000, 2, _map8, this.output, function () {
+              while (this.timePool >= 1) {
+                if (this.x - 2 < 0) {
+                  this.map.clear(this.x, this.y);
+                  this.remove = true;
+                } else {
+                  this.move(-1, 0);
+                }
+
+                this.timePool--;
+              }
+            }, true, 'runs over'));
+          }
+
+          _map8.enemies = enemies;
+          return _map8;
+        } else if (level === 9) {
+          var _map9 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'orange', this.output, this.game);
+
+          new _water_js__WEBPACK_IMPORTED_MODULE_2__["default"]('Oasis', '🏝️', waterX, waterY, _map9, this.output);
+
+          for (var _i54 = 0; _i54 < 5; _i54++) {
+            var _x54 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterX - 10, waterX + 10);
+
+            var _y54 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(waterY - 10, waterY + 10);
+
+            if (_x54 < this.width - 1 && _x54 >= 0 && _y54 < this.height - 1 && _y54 >= 0 && !_map9.checkAllCollision({
+              x: _x54,
+              y: _y54
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Palm Tree', '🌴', _x54, _y54, 0, _map9, this.output));
+            }
+          }
+
+          for (var _i55 = 0; _i55 < 500; _i55++) {
+            var _x55 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y55 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map9.checkAllCollision({
+              x: _x55,
+              y: _y55
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', _x55, _y55, 30, _map9, this.output));
+            }
+          }
+
+          for (var _i56 = 0; _i56 < 10; _i56++) {
+            var _x56 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y56 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map9.checkCollision({
+              x: _x56,
+              y: _y56
+            })) {
+              enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Lizard', '🦎', _x56, _y56, 10, 10, 10, 10, 0.5, _map9, this.output, false, false, 'bites', false));
+            }
+          }
+
+          enemies.push(new _enemy_js__WEBPACK_IMPORTED_MODULE_4__["default"]('Bus', '🚌', 25, 28, 3000, 3000, 1000, 300, 1.1, _map9, this.output, false, false, 'runs over', true, 25));
+          walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', 25, 26, 30, _map9, this.output));
+          _map9.enemies = enemies;
+          this.output.log('The 🚌Bus speeds towards you.');
+          return _map9;
+        } else {
+          var _map10 = new _map_js__WEBPACK_IMPORTED_MODULE_1__["default"](this.target, this.width, this.height, 'orange', this.output, this.game);
+
+          for (var _i57 = 0; _i57 < 2000; _i57++) {
+            var _x57 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            var _y57 = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 50);
+
+            if (!_map10.checkAllCollision({
+              x: _x57,
+              y: _y57
+            })) {
+              walls.push(new _wall_js__WEBPACK_IMPORTED_MODULE_3__["default"]('Cactus', '🌵', _x57, _y57, 30, _map10, this.output));
+            }
+          }
+
+          return _map10;
+        }
+      }
+    }]);
+
+    return MapCreator;
+  }();
+  /***/
+
+},
+/* 6 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Map;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+  /* harmony import */
+
+
+  var _tile_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+
+  var Map = /*#__PURE__*/function () {
+    function Map(target, width, height, color, output, game) {
+      _classCallCheck(this, Map);
+
+      this.target = target;
+      this.width = width;
+      this.height = height;
+      this.color = color;
+      this.output = output;
+      this.game = game;
+      this.objects = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["createArray"])(width, height);
+      this.tiles = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["createArray"])(width, height);
+      var mapOutput = '';
+
+      for (var y = 0; y < this.height; y++) {
+        for (var x = 0; x < this.width; x++) {
+          mapOutput += '<span style="color: rgba(255, 255, 255, 0.3)" data-x="' + x + '" data-y="' + y + '">.</span>';
+        }
+
+        mapOutput += '<br>';
+      }
+
+      document.querySelector('#map').className = '';
+      document.querySelector('#map').classList.add(this.color);
+      this.target.innerHTML = mapOutput;
+
+      if (this.game.y === 50) {
+        var tiles = [];
+
+        for (var i = 0; i < 50; i++) {
+          tiles.push(new _tile_js__WEBPACK_IMPORTED_MODULE_1__["default"]('Road', '≡', i, 28, 'rgba(0, 0, 0, 0.3)', this));
+        }
+      }
     }
 
-    _createClass(_class, [{
-      key: "log",
-      value: function log(t, e) {
-        this.debug && e ? (this.target.innerHTML = "" === this.target.innerHTML ? this.target.innerHTML + "DEBUG: " + t : this.target.innerHTML + "<br><br>DEBUG: " + t, this.target.scrollTop = this.target.scrollHeight) : e || (this.target.innerHTML = "" === this.target.innerHTML ? this.target.innerHTML + t : this.target.innerHTML + "<br><br>" + t, this.target.scrollTop = this.target.scrollHeight);
+    _createClass(Map, [{
+      key: "draw",
+      value: function draw(object, focus) {
+        var el = document.querySelector('#map > .box span[data-x="' + object.x + '"][data-y="' + object.y + '"]');
+        el.innerHTML = object.char;
+
+        if (object.constructor.name === 'Tile') {
+          el.style.color = object.color;
+          this.tiles[object.x][object.y] = object;
+        } else {
+          el.style.color = null;
+          this.objects[object.x][object.y] = object;
+        }
+
+        if (focus) {
+          var wrapper = document.querySelector('#map > .box');
+          var elTop = el.offsetTop - wrapper.offsetTop;
+          var elLeft = el.offsetLeft - wrapper.offsetLeft;
+          wrapper.scrollTop = elTop - wrapper.offsetHeight / 2 + 10;
+          wrapper.scrollLeft = elLeft - wrapper.offsetWidth / 2 + 10;
+        }
       }
     }, {
       key: "clear",
-      value: function clear() {
-        this.target.innerHTML = "";
-      }
-    }, {
-      key: "addHighscore",
-      value: function addHighscore(t) {
-        var e = JSON.parse(localStorage.getItem("JustDesertsHighscores"));
-        e || (e = []), e.push({
-          name: t.name,
-          score: t.score
-        }), e = e.sort(function (t, e) {
-          return e.score - t.score;
-        }), localStorage.setItem("JustDesertsHighscores", JSON.stringify(e.slice(0, 5)));
-      }
-    }, {
-      key: "showHighscores",
-      value: function showHighscores() {
-        var _this7 = this;
+      value: function clear(x, y) {
+        var el = document.querySelector('#map > .box span[data-x="' + x + '"][data-y="' + y + '"]');
 
-        var t = JSON.parse(localStorage.getItem("JustDesertsHighscores"));
-        t && t.length && (this.log("---"), this.log("Highscores:"), t.forEach(function (t, e) {
-          _this7.log(e + 1 + ". " + t.name + ": " + o(t.score));
-        }));
+        if (this.tiles[x][y]) {
+          el.innerHTML = this.tiles[x][y].char;
+          el.style.color = this.tiles[x][y].color;
+        } else {
+          el.innerHTML = '.';
+          el.style.color = 'rgba(255, 255, 255, 0.3)';
+        }
+
+        this.objects[x][y] = null;
+      }
+    }, {
+      key: "redraw",
+      value: function redraw() {
+        var mapOutput = '';
+
+        for (var y = 0; y < this.height; y++) {
+          for (var x = 0; x < this.width; x++) {
+            var char = '.';
+            var color = null;
+
+            if (this.objects[x][y] && this.objects[x][y].constructor.name !== 'Player') {
+              char = this.objects[x][y].char;
+            } else if (this.tiles[x][y]) {
+              char = this.tiles[x][y].char;
+              color = this.tiles[x][y].color;
+            } else if (char === '.') {
+              color = 'rgba(255, 255, 255, 0.3)';
+            }
+
+            color = color ? 'style="color:' + color + '"' : null;
+            mapOutput += '<span ' + color + ' data-x="' + x + '" data-y="' + y + '">' + char + '</span>';
+          }
+
+          mapOutput += '<br>';
+        }
+
+        document.querySelector('#map').className = '';
+        document.querySelector('#map').classList.add(this.color);
+        this.target.innerHTML = mapOutput;
+      }
+    }, {
+      key: "addDeath",
+      value: function addDeath(x, y) {
+        var el = document.querySelector('#map > .box span[data-x="' + x + '"][data-y="' + y + '"]');
+        this.clear(x, y);
+        this.tiles[x][y] = {
+          char: '🦴'
+        };
+        el.innerHTML = this.tiles[x][y].char;
+        el.style.color = null;
+      }
+    }, {
+      key: "checkCollision",
+      value: function checkCollision(object) {
+        return this.objects[object.x][object.y];
+      }
+    }, {
+      key: "checkAllCollision",
+      value: function checkAllCollision(object) {
+        return this.objects[object.x][object.y] || this.tiles[object.x][object.y];
       }
     }]);
 
-    return _class;
-  }())(document.querySelector("#output .box"), !0),
-      f = new ( /*#__PURE__*/function () {
-    function _class2(t) {
-      _classCallCheck(this, _class2);
+    return Map;
+  }();
+  /***/
 
-      this.target = t;
+},
+/* 7 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Tile;
+  });
+
+  var Tile = /*#__PURE__*/function () {
+    function Tile(name, char, x, y, color, map) {
+      _classCallCheck(this, Tile);
+
+      this.name = char + name;
+      this.char = char;
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.map = map;
+      this.draw();
     }
 
-    _createClass(_class2, [{
+    _createClass(Tile, [{
+      key: "draw",
+      value: function draw() {
+        this.map.draw(this);
+      }
+    }]);
+
+    return Tile;
+  }();
+  /***/
+
+},
+/* 8 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Water;
+  });
+
+  var Water = /*#__PURE__*/function () {
+    function Water(name, char, x, y, map, output) {
+      _classCallCheck(this, Water);
+
+      this.x = x, this.y = y, this.name = char + name;
+      this.char = char;
+      this.map = map;
+      this.output = output;
+      this.draw();
+    }
+
+    _createClass(Water, [{
+      key: "draw",
+      value: function draw() {
+        this.map.draw(this);
+      }
+    }]);
+
+    return Water;
+  }();
+  /***/
+
+},
+/* 9 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Wall;
+  });
+
+  var Wall = /*#__PURE__*/function () {
+    function Wall(name, char, x, y, attack, map, output) {
+      _classCallCheck(this, Wall);
+
+      this.name = char + name;
+      this.char = char;
+      this.x = x;
+      this.y = y;
+      this.attack = attack;
+      this.map = map;
+      this.output = output;
+      this.draw();
+    }
+
+    _createClass(Wall, [{
+      key: "draw",
+      value: function draw() {
+        this.map.draw(this);
+      }
+    }]);
+
+    return Wall;
+  }();
+  /***/
+
+},
+/* 10 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Enemy;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+  var Enemy = /*#__PURE__*/function () {
+    function Enemy(name, char, x, y, health, maxHealth, attack, defense, speed, map, output, update, unstoppable, attackType, aggressive, awareness) {
+      _classCallCheck(this, Enemy);
+
+      this.name = char + name;
+      this.char = char;
+      this.x = x;
+      this.y = y;
+      this.prevX = x;
+      this.prevY = y;
+      this.health = health;
+      this.maxHealth = maxHealth;
+      this.attack = attack;
+      this.defense = defense;
+      this.speed = speed;
+      this.map = map;
+      this.output = output;
+      this.customUpdate = update;
+      this.unstoppable = unstoppable;
+      this.attackType = attackType;
+      this.aggressive = aggressive;
+      this.awareness = awareness;
+      this.timePool = 0;
+      this.draw();
+    }
+
+    _createClass(Enemy, [{
       key: "update",
-      value: function update(t, e) {
-        this.target.querySelector("#" + t + " .current").innerHTML = e;
+      value: function update() {
+        if (this.customUpdate) {
+          this.customUpdate();
+        } else {
+          while (this.timePool >= 1) {
+            if (this.aggressive && Math.abs(this.x - this.map.game.player.x) <= this.awareness && Math.abs(this.y - this.map.game.player.y) <= this.awareness) {
+              var x = 0;
+              var y = 0;
+
+              if (this.map.game.player.x > this.x) {
+                x = 1;
+              } else if (this.map.game.player.x < this.x) {
+                x = -1;
+              } else {
+                x = 0;
+              }
+
+              if (this.map.game.player.y > this.y) {
+                y = 1;
+              } else if (this.map.game.player.y < this.y) {
+                y = -1;
+              } else {
+                y = 0;
+              }
+
+              var collision = this.map.checkCollision({
+                x: this.x + x,
+                y: this.y + y
+              });
+
+              if (collision && (collision.constructor.name === 'Wall' || collision.constructor.name === 'Water')) {
+                this.move(Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 3) - 1, Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 3) - 1);
+              } else {
+                this.move(x, y);
+              }
+            } else {
+              this.move(Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 3) - 1, Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, 3) - 1);
+            }
+
+            this.timePool--;
+          }
+        }
+      }
+    }, {
+      key: "move",
+      value: function move(x, y) {
+        this.prevX = this.x;
+        this.prevY = this.y;
+        this.map.clear(this.prevX, this.prevY);
+        this.x = this.x + x;
+        this.y = this.y + y;
+
+        if (this.x < 0) {
+          this.x = 0;
+        } else if (this.x > this.map.width - 1) {
+          this.x = this.map.width - 1;
+        }
+
+        if (this.y < 0) {
+          this.y = 0;
+        } else if (this.y > this.map.height - 1) {
+          this.y = this.map.height - 1;
+        }
+
+        this.checkCollision();
+      }
+    }, {
+      key: "checkCollision",
+      value: function checkCollision() {
+        var collision = this.map.checkCollision(this);
+
+        if (collision) {
+          if (collision.constructor.name === 'Wall' || collision.constructor.name === 'Water') {
+            this.moveBack();
+          } else if (collision.constructor.name === 'Enemy' || collision.constructor.name === 'Player') {
+            if (!this.unstoppable) {
+              this.moveBack();
+            }
+
+            if ((collision.constructor.name === 'Player' || this.unstoppable) && !collision.dead) {
+              var power = this.attack + this.defense;
+              var collisionPower = collision.attack + collision.defense;
+              var hitChance = power / collisionPower;
+              var hits = Math.random() < hitChance ? true : false;
+
+              if (hits) {
+                var attackType = this.attackType ? this.attackType : 'hits';
+                this.output.log(this.name + ' ' + attackType + ' ' + collision.name + '.');
+                collision.takeDamage(this.attack, this.name, this.unstoppable);
+              } else {
+                this.output.log(this.name + ' misses ' + collision.name + '.');
+              }
+            }
+          }
+        }
+
+        this.draw();
+      }
+    }, {
+      key: "moveBack",
+      value: function moveBack() {
+        this.x = this.prevX;
+        this.y = this.prevY;
+      }
+    }, {
+      key: "draw",
+      value: function draw() {
+        this.map.draw(this);
+      }
+    }, {
+      key: "takeDamage",
+      value: function takeDamage(damage, name, unstoppable) {
+        var totalDamage = this.defense >= damage ? 0 : damage - Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(this.defense * 0.8, this.defense);
+        if (unstoppable) totalDamage = damage;
+        this.output.log(this.name + ' takes ' + (totalDamage ? Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["numberWithCommas"])(totalDamage) : 'no') + ' damage from ' + name + '.');
+        this.updateHealth(-totalDamage);
+      }
+    }, {
+      key: "updateHealth",
+      value: function updateHealth(delta) {
+        this.health += delta;
+        if (this.health <= 0) this.die();
+      }
+    }, {
+      key: "die",
+      value: function die() {
+        this.dead = true;
+        this.remove = true;
+        this.map.addDeath(this.x, this.y);
+        this.output.log(this.name + ' received their 🏜️Just Deserts.');
+      }
+    }]);
+
+    return Enemy;
+  }();
+  /***/
+
+},
+/* 11 */
+
+/***/
+function (module, __webpack_exports__, __webpack_require__) {
+  "use strict";
+
+  __webpack_require__.r(__webpack_exports__);
+  /* harmony export (binding) */
+
+
+  __webpack_require__.d(__webpack_exports__, "default", function () {
+    return Player;
+  });
+  /* harmony import */
+
+
+  var _utility_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+  var Player = /*#__PURE__*/function () {
+    function Player(name, char, startingExp, x, y, health, maxHealth, attack, defense, speed, map, output, attributes, game) {
+      _classCallCheck(this, Player);
+
+      this.name = char + name;
+      this.char = char;
+      this.x = x;
+      this.y = y;
+      this.prevX = x;
+      this.prevY = y;
+      this.health = health;
+      this.maxHealth = maxHealth;
+      this.attack = attack;
+      this.defense = defense;
+      this.speed = speed;
+      this.map = map;
+      this.output = output;
+      this.attributes = attributes;
+      this.game = game;
+      this.exp = 0;
+      this.level = 1;
+      this.hydration = 100;
+      this.lastDrink = 0;
+      this.kills = [];
+      this.win = false;
+      this.attributes.update('health', this.health + '/' + this.maxHealth);
+      this.attributes.update('attack', this.attack);
+      this.attributes.update('defense', this.defense);
+      this.attributes.update('hydration', this.hydration);
+      this.updateExp(startingExp);
+      this.draw();
+    }
+
+    _createClass(Player, [{
+      key: "move",
+      value: function move(x, y) {
+        if (!this.dead) {
+          this.prevX = this.x;
+          this.prevY = this.y;
+          this.x = this.x + x;
+          this.y = this.y + y;
+
+          if (this.x < 0 && this.y < 0) {
+            this.game.moveMap(-1, -1);
+          } else if (this.x > this.map.width - 1 && this.y < 0) {
+            this.game.moveMap(1, -1);
+          } else if (this.x > this.map.width - 1 && this.y > this.map.height - 1) {
+            this.game.moveMap(1, 1);
+          } else if (this.x < 0 && this.y > this.map.height - 1) {
+            this.game.moveMap(-1, 1);
+          } else if (this.x < 0) {
+            this.game.moveMap(-1, 0);
+          } else if (this.x > this.map.width - 1) {
+            this.game.moveMap(1, 0);
+          } else if (this.y < 0) {
+            this.game.moveMap(0, -1);
+          } else if (this.y > this.map.height - 1) {
+            this.game.moveMap(0, 1);
+          }
+
+          this.checkCollision();
+        }
+      }
+    }, {
+      key: "checkCollision",
+      value: function checkCollision() {
+        var collision = this.map.checkCollision(this);
+
+        if (collision) {
+          if (collision.constructor.name === 'Wall') {
+            this.moveBack();
+            this.output.log(this.name + ' walks into ' + collision.name + '.');
+            this.takeDamage(collision.attack, collision.name);
+          } else if (collision.constructor.name === 'Water') {
+            this.moveBack();
+            this.updateHydration(20);
+            this.output.log(this.name + ' drinks from ' + collision.name + '.');
+          } else if (collision.constructor.name === 'Enemy') {
+            this.moveBack();
+            var power = this.attack + this.defense;
+            var collisionPower = collision.attack + collision.defense;
+            var hitChance = power / collisionPower;
+            var hits = Math.random() < hitChance ? true : false;
+
+            if (hits) {
+              this.output.log(this.name + ' punches ' + collision.name + '.');
+              collision.takeDamage(this.attack, this.name);
+
+              if (collision.dead) {
+                this.addKill(collision);
+                this.updateExp(1.5 * ((collision.attack + collision.defense) / (3 * (1 - (this.game.level + 1) / 10.5))));
+
+                if (collision.name === '🚌Bus') {
+                  this.game.win();
+                }
+              }
+            } else {
+              this.output.log(this.name + ' misses ' + collision.name + '.');
+            }
+          }
+        }
+
+        this.draw();
+      }
+    }, {
+      key: "moveBack",
+      value: function moveBack() {
+        this.x = this.prevX;
+        this.y = this.prevY;
+      }
+    }, {
+      key: "draw",
+      value: function draw() {
+        this.map.clear(this.prevX, this.prevY);
+        this.map.draw(this, true);
+      }
+    }, {
+      key: "update",
+      value: function update() {
+        if (!this.dead) {
+          this.dehydrate();
+          this.heal();
+        }
+      }
+    }, {
+      key: "addKill",
+      value: function addKill(object) {
+        if (this.kills[object.name]) {
+          this.kills[object.name]++;
+        } else {
+          this.kills[object.name] = 1;
+        }
+      }
+    }, {
+      key: "takeDamage",
+      value: function takeDamage(damage, name, unstoppable) {
+        var totalDamage = this.defense >= damage ? 0 : damage - Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(this.defense * 0.8, this.defense);
+        if (unstoppable) totalDamage = damage;
+        this.output.log(this.name + ' takes ' + (totalDamage ? Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["numberWithCommas"])(totalDamage) : 'no') + ' damage from ' + name + '.');
+        this.lastAttacked = name;
+        this.updateHealth(-totalDamage);
+      }
+    }, {
+      key: "dehydrate",
+      value: function dehydrate() {
+        if ((this.game.tick - this.lastDrink) % 3 === 2) {
+          this.hydration--;
+          this.lastAttacked = '⌛Dehydration';
+          var el = document.querySelector('#hydration');
+
+          if (this.hydration === 40) {
+            this.output.log(this.name + ' is thirsty.');
+            el.classList.remove('red');
+            el.classList.add('orange');
+          }
+
+          if (this.hydration === 10) {
+            this.output.log(this.name + ' is really thirsty.');
+            el.classList.remove('orange');
+            el.classList.add('red');
+          }
+
+          if (this.hydration <= 0) {
+            this.hydration = 0;
+            var healthLoss = Math.floor(this.maxHealth / 10);
+            this.output.log(this.name + ' is completely dehydrated and loses ' + healthLoss + ' health.');
+            this.updateHealth(-healthLoss);
+          }
+
+          this.attributes.update('hydration', this.hydration);
+        }
+      }
+    }, {
+      key: "updateHydration",
+      value: function updateHydration(delta) {
+        this.hydration += delta;
+        if (this.hydration > 100) this.hydration = 100;
+        var el = document.querySelector('#hydration');
+
+        if (this.hydration > 40) {
+          el.classList.remove('orange');
+          el.classList.remove('red');
+        }
+
+        this.lastDrink = this.game.tick + 1;
+        this.attributes.update('hydration', this.hydration);
+      }
+    }, {
+      key: "heal",
+      value: function heal() {
+        if (!this.dead) {
+          this.updateHealth(Math.ceil(this.level / 2));
+        }
+      }
+    }, {
+      key: "updateHealth",
+      value: function updateHealth(delta) {
+        var _this5 = this;
+
+        this.health += delta;
+        if (this.health > this.maxHealth) this.health = this.maxHealth;
+        if (this.health < 0) this.health = 0;
+        this.attributes.update('health', this.health + '/' + this.maxHealth);
+
+        if (delta < 0) {
+          var _el = document.querySelector('#overlay');
+
+          _el.classList.add('show');
+
+          setTimeout(function () {
+            if (!_this5.dead) {
+              _el.classList.remove('show');
+            }
+          }, 100);
+        }
+
+        var percent = this.health / this.maxHealth;
+        var el = document.querySelector('#health');
+
+        if (percent < 0.25) {
+          el.classList.remove('orange');
+          el.classList.add('red');
+        } else if (percent < 0.5) {
+          el.classList.remove('red');
+          el.classList.add('orange');
+        } else {
+          el.classList.remove('orange');
+          el.classList.remove('red');
+        }
+
+        if (this.health <= 0) {
+          this.die();
+        }
       }
     }, {
       key: "updateExp",
-      value: function updateExp(t, e) {
-        e >= 1 && (e = 0), this.target.querySelector(".level span").innerHTML = t, this.target.querySelector(".level .progress").style.right = 100 - 100 * e + "%";
+      value: function updateExp(delta) {
+        this.exp += delta;
+        var baseExp = 100;
+        var thisLevel = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["doubler"])(baseExp, this.level - 1);
+        var nextLevel = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["doubler"])(baseExp, this.level);
+
+        while (this.exp >= nextLevel) {
+          this.level++;
+          var newHealth = Math.floor(this.maxHealth * 1.5 - Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, this.maxHealth * 0.2));
+          this.health = this.health + newHealth - this.maxHealth;
+          this.maxHealth = newHealth;
+          this.attack = Math.floor(this.attack * 1.5 - Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, this.attack * 0.2));
+          this.defense = Math.floor(this.defense * 1.5 - Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["getRandomInt"])(0, this.defense * 0.2));
+          this.attributes.update('health', this.health + '/' + this.maxHealth);
+          this.attributes.update('attack', this.attack);
+          this.attributes.update('defense', this.defense);
+          this.output.log(this.name + ' reaches level ' + this.level + '.');
+          thisLevel = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["doubler"])(baseExp, this.level - 1);
+          nextLevel = Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["doubler"])(baseExp, this.level);
+        }
+
+        var levelDiff = nextLevel - thisLevel;
+        var progress = (this.exp - thisLevel) / levelDiff;
+        this.attributes.updateExp(this.level, progress);
+      }
+    }, {
+      key: "die",
+      value: function die() {
+        var _this6 = this;
+
+        if (!this.dead) {
+          this.dead = true;
+          this.char = '💀';
+          this.draw();
+          this.game.atlas[this.game.x][this.game.y].enemies.forEach(function (enemy) {
+            enemy.aggressive = false;
+          });
+          setInterval(function () {
+            _this6.game.update();
+          }, 100);
+          this.output.log(this.name + ' received their 🏜️Just Deserts.');
+          this.outputEnd();
+        }
+      }
+    }, {
+      key: "outputEnd",
+      value: function outputEnd() {
+        var _this7 = this;
+
+        this.output.log('---');
+
+        if (this.win) {
+          this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
+        } else {
+          this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + ' before they were defeated by ' + this.lastAttacked + '.');
+        }
+
+        if (Object.keys(this.kills).length) {
+          var killsText = '';
+          Object.keys(this.kills).forEach(function (el, i) {
+            killsText += el + ': ' + _this7.kills[el] + '<br>';
+          });
+          this.output.log(this.name + ' defeated:');
+          this.output.log(killsText);
+        }
+
+        this.score = (this.game.tick + Object.keys(this.kills).length * 666 + this.maxHealth * 3) * (this.game.level + 1);
+        this.output.log('The final score is ' + Object(_utility_js__WEBPACK_IMPORTED_MODULE_0__["numberWithCommas"])(this.score) + '.');
+        this.output.addHighscore(this);
       }
     }]);
 
-    return _class2;
-  }())(document.querySelector("#attributes .box"));
-  g.log('Welcome to 🏜️Just Deserts, created for the <a target="_blank" href="https://itch.io/jam/7drl-challenge-2020">7DRL Challenge 2020</a>.'), g.log("You can use the ⬇️arrow keys, 🔢numpad, 💻Vim keys or mouse/touch for movement. Enter, space, period and 5 will 💤rest."), g.showHighscores();
+    return Player;
+  }();
+  /***/
 
-  var w = function w(t) {
-    if ("Enter" === t.key) {
-      var _t23 = document.querySelectorAll(".modal.look .choices div");
-
-      _t23[i(0, _t23.length - 1)].click();
-    }
-  };
-
-  var x = "Player";
-  document.querySelector(".modal.name input").focus(), document.querySelector(".modal.name input").addEventListener("keydown", function (t) {
-    "Enter" === t.key && (x = document.querySelector(".modal.name input").value ? document.querySelector(".modal.name input").value : x, document.querySelector(".modal.name").style.display = "none", document.querySelector(".modal.look").style.display = "block", setTimeout(function () {
-      document.addEventListener("keydown", w);
-    }));
-  }), document.querySelector(".modal.look .choices").onclick = function (t) {
-    document.querySelector(".modal.look").style.display = "none", document.removeEventListener("keydown", w);
-    new d(x, t.target.innerHTML, 50, 50, document.querySelector("#map > .box"), g, f);
-  };
-}]);
+}
+/******/
+]);
