@@ -91,9 +91,9 @@ export default class Player {
           if (collision.dead) {
             this.addKill(collision);
 
-            this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 10))));
+            this.updateExp((collision.attack + collision.defense) / (3 * (1 - ((this.game.level + 1) / 10.5))));
 
-            if (collision.name === 'Bus') {
+            if (collision.name === '🚌Bus') {
               this.game.win();
             }
           }
@@ -230,7 +230,7 @@ export default class Player {
   }
 
   updateExp(delta) {
-    this.exp += delta;
+    this.exp += delta * 1.5;
 
     const baseExp = 100;
     let thisLevel = doubler(baseExp, this.level - 1);
@@ -289,19 +289,15 @@ export default class Player {
     if (Object.keys(this.kills).length) {
       let killsText = '';
       Object.keys(this.kills).forEach((el, i) => {
-        killsText += el + 's: ' + this.kills[el] + '<br>';
+        killsText += el + ': ' + this.kills[el] + '<br>';
       });
       this.output.log(this.name + ' defeated:');
       this.output.log(killsText);
     }
 
     this.score = (this.game.tick + Object.keys(this.kills).length * 666 + this.maxHealth * 3) * (this.game.level + 1);
-    this.output.log('Their final score was ' + numberWithCommas(this.score) + '.');
+    this.output.log('The final score is ' + numberWithCommas(this.score) + '.');
 
     this.output.addHighscore(this);
-
-    this.output.showHighscores();
-
-    this.output.log('');
   }
 }
