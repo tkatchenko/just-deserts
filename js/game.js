@@ -4,9 +4,11 @@ import Player from './player.js';
 
 export default class Game {
   constructor(name, char, width, height, mapTarget, output, attributes) {
+
     this.width = width;
     this.height = height;
     this.output = output;
+    this.output.clear();
     this.attributes = attributes;
     this.atlas = createArray(100, 100);
     this.mapCreator = new MapCreator(mapTarget, this.width, this.height, this.output, this, char + name);

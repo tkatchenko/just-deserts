@@ -123,10 +123,11 @@ export default class Player {
   }
 
   addKill(object) {
-    this.kills.push({
-      name: object.name,
-      tick: this.game.tick,
-    });
+    if (this.kills[object.name]) {
+      this.kills[object.name]++;
+    } else {
+      this.kills[object.name] = 1;
+    }
   }
 
   takeDamage(damage, name, unstoppable) {
@@ -271,7 +272,20 @@ export default class Player {
       }, 100);
 
       this.output.log(this.name + ' received their 🏜️Just Deserts.');
-      this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
+      this.outputEnd();
+    }
+  }
+
+  outputEnd() {
+    this.output.log('---');
+    this.output.log(this.name + ' survived ' + this.game.tick + ' turns and reached level ' + this.level + '.');
+    if (Object.keys(this.kills).length) {
+      let killsText = '';
+      Object.keys(this.kills).forEach((el, i) => {
+        killsText += el + 's: ' + this.kills[el] + '<br>';
+      });
+      this.output.log(this.name + ' defeated:');
+      this.output.log(killsText);
     }
   }
 }

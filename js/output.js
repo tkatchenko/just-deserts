@@ -13,4 +13,8 @@ export default class Output {
       this.target.scrollTop = this.target.scrollHeight;
     }
   }
+
+  clear() {
+    this.target.innerHTML = '';
+  }
 }
