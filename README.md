@@ -7,4 +7,5 @@ You can use the ⬇️arrow keys, 🔢numpad, 💻Vim keys or mouse/touch for mo
 [Submission](https://itch.io/jam/7drl-challenge-2020/rate/583523)  
 [Play](https://chenks.itch.io/just-deserts)
 
-![Screenshot](screenshot.jpg "Screenshot")
+![Screenshot](screenshot.jpg "Screenshot")  
+![Screenshot 2](screenshot-2.jpg "Screenshot 2")
